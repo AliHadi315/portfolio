@@ -28,7 +28,7 @@ Plain **HTML, CSS and JavaScript** in a single `index.html`: no framework and no
 
 - Fonts: Bricolage Grotesque, Geist and Geist Mono, self-hosted in `fonts/` (SIL Open Font License)
 - Icons: [Lucide](https://lucide.dev) (ISC License), inlined as SVG
-- Hosting: [Vercel](https://vercel.com); every push to `main` deploys automatically
+- Hosting: [Vercel](https://vercel.com), deployed with the Vercel CLI
 
 ## Run it locally
 

@@ -511,7 +511,7 @@
         </div>
         <dl class="hero-stats rise" style="--d:320">
           <div><dt class="sr-only">Working as an AI developer since</dt><dd><b>2025</b>AI developer since</dd></div>
-          <div><dt class="sr-only">Projects on GitHub</dt><dd><b>6</b>projects on GitHub</dd></div>
+          <div><dt class="sr-only">Featured projects</dt><dd><b>6</b>featured projects</dd></div>
           <div><dt class="sr-only">Years of work experience</dt><dd><b>4+</b>years working</dd></div>
         </dl>
       </div>
@@ -940,7 +940,7 @@
 
 <footer>
   <div class="shell">
-    <p>© <span id="y">2026</span> Ali Hadi Meselmani · hand-written HTML, no trackers</p>
+    <p>© <span id="y">2026</span> Ali Hadi Meselmani</p>
     <ul>
       <li><a href="https://github.com/AliHadi315" target="_blank" rel="noopener noreferrer">github</a></li>
       <li><a href="https://www.linkedin.com/in/alihadimeselmani/" target="_blank" rel="noopener noreferrer">linkedin</a></li>
@@ -1054,6 +1054,7 @@
   (async () => {
     const list = $('#gh-list');
     const shown = new Set([...document.querySelectorAll('[data-repo]')].map(el => el.dataset.repo.toLowerCase()));
+    shown.add('portfolio'); // this site's own repo: don't list the portfolio inside itself
     try {
       const res = await fetch(`https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&sort=pushed`);
       if (!res.ok) throw new Error(`GitHub returned ${res.status}`);
