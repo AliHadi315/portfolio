@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ali-hadi-meselmani.vercel.app/sitemap.xml

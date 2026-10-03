@@ -1,0 +1,1152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ali Hadi Meselmani | Junior AI, Web &amp; Mobile Developer</title>
+<meta name="description" content="Building AI that works in the real world. Ali Hadi Meselmani, junior AI, web and mobile developer in Beirut: RAG pipelines and LLM agents, bilingual websites and online stores, and Flutter apps.">
+<meta name="theme-color" content="#0a0a0b">
+<link rel="canonical" href="https://ali-hadi-meselmani.vercel.app/">
+<!-- Tells search engines who this site is about -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Ali Hadi Meselmani",
+  "url": "https://ali-hadi-meselmani.vercel.app/",
+  "jobTitle": "Junior AI, Web & Mobile Developer",
+  "description": "Builds RAG pipelines and LLM agents, bilingual websites and online stores, and Flutter apps.",
+  "worksFor": { "@type": "Organization", "name": "Develoop Group" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Beirut", "addressCountry": "LB" },
+  "email": "mailto:meselmanialihadi@gmail.com",
+  "knowsLanguage": ["ar", "en"],
+  "knowsAbout": ["Retrieval-Augmented Generation", "LLM agents", "Workflow automation", "n8n", "Python", "Flutter", "Laravel", "Next.js", "React"],
+  "sameAs": ["https://github.com/AliHadi315", "https://www.linkedin.com/in/alihadimeselmani/"]
+}
+</script>
+<!-- Link preview card (LinkedIn, WhatsApp, Facebook, X) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ali Hadi Meselmani">
+<meta property="og:url" content="https://ali-hadi-meselmani.vercel.app/">
+<meta property="og:title" content="Ali Hadi Meselmani | Junior AI, Web &amp; Mobile Developer">
+<meta property="og:description" content="Building AI that works in the real world: RAG pipelines and LLM agents, bilingual websites and online stores, and Flutter apps. Based in Beirut.">
+<meta property="og:image" content="https://ali-hadi-meselmani.vercel.app/img/og.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ali Hadi Meselmani: Building AI that works in the real world. Junior AI, Web and Mobile Developer.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ali Hadi Meselmani | Junior AI, Web &amp; Mobile Developer">
+<meta name="twitter:description" content="Building AI that works in the real world: RAG pipelines and LLM agents, bilingual websites and online stores, and Flutter apps.">
+<meta name="twitter:image" content="https://ali-hadi-meselmani.vercel.app/img/og.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0a0b'/%3E%3Crect x='1.5' y='1.5' width='61' height='61' rx='12.5' fill='none' stroke='%23c6f36b' stroke-opacity='.35' stroke-width='3'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Consolas,Menlo,monospace' font-size='33' font-weight='700' fill='%23c6f36b'%3EA/%3C/text%3E%3C/svg%3E">
+<!-- Fonts are served from this site (SIL Open Font License) and preloaded, so they usually arrive before the first paint -->
+<link rel="preload" href="fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/geist-mono.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  @font-face { font-family: "Bricolage Grotesque"; font-style: normal; font-weight: 400 800; font-stretch: 100%; font-display: swap;
+    src: url(fonts/bricolage-grotesque.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: "Geist"; font-style: normal; font-weight: 400 600; font-display: swap;
+    src: url(fonts/geist.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: "Geist Mono"; font-style: normal; font-weight: 400 500; font-display: swap;
+    src: url(fonts/geist-mono.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  :root {
+    --bg: #0a0a0b; --card: #121215; --card-2: #17171b; --line: #222227; --line-2: #313138;
+    --fg: #ededf0; --muted: #a1a1ab; --dim: #6d6d77;
+    --lime: #c6f36b; --lime-ink: #0e1600; --violet: #a78bfa; --sky: #67c8f5;
+    --display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+    --sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+    --mono: "Geist Mono", ui-monospace, Menlo, monospace;
+    --ease: cubic-bezier(.22,1,.36,1);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { color-scheme: dark; scroll-behavior: smooth; scroll-padding-top: 5rem; }
+  body { font: 16px/1.6 var(--sans); color: var(--fg); -webkit-font-smoothing: antialiased;
+    background: radial-gradient(circle at 1px 1px, rgba(255,255,255,.045) 1px, transparent 0) 0 0 / 24px 24px, var(--bg); }
+  a { color: inherit; text-decoration: none; }
+  ul, ol { list-style: none; }
+  button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+  :focus-visible { outline: 2px solid var(--lime); outline-offset: 3px; border-radius: 6px; }
+  [hidden] { display: none !important; }
+  .shell { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: 1.25rem; }
+  .mono { font-family: var(--mono); }
+  .muted { color: var(--muted); }
+  .lime { color: var(--lime); }
+  .violet { color: var(--violet); }
+  .icon { width: 1rem; height: 1rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .skip:focus { position: fixed; left: 1rem; top: 1rem; z-index: 60; width: auto; height: auto; clip: auto; padding: .5rem 1rem; background: var(--lime); color: var(--lime-ink); border-radius: 8px; }
+
+  /* buttons + chips */
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; height: 2.75rem; padding-inline: 1.25rem; border-radius: 999px;
+    font-weight: 500; font-size: .9375rem; white-space: nowrap; transition: background-color .2s, border-color .2s, color .2s, transform .15s var(--ease); }
+  .btn:active { transform: scale(.97); }
+  .btn-lime { background: var(--lime); color: var(--lime-ink); }
+  .btn-lime:hover { background: #d6fa8c; }
+  .btn-line { border: 1px solid var(--line-2); }
+  .btn-line:hover { border-color: var(--fg); }
+  .chips { display: flex; flex-wrap: wrap; gap: .375rem; }
+  .chips li { font: 12px/1.6 var(--mono); color: var(--muted); border: 1px solid var(--line-2); border-radius: 6px; padding: .1rem .5rem; }
+
+  /* header */
+  header { position: fixed; inset: 0 0 auto; z-index: 40; background: rgba(10,10,11,.72); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+  header nav { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; height: 4rem; }
+  .logo { font: 500 15px var(--mono); display: inline-flex; align-items: center; gap: .1rem; flex: none; white-space: nowrap; }
+  .logo .lt, .logo .sl { color: var(--dim); transition: color .2s; }
+  .logo:hover .lt, .logo:hover .sl { color: var(--lime); }
+  .nav-links { display: flex; gap: .25rem; }
+  .nav-links a { font-size: .9375rem; color: var(--muted); padding: .4rem .8rem; border-radius: 999px; transition: color .2s, background-color .2s; }
+  .nav-links a:hover { color: var(--fg); }
+  .nav-links a[aria-current="true"] { color: var(--fg); background: var(--card-2); }
+  .nav-right { display: flex; align-items: center; gap: .5rem; }
+  .status { display: inline-flex; align-items: center; gap: .5rem; font: 12px var(--mono); color: var(--muted); margin-right: .5rem; }
+  .status i { width: 7px; height: 7px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 0 3px rgba(198,243,107,.18); animation: pulse 2s infinite; }
+  .menu-btn { display: none; width: 2.75rem; height: 2.75rem; place-items: center; border-radius: 10px; }
+  .menu-btn:hover { background: var(--card-2); }
+  .menu-btn .icon { width: 1.4rem; height: 1.4rem; }
+  #mobile-menu { position: absolute; inset: 4rem 0 auto; height: calc(100dvh - 4rem); background: var(--bg); border-top: 1px solid var(--line); padding: 1.5rem 1.25rem;
+    opacity: 0; translate: 0 -.5rem; visibility: hidden; transition: opacity .3s var(--ease), translate .3s var(--ease), visibility .3s; }
+  #mobile-menu.open { opacity: 1; translate: 0; visibility: visible; }
+  #mobile-menu a:not(.btn) { display: flex; justify-content: space-between; font: 600 1.75rem var(--display); letter-spacing: -.03em; padding: .8rem 0; border-bottom: 1px solid var(--line); }
+  #mobile-menu a:not(.btn) span { font: 13px var(--mono); color: var(--dim); }
+  #mobile-menu .btn { margin-top: 2rem; width: 100%; }
+
+  /* hero */
+  .hero { position: relative; padding: 9rem 0 5rem; overflow: hidden; }
+  .hero::before, .hero::after { content: ""; position: absolute; border-radius: 50%; filter: blur(90px); pointer-events: none; }
+  .hero::before { width: 520px; height: 520px; right: -120px; top: 40px; background: rgba(167,139,250,.16); }
+  .hero::after { width: 420px; height: 420px; right: 260px; top: 260px; background: rgba(198,243,107,.08); }
+  .hero-grid { position: relative; z-index: 1; display: grid; gap: 4rem; align-items: center; }
+  .kicker { display: inline-flex; align-items: center; gap: .6rem; font: 13px var(--mono); color: var(--muted); border: 1px solid var(--line-2); border-radius: 999px; padding: .35rem .9rem .35rem .45rem; background: rgba(18,18,21,.6); }
+  .kicker b { white-space: nowrap; font-weight: 500; color: var(--lime-ink); background: var(--lime); border-radius: 999px; padding: .05rem .55rem; }
+  .hello { margin-top: 1.75rem; font: 500 clamp(1.35rem, 2.6vw, 1.9rem)/1.2 var(--display); letter-spacing: -.02em; color: var(--muted); }
+  .hello strong { color: var(--fg); font-weight: 700; }
+  h1 { margin-top: .9rem; font: 700 clamp(3rem, 7.4vw, 5.75rem)/.98 var(--display); letter-spacing: -.045em; }
+  .rot { color: var(--lime); }
+  .caret { display: inline-block; width: .08em; height: .82em; margin-left: .06em; background: var(--lime); vertical-align: -.04em; animation: blink 1s steps(1) infinite; }
+  .lead { margin-top: 1.75rem; max-width: 34rem; font-size: 1.125rem; color: var(--muted); }
+  .lead strong { color: var(--fg); font-weight: 500; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2.25rem; }
+  .hero-stats { display: flex; flex-wrap: wrap; gap: 1.75rem; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px dashed var(--line-2); font: 13px var(--mono); color: var(--dim); }
+  .hero-stats b { display: block; font: 600 1.75rem var(--display); letter-spacing: -.03em; color: var(--fg); }
+
+  /* RAG demo window */
+  .demo { border: 1px solid var(--line-2); border-radius: 18px; background: linear-gradient(180deg, #151519, #0f0f12); font: 13px/1.55 var(--mono);
+    box-shadow: 0 40px 100px -30px rgba(0,0,0,.8), inset 0 1px 0 rgba(255,255,255,.04); overflow: hidden; }
+  .demo-bar { display: flex; align-items: center; gap: .5rem; padding: .8rem 1rem; border-bottom: 1px solid var(--line); color: var(--dim); font-size: 12px; }
+  .demo-bar .dots { display: flex; gap: 6px; margin-right: .5rem; }
+  .demo-bar .dots i { width: 10px; height: 10px; border-radius: 50%; background: var(--line-2); }
+  .demo-bar .ttl { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .demo-bar .live { margin-left: auto; white-space: nowrap; display: inline-flex; align-items: center; gap: .4rem; color: var(--lime); }
+  .demo-bar .live i { width: 6px; height: 6px; border-radius: 50%; background: currentColor; animation: pulse 2s infinite; }
+  .demo-body { padding: 1.25rem; display: grid; gap: 1rem; }
+  .q { color: var(--fg); min-height: 1.55em; }
+  .q::before { content: "› "; color: var(--lime); }
+  .stages { display: grid; grid-template-columns: repeat(4, 1fr); gap: .5rem; }
+  .stage { border: 1px solid var(--line); border-radius: 10px; padding: .55rem .65rem; color: var(--dim); transition: border-color .3s, color .3s, background-color .3s; }
+  .stage span { display: flex; align-items: center; gap: .35rem; font-size: 12px; }
+  .stage span::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--line-2); transition: background-color .3s; }
+  .stage small { display: block; font-size: 11px; color: var(--dim); margin-top: .1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .stage.active { border-color: rgba(167,139,250,.6); color: var(--fg); background: rgba(167,139,250,.07); }
+  .stage.active span::before { background: var(--violet); animation: pulse 1s infinite; }
+  .stage.done { border-color: var(--line-2); color: var(--fg); }
+  .stage.done span::before { background: var(--lime); }
+  .chunks { display: grid; gap: .4rem; min-height: 5.6rem; align-content: start; }
+  .chunks li { display: grid; grid-template-columns: minmax(0,1fr) 5rem 2.4rem; align-items: center; gap: .75rem; color: var(--muted); font-size: 12px; animation: rise .4s var(--ease) both; }
+  .chunks li:nth-child(2) { animation-delay: .08s } .chunks li:nth-child(3) { animation-delay: .16s }
+  .chunks span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .chunks span::before { content: "▸ "; color: var(--violet); }
+  .chunks i { height: 4px; border-radius: 4px; background: var(--line); position: relative; overflow: hidden; }
+  .chunks i::after { content: ""; position: absolute; inset: 0 auto 0 0; width: var(--w); background: linear-gradient(90deg, var(--violet), var(--lime)); }
+  .chunks b { font-weight: 400; color: var(--fg); text-align: right; }
+  /* tall enough for the longest answer, so the box never grows while it streams (no layout shift) */
+  .answer { font: 15px/1.6 var(--sans); color: var(--fg); min-height: 10em; padding: .9rem 1rem; border-radius: 12px; background: rgba(255,255,255,.025); border: 1px solid var(--line); }
+  .answer::after { content: ""; display: inline-block; width: 7px; height: 1em; margin-left: 2px; vertical-align: -.15em; background: var(--lime); animation: blink 1s steps(1) infinite; }
+  .answer.done::after { display: none; }
+  .demo-foot { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; padding: .9rem 1.25rem; border-top: 1px solid var(--line); }
+  .demo-foot > span { color: var(--dim); font-size: 12px; }
+  .ask { font: 12px var(--mono); color: var(--muted); border: 1px solid var(--line-2); border-radius: 999px; padding: .25rem .7rem; transition: .2s; }
+  .ask:hover { color: var(--fg); border-color: var(--fg); }
+  .ask[aria-pressed="true"] { color: var(--lime-ink); background: var(--lime); border-color: var(--lime); }
+  .demo-foot .tot { margin-left: auto; color: var(--dim); font-size: 12px; }
+
+  /* tagline banner */
+  .tagline { position: relative; padding: 3.5rem 0 4rem; text-align: center; }
+  .tagline::before { content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(45% 75% at 50% 50%, rgba(167,139,250,.11), transparent 70%); }
+  .tagline-text { position: relative; max-width: 17ch; margin-inline: auto; font: 700 clamp(2rem, 5.2vw, 3.75rem)/1.05 var(--display); letter-spacing: -.04em; }
+  .tagline-text span { color: var(--lime); }
+  .tagline-pillars { position: relative; display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem 1.5rem; margin-top: 1.5rem; font: 13px var(--mono); color: var(--muted); }
+  .tagline-pillars span { display: inline-flex; align-items: center; gap: .5rem; }
+  .tagline-pillars span::before { content: ""; width: 6px; height: 6px; border-radius: 2px; background: var(--c); }
+
+  /* marquee */
+  .marquee { border-block: 1px solid var(--line); padding-block: 1.1rem; overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+  .track { display: flex; width: max-content; animation: scroll 45s linear infinite; }
+  .marquee:hover .track { animation-play-state: paused; }
+  .track ul { display: flex; gap: 2.5rem; padding-right: 2.5rem; }
+  .track li { display: inline-flex; align-items: center; gap: .6rem; font: 14px var(--mono); color: var(--muted); white-space: nowrap; }
+  .track li::before { content: ""; width: 6px; height: 6px; border-radius: 2px; background: var(--c, var(--lime)); }
+
+  /* sections */
+  section.sec { padding-top: 8.5rem; }
+  .sec-head { display: flex; align-items: center; gap: .75rem; font: 13px var(--mono); color: var(--dim); }
+  .sec-head b { font-weight: 500; color: var(--lime); }
+  .sec-head::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+  .h2 { margin-top: 1.5rem; font: 700 clamp(2.4rem, 5vw, 4rem)/1 var(--display); letter-spacing: -.04em; max-width: 16ch; }
+  .h2 em { font-style: normal; color: var(--muted); }
+  .sec-sub { margin-top: 1.25rem; max-width: 36rem; font-size: 1.0625rem; color: var(--muted); }
+  .mt { margin-top: 3.5rem; }
+
+  /* spotlight cards */
+  .spot { position: relative; isolation: isolate; border: 1px solid var(--line); border-radius: 18px; background: var(--card); transition: border-color .3s, transform .3s var(--ease); }
+  .spot::before { content: ""; position: absolute; inset: 0; border-radius: inherit; z-index: -1; opacity: 0; transition: opacity .3s;
+    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(198,243,107,.07), transparent 45%); }
+  .spot:hover { border-color: var(--line-2); }
+  .spot:hover::before { opacity: 1; }
+
+  /* services */
+  .services { display: grid; gap: 1rem; }
+  .svc { padding: 2rem; display: flex; flex-direction: column; gap: 1rem; }
+  .svc-top { display: flex; justify-content: space-between; align-items: center; }
+  .svc-icon { width: 2.75rem; height: 2.75rem; display: grid; place-items: center; border-radius: 12px; border: 1px solid var(--line-2); background: var(--card-2); color: var(--c); }
+  .svc-icon .icon { width: 1.3rem; height: 1.3rem; }
+  .svc-num { font: 13px var(--mono); color: var(--dim); }
+  .svc h3 { font: 600 1.5rem/1.15 var(--display); letter-spacing: -.025em; margin-top: .5rem; }
+  .svc p { color: var(--muted); }
+  .svc .chips { margin-top: auto; padding-top: .5rem; }
+
+  /* projects */
+  .filters { display: flex; flex-wrap: wrap; gap: .5rem; }
+  .filter { font: 13px var(--mono); color: var(--muted); border: 1px solid var(--line-2); border-radius: 999px; padding: .4rem .9rem; transition: .2s; }
+  .filter:hover { color: var(--fg); }
+  .filter[aria-pressed="true"] { color: var(--bg); background: var(--fg); border-color: var(--fg); }
+  .projects { display: grid; gap: 1rem; margin-top: 2rem; }
+  .proj { padding: 1.75rem; display: flex; flex-direction: column; gap: .9rem; overflow: hidden; }
+  .shot { display: block; width: calc(100% + 3.5rem); max-width: none; height: auto; margin: -1.75rem -1.75rem .35rem;
+    aspect-ratio: 16 / 10; object-fit: cover; object-position: top center; border-bottom: 1px solid var(--line);
+    background: var(--card-2); transition: transform .6s var(--ease); }
+  .proj:hover .shot { transform: scale(1.025); }
+  .proj.featured .shot { width: 100%; margin: 0; aspect-ratio: 16 / 9; }
+  .proj-top { display: flex; align-items: center; gap: .4rem; }
+  .kind { font: 11px/1 var(--mono); letter-spacing: .04em; text-transform: uppercase; padding: .35rem .5rem; border-radius: 6px; color: var(--c); background: color-mix(in srgb, var(--c) 12%, transparent); }
+  .k-ai { --c: var(--violet); } .k-flutter { --c: var(--sky); } .k-web { --c: var(--lime); }
+  .year { margin-left: auto; font: 12px var(--mono); color: var(--dim); }
+  .proj h3 { font: 600 1.6rem/1.1 var(--display); letter-spacing: -.03em; }
+  .proj p { color: var(--muted); }
+  .metrics { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; font: 13px var(--mono); color: var(--dim); }
+  .metrics b { color: var(--fg); font-weight: 500; }
+  .proj-links { display: flex; gap: 1.25rem; margin-top: auto; padding-top: .5rem; font-size: .9375rem; }
+  .proj-links a { display: inline-flex; align-items: center; gap: .35rem; color: var(--muted); transition: color .2s; }
+  .proj-links a:hover { color: var(--lime); }
+  .proj-links a .icon { transition: translate .2s; }
+  .proj-links a:hover .icon { translate: 2px -2px; }
+  .proj.featured { padding: 0; display: grid; overflow: hidden; }
+  .proj.featured .info { padding: 2.25rem; display: flex; flex-direction: column; gap: .9rem; }
+  .proj.featured h3 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
+  .code { margin: 0; padding: 1.5rem; border-top: 1px solid var(--line); background: #0d0d10; font: 13px/1.75 var(--mono); color: var(--muted); overflow-x: auto; }
+  .code .fn { color: var(--lime); } .code .kw { color: var(--violet); } .code .st { color: var(--sky); } .code .cm { color: var(--dim); }
+  .code-name { display: block; color: var(--dim); font-size: 12px; margin-bottom: .75rem; }
+
+  /* GitHub list (filled by script) */
+  .gh-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: .5rem 1rem; margin-bottom: 1rem; }
+  .gh-head h3 { font: 600 1.25rem var(--display); letter-spacing: -.02em; }
+  .gh-head h3 span { font: 13px var(--mono); color: var(--dim); font-weight: 400; letter-spacing: 0; }
+  .gh-head a { display: inline-flex; align-items: center; gap: .4rem; font: 13px var(--mono); color: var(--muted); transition: color .2s; }
+  .gh-head a:hover { color: var(--lime); }
+  .gh-list { border-bottom: 1px solid var(--line); }
+  .gh-row { display: grid; gap: .3rem 1.5rem; padding: 1.1rem .25rem; border-top: 1px solid var(--line); transition: background-color .2s; }
+  .gh-row:hover { background: var(--card); }
+  .gh-row strong { font-weight: 500; transition: color .2s; }
+  .gh-row:hover strong { color: var(--lime); }
+  .gh-row p { color: var(--muted); font-size: .9375rem; }
+  .gh-row p.none { color: var(--dim); font-style: italic; }
+  .gh-meta { display: flex; flex-wrap: wrap; gap: .25rem 1rem; font: 12px var(--mono); color: var(--dim); }
+  .gh-meta i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: .4rem; background: var(--c, var(--dim)); }
+  .gh-row .arrow { display: none; color: var(--dim); transition: translate .2s, color .2s; }
+  .gh-row:hover .arrow { translate: 2px -2px; color: var(--lime); }
+  .gh-note { padding: 1.1rem .25rem; border-top: 1px solid var(--line); color: var(--dim); font: 13px var(--mono); }
+  .gh-note a { color: var(--lime); }
+  @media (min-width: 720px) {
+    .gh-row { grid-template-columns: minmax(0, 13rem) minmax(0, 1fr) 15rem 1rem; align-items: baseline; padding-inline: .75rem; }
+    .gh-row .arrow { display: block; align-self: center; }
+  }
+
+  /* websites for businesses */
+  .biz { display: grid; gap: 3rem; align-items: center; }
+  .biz .h2 { max-width: 13ch; }
+  .biz .hero-actions { margin-top: 2rem; }
+  .biz-ai { display: flex; gap: .7rem; align-items: flex-start; max-width: 36rem; margin-top: 1.25rem; padding: .9rem 1.1rem;
+    border: 1px solid color-mix(in srgb, var(--violet) 30%, transparent); border-radius: 12px;
+    background: color-mix(in srgb, var(--violet) 7%, transparent); color: var(--muted); font-size: .9375rem; }
+  .biz-ai .icon { width: 1.1rem; height: 1.1rem; margin-top: .15rem; color: var(--violet); }
+  .biz-stack { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; margin-top: 2rem; font: 12px var(--mono); color: var(--dim); }
+  .store { width: 100%; max-width: 400px; justify-self: center; padding: 1.25rem; border-radius: 22px; background: linear-gradient(180deg, #151519, #101013); }
+  .store[lang="ar"] { font-family: var(--sans), "Segoe UI", Tahoma, sans-serif; }
+  .store-top { display: flex; justify-content: space-between; align-items: center; gap: 1rem; font: 12px var(--mono); color: var(--dim); }
+  .lang { display: inline-flex; padding: 2px; border: 1px solid var(--line-2); border-radius: 999px; }
+  .lang button { font: 12px var(--mono); color: var(--muted); padding: .2rem .7rem; border-radius: 999px; transition: .2s; }
+  .lang button[aria-pressed="true"] { background: var(--fg); color: var(--bg); }
+  .store-name { margin: 1rem 0 .9rem; font: 700 1.2rem var(--display); letter-spacing: -.02em; }
+  .store[lang="ar"] .store-name { font-family: inherit; }
+  .product { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); gap: 1rem; padding: .9rem; border: 1px solid var(--line); border-radius: 14px; background: var(--card-2); }
+  .thumb { aspect-ratio: 1; border-radius: 10px; background: radial-gradient(circle at 30% 25%, rgba(255,255,255,.35), transparent 50%), var(--shirt, #e9e2d0); transition: background-color .3s; }
+  .p-name { font-weight: 500; }
+  .p-price { font: 13px var(--mono); color: var(--lime); }
+  .opts { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .5rem; }
+  .sw { width: 20px; height: 20px; border-radius: 50%; background: var(--sw); box-shadow: inset 0 0 0 1px rgba(255,255,255,.15); outline: 2px solid transparent; outline-offset: 2px; transition: outline-color .2s; }
+  .sw[aria-pressed="true"] { outline-color: var(--fg); }
+  .sz { min-width: 1.75rem; font: 11px var(--mono); color: var(--muted); border: 1px solid var(--line-2); border-radius: 6px; padding: .1rem .4rem; transition: .2s; }
+  .sz[aria-pressed="true"] { background: var(--fg); border-color: var(--fg); color: var(--bg); }
+  .store-rows { display: grid; gap: .55rem; margin: 1rem 0; font-size: .875rem; }
+  .store-rows > div { display: flex; justify-content: space-between; align-items: center; gap: 1rem; color: var(--muted); }
+  .store-rows select { max-width: 60%; padding: .3rem .5rem; border: 1px solid var(--line-2); border-radius: 8px; background: var(--bg); color: var(--fg); font: inherit; }
+  .store-rows .total { padding-top: .55rem; border-top: 1px dashed var(--line-2); color: var(--fg); font-weight: 600; }
+  .wa { display: flex; align-items: center; justify-content: center; gap: .5rem; height: 2.75rem; border-radius: 12px; background: #25d366; color: #052e16; font-weight: 600; }
+  .biz-list { display: grid; column-gap: 2.5rem; }
+  .biz-list li { position: relative; padding: 1rem 0 1rem 1.9rem; border-top: 1px solid var(--line); color: var(--muted); }
+  .biz-list li::before { content: "✓"; position: absolute; left: .2rem; top: 1rem; font-family: var(--mono); color: var(--lime); }
+  .biz-list b { font-weight: 500; color: var(--fg); }
+  @media (min-width: 720px) { .biz-list { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 1024px) { .biz { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); } }
+
+  /* process */
+  .steps { display: grid; gap: 1rem; counter-reset: s; }
+  .step { padding: 1.75rem; border-top: 1px solid var(--line-2); position: relative; }
+  .step::before { content: ""; position: absolute; top: -4px; left: 0; width: 7px; height: 7px; border-radius: 50%; background: var(--lime); }
+  .step .mono { font-size: 12px; color: var(--lime); }
+  .step h3 { font: 600 1.35rem var(--display); letter-spacing: -.02em; margin: .5rem 0; }
+  .step p { color: var(--muted); font-size: .9375rem; }
+
+  /* experience: git log */
+  .log { position: relative; }
+  .log::before { content: ""; position: absolute; left: 7px; top: .6rem; bottom: .6rem; width: 2px; background: linear-gradient(var(--lime), var(--violet) 60%, var(--line)); opacity: .5; }
+  .commit { position: relative; padding: 0 0 3rem 2.5rem; }
+  .commit:last-child { padding-bottom: 0; }
+  .commit::before { content: ""; position: absolute; left: 0; top: .35rem; width: 16px; height: 16px; border-radius: 50%; background: var(--bg); border: 2px solid var(--line-2); }
+  .commit.head::before { border-color: var(--lime); box-shadow: 0 0 0 4px rgba(198,243,107,.12); }
+  .commit-meta { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .75rem; font: 13px var(--mono); color: var(--dim); }
+  .commit-meta .hash { color: #e5b567; }
+  .ref { font: 11px var(--mono); padding: .1rem .45rem; border-radius: 5px; border: 1px solid; }
+  .ref.h { color: var(--lime); border-color: rgba(198,243,107,.35); }
+  .ref.t { color: var(--violet); border-color: rgba(167,139,250,.35); }
+  .commit h3 { font: 600 clamp(1.3rem, 2.2vw, 1.6rem)/1.2 var(--display); letter-spacing: -.02em; margin-top: .6rem; }
+  .commit h3 span { color: var(--muted); font-weight: 500; }
+  .commit ul.bul { margin-top: .75rem; max-width: 46rem; color: var(--muted); }
+  .commit ul.bul li { padding-left: 1.25rem; position: relative; }
+  .commit ul.bul li + li { margin-top: .4rem; }
+  .commit ul.bul li::before { content: "+"; position: absolute; left: 0; font-family: var(--mono); color: var(--lime); }
+  .commit .chips { margin-top: 1rem; }
+  .creds { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+  .creds li { background: var(--bg); padding: 1.25rem 1.5rem; }
+  .creds small { display: block; font: 12px var(--mono); color: var(--dim); margin-bottom: .25rem; }
+  .creds span { display: block; color: var(--muted); font-size: .875rem; }
+  .creds a { color: var(--fg); text-decoration: underline; text-decoration-color: var(--line-2); text-underline-offset: 3px; transition: .2s; }
+  .creds a:hover { color: var(--lime); text-decoration-color: var(--lime); }
+  .events { display: grid; gap: 1rem; }
+  .events li { padding: 1.5rem; }
+  .events time { font: 12px var(--mono); color: var(--lime); }
+  .events h4 { margin: .5rem 0 .4rem; font: 600 1.2rem var(--display); letter-spacing: -.02em; }
+  .events p { color: var(--muted); font-size: .9375rem; }
+  @media (min-width: 900px) { .events { grid-template-columns: repeat(3, 1fr); } }
+  .certs ul { border-bottom: 1px solid var(--line); }
+  .certs li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .2rem 1rem; padding: .95rem .25rem; border-top: 1px solid var(--line); }
+  .certs b { grid-column: 1 / -1; font-weight: 500; }
+  .certs b small { display: block; margin-top: .15rem; font: 12px var(--mono); color: var(--dim); font-weight: 400; }
+  .certs span { color: var(--muted); font-size: .9375rem; }
+  .certs time { font: 12px var(--mono); color: var(--dim); align-self: center; }
+  @media (min-width: 720px) {
+    .certs li { grid-template-columns: minmax(0, 1fr) 14rem 5.5rem; align-items: baseline; padding-inline: .75rem; }
+    .certs b { grid-column: auto; }
+    .certs time { text-align: right; }
+  }
+
+  /* toolbox */
+  .tools { display: grid; gap: 1rem; }
+  .tool { padding: 1.5rem; }
+  .tool h3 { font: 500 14px var(--mono); color: var(--c); margin-bottom: 1rem; }
+  .tool li { display: flex; justify-content: space-between; gap: 1rem; padding: .45rem 0; border-bottom: 1px dashed var(--line); font-size: .9375rem; }
+  .tool li:last-child { border: 0; }
+  .tool li span { font: 12px var(--mono); color: var(--dim); }
+  .tool.workflow { grid-column: 1 / -1; }
+  .workflow p { color: var(--muted); margin-bottom: .5rem; }
+  .why { margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px dashed var(--line-2); }
+  .why h4 { margin-bottom: .75rem; font: 500 13px var(--mono); color: var(--violet); }
+  .why ul { display: grid; gap: 1rem; }
+  .tool .why li { display: block; padding: 0; border: 0; color: var(--muted); font-size: .9rem; }
+  .why b { display: block; margin-bottom: .2rem; color: var(--fg); font-weight: 500; }
+  @media (min-width: 720px) {
+    .workflow ul { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 2.5rem; }
+    .workflow li { flex-direction: column; gap: .3rem; border-bottom: 0; }
+  }
+
+  /* contact */
+  .contact { margin: 8.5rem 0 4rem; padding: clamp(2rem, 6vw, 4.5rem); border-radius: 28px; text-align: center; position: relative; overflow: hidden; border: 1px solid var(--line-2);
+    background: radial-gradient(60% 80% at 50% 0%, rgba(167,139,250,.18), transparent 70%), radial-gradient(40% 60% at 50% 110%, rgba(198,243,107,.12), transparent 70%), var(--card); }
+  .contact .h2 { margin-inline: auto; max-width: 14ch; }
+  .contact .sec-sub { margin-inline: auto; }
+  .term { display: inline-flex; align-items: center; gap: .6rem; margin-top: 2rem; max-width: 100%; font: 14px var(--mono); color: var(--muted);
+    padding: .7rem .7rem .7rem 1.1rem; border: 1px solid var(--line-2); border-radius: 12px; background: rgba(10,10,11,.6); }
+  .term code { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .term .copy { display: inline-flex; align-items: center; gap: .35rem; font: 12px var(--mono); padding: .35rem .6rem; border-radius: 8px; border: 1px solid var(--line-2); color: var(--fg); transition: .2s; }
+  .term .copy:hover { border-color: var(--lime); color: var(--lime); }
+  .contact .hero-actions { justify-content: center; }
+
+  footer .shell { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; padding-block: 2rem; border-top: 1px solid var(--line); font: 13px var(--mono); color: var(--dim); }
+  footer ul { display: flex; gap: 1.25rem; }
+  footer a:hover { color: var(--fg); }
+
+  /* motion */
+  .rise { animation: rise .8s var(--ease) both; animation-delay: calc(var(--d, 0) * 1ms); }
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+  .reveal.in { opacity: 1; transform: none; }
+  @keyframes rise { from { opacity: 0; transform: translateY(14px); } }
+  @keyframes blink { 50% { opacity: 0; } }
+  @keyframes pulse { 50% { opacity: .35; } }
+  @keyframes scroll { to { transform: translateX(-50%); } }
+
+  @media (min-width: 720px) {
+    .services, .projects, .tools { grid-template-columns: 1fr 1fr; }
+    .steps { grid-template-columns: repeat(3, 1fr); }
+    .creds { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 1024px) {
+    .hero { padding-top: 10rem; }
+    .hero-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); }
+    .proj.featured { grid-column: 1 / -1; grid-template-columns: 1.1fr 1fr; }
+    .proj.featured .shot { grid-column: 1 / -1; aspect-ratio: 21 / 8; }
+    .proj.featured .code { border-top: 0; border-left: 1px solid var(--line); padding: 2.25rem 1.75rem; }
+  }
+  @media (min-width: 720px) and (max-width: 1023px) { .proj.featured { grid-column: 1 / -1; } }
+  @media (max-width: 1200px) { .status { display: none; } }
+  @media (min-width: 1200px) { .tools { grid-template-columns: repeat(4, 1fr); } }
+  @media (max-width: 960px) {
+    .nav-links, .nav-cta { display: none; }
+    .menu-btn { display: grid; }
+  }
+  @media (max-width: 420px) { .kicker-loc { display: none; } }
+  @media (max-width: 520px) {
+    .answer { min-height: 15em; }
+    .stages { grid-template-columns: 1fr 1fr; }
+    .hero { padding-top: 7.5rem; }
+    section.sec { padding-top: 6.5rem; }
+    .demo-foot .tot { width: 100%; margin-left: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .reveal { opacity: 1; transform: none; }
+    .track { flex-wrap: wrap; width: auto; }
+    .track ul[aria-hidden] { display: none; }
+  }
+</style>
+</head>
+<body>
+<a class="sr-only skip" href="#main">Skip to content</a>
+
+<!-- Lucide icons (ISC licence) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.14-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.14a.5.5 0 0 1 .96 0l1.58 6.14a2 2 0 0 0 1.44 1.44l6.14 1.58a.5.5 0 0 1 0 .96l-6.14 1.58a2 2 0 0 0-1.44 1.44l-1.58 6.14a.5.5 0 0 1-.96 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/></symbol>
+  <symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2"/><path d="M12 18h.01"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol>
+  <symbol id="i-github" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><line x1="4" x2="20" y1="7" y2="7"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="17" y2="17"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+</svg>
+
+<header>
+  <nav class="shell" aria-label="Primary">
+    <a href="#top" class="logo" aria-label="Ali Hadi Meselmani, back to top"><span class="lt">&lt;</span>Ali Hadi Meselmani<span class="sl">/&gt;</span></a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#websites">Websites</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#toolbox">Toolbox</a></li>
+    </ul>
+    <div class="nav-right">
+      <span class="status"><i></i>open to work remotely</span>
+      <a href="#contact" class="btn btn-lime nav-cta" style="height:2.4rem">Let's talk</a>
+      <button type="button" class="menu-btn" aria-expanded="false" aria-controls="mobile-menu"><svg class="icon"><use href="#i-menu"/></svg><span class="sr-only">Open menu</span></button>
+    </div>
+  </nav>
+  <div id="mobile-menu" inert>
+    <a href="#services">Services <span>01</span></a>
+    <a href="#websites">Websites <span>02</span></a>
+    <a href="#work">Work <span>03</span></a>
+    <a href="#process">Process <span>04</span></a>
+    <a href="#experience">Experience <span>05</span></a>
+    <a href="#toolbox">Toolbox <span>06</span></a>
+    <a href="#contact" class="btn btn-lime">Let's talk</a>
+  </div>
+</header>
+
+<main id="main">
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <div class="shell hero-grid">
+      <div>
+        <p class="kicker rise"><b>AI · WEB · MOBILE</b>Junior Developer<span class="kicker-loc">&nbsp;· Beirut</span></p>
+        <p class="hello rise" style="--d:40">Hi, I'm <strong>Ali Hadi Meselmani</strong></p>
+        <h1 class="rise" style="--d:80">
+          <span class="sr-only">I build apps that think.</span>
+          <span aria-hidden="true">I build apps<br>that <span class="rot" id="rot">think</span><span class="caret"></span></span>
+        </h1>
+        <p class="lead rise" style="--d:160">I like building every layer of a product: the <strong>AI</strong> that makes it smart, the <strong>website</strong> that brings it to people, and the <strong>mobile app</strong> they carry around. At <strong>Develoop Group</strong> I build RAG pipelines, LLM agents, and bilingual websites and online stores, and I've <strong>trained non-technical staff</strong> to use AI tools. I also take on <strong>freelance web projects</strong>, and on my own I build apps like <strong>UniMate</strong> and <strong>Baleegh</strong>.</p>
+        <div class="hero-actions rise" style="--d:240">
+          <a href="#work" class="btn btn-lime">See my work<svg class="icon"><use href="#i-arrow"/></svg></a>
+          <a href="cv.pdf" download class="btn btn-line"><svg class="icon"><use href="#i-download"/></svg>Download CV</a>
+        </div>
+        <dl class="hero-stats rise" style="--d:320">
+          <div><dt class="sr-only">Working as an AI developer since</dt><dd><b>2025</b>AI developer since</dd></div>
+          <div><dt class="sr-only">Projects on GitHub</dt><dd><b>6</b>projects on GitHub</dd></div>
+          <div><dt class="sr-only">Years of work experience</dt><dd><b>4+</b>years working</dd></div>
+        </dl>
+      </div>
+
+      <!-- Simulated RAG pipeline. Edit the QA array in the script to change questions and answers. -->
+      <figure class="demo rise" style="--d:200" aria-label="Simulated RAG assistant answering questions about my work">
+        <div class="demo-bar"><span class="dots"><i></i><i></i><i></i></span><span class="ttl">rag-assistant · simulated</span><span class="live"><i></i>streaming</span></div>
+        <div class="demo-body">
+          <p class="q" id="q" aria-live="polite"></p>
+          <ol class="stages">
+            <li class="stage" data-idle="waiting"><span>embed</span><small>waiting</small></li>
+            <li class="stage" data-idle="waiting"><span>retrieve</span><small>waiting</small></li>
+            <li class="stage" data-idle="waiting"><span>rerank</span><small>waiting</small></li>
+            <li class="stage" data-idle="waiting"><span>generate</span><small>waiting</small></li>
+          </ol>
+          <ul class="chunks" id="chunks" aria-label="Retrieved sources"></ul>
+          <p class="answer" id="a" aria-live="polite"></p>
+        </div>
+        <div class="demo-foot">
+          <span>try:</span>
+          <button type="button" class="ask" data-i="0">what do you build?</button>
+          <button type="button" class="ask" data-i="1">AI in your apps?</button>
+          <button type="button" class="ask" data-i="2">do you code with AI?</button>
+          <button type="button" class="ask" data-i="3">is AI code safe?</button>
+          <button type="button" class="ask" data-i="4">build my online store?</button>
+          <button type="button" class="ask" data-i="5">add AI to my app?</button>
+          <button type="button" class="ask" data-i="6">open to work?</button>
+          <span class="tot" id="tot">—</span>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Tagline from the LinkedIn banner -->
+  <section class="tagline reveal" aria-label="Tagline">
+    <div class="shell">
+      <p class="tagline-text">Building AI that works <span>in the real world.</span></p>
+      <p class="tagline-pillars"><span style="--c:var(--violet)">Machine learning</span><span style="--c:var(--sky)">Web &amp; mobile apps</span><span style="--c:var(--lime)">Clean, scalable code</span></p>
+    </div>
+  </section>
+
+  <div class="marquee" aria-label="Technologies I use">
+    <div class="track">
+      <ul>
+        <li style="--c:var(--violet)">Python</li><li style="--c:var(--violet)">RAG pipelines</li><li style="--c:var(--violet)">LLM agents</li><li style="--c:var(--violet)">LLM APIs</li><li style="--c:var(--violet)">Gemini</li><li style="--c:var(--violet)">ChromaDB</li><li style="--c:var(--violet)">Embeddings</li><li style="--c:var(--violet)">FastAPI</li><li style="--c:var(--violet)">OpenCV</li><li style="--c:var(--violet)">Streamlit</li><li style="--c:var(--violet)">Workflow automation</li><li style="--c:var(--violet)">n8n</li><li style="--c:var(--violet)">Prompt engineering</li><li style="--c:var(--violet)">Chatbots</li>
+        <li style="--c:var(--sky)">Flutter</li><li style="--c:var(--sky)">Dart</li><li>Laravel</li><li>Livewire</li><li>Alpine.js</li><li>PHP</li><li>JavaScript</li><li>TypeScript</li><li>React</li><li>Next.js</li><li>Tailwind</li><li>Supabase</li>
+        <li style="--c:#e5b567">SQLite</li><li style="--c:#e5b567">MySQL</li><li style="--c:#e5b567">PostgreSQL</li><li style="--c:#e5b567">Docker</li><li style="--c:#e5b567">Vercel</li><li style="--c:#e5b567">GitHub Actions</li><li style="--c:#e5b567">Git</li><li style="--c:#e5b567">C++</li><li style="--c:#e5b567">Cybersecurity</li>
+      </ul>
+      <ul aria-hidden="true">
+        <li style="--c:var(--violet)">Python</li><li style="--c:var(--violet)">RAG pipelines</li><li style="--c:var(--violet)">LLM agents</li><li style="--c:var(--violet)">LLM APIs</li><li style="--c:var(--violet)">Gemini</li><li style="--c:var(--violet)">ChromaDB</li><li style="--c:var(--violet)">Embeddings</li><li style="--c:var(--violet)">FastAPI</li><li style="--c:var(--violet)">OpenCV</li><li style="--c:var(--violet)">Streamlit</li><li style="--c:var(--violet)">Workflow automation</li><li style="--c:var(--violet)">n8n</li><li style="--c:var(--violet)">Prompt engineering</li><li style="--c:var(--violet)">Chatbots</li>
+        <li style="--c:var(--sky)">Flutter</li><li style="--c:var(--sky)">Dart</li><li>Laravel</li><li>Livewire</li><li>Alpine.js</li><li>PHP</li><li>JavaScript</li><li>TypeScript</li><li>React</li><li>Next.js</li><li>Tailwind</li><li>Supabase</li>
+        <li style="--c:#e5b567">SQLite</li><li style="--c:#e5b567">MySQL</li><li style="--c:#e5b567">PostgreSQL</li><li style="--c:#e5b567">Docker</li><li style="--c:#e5b567">Vercel</li><li style="--c:#e5b567">GitHub Actions</li><li style="--c:#e5b567">Git</li><li style="--c:#e5b567">C++</li><li style="--c:#e5b567">Cybersecurity</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============ SERVICES ============ -->
+  <section class="sec" id="services">
+    <div class="shell">
+      <p class="sec-head reveal"><b>01</b>// services</p>
+      <h2 class="h2 reveal">What I build <em>for you.</em></h2>
+      <p class="sec-sub reveal">Four things I do well, and often together: an app, its backend, and the AI that makes it smarter.</p>
+      <div class="services mt">
+        <article class="svc spot reveal" style="--c:var(--violet)">
+          <div class="svc-top"><span class="svc-icon"><svg class="icon"><use href="#i-spark"/></svg></span><span class="svc-num">/01</span></div>
+          <h3>AI agents &amp; automation</h3>
+          <p>Conversational agents that route each request to the right intent and run tools, plus automations that connect LLM APIs to your business workflows and remove manual steps.</p>
+          <ul class="chips"><li>Python</li><li>LLM APIs</li><li>n8n</li><li>chatbots</li><li>intent routing</li><li>prompt engineering</li></ul>
+        </article>
+        <article class="svc spot reveal" style="--c:var(--violet)">
+          <div class="svc-top"><span class="svc-icon"><svg class="icon"><use href="#i-db"/></svg></span><span class="svc-num">/02</span></div>
+          <h3>RAG &amp; knowledge systems</h3>
+          <p>Python RAG pipelines that answer from your own documents in English or Arabic, with page-level citations, and refuse to guess when the evidence is not there.</p>
+          <ul class="chips"><li>Python</li><li>ChromaDB</li><li>embeddings</li><li>Gemini</li><li>PDF processing</li></ul>
+        </article>
+        <article class="svc spot reveal" style="--c:var(--sky)">
+          <div class="svc-top"><span class="svc-icon"><svg class="icon"><use href="#i-phone"/></svg></span><span class="svc-num">/03</span></div>
+          <h3>Flutter mobile apps</h3>
+          <p>One codebase for Android, iOS and desktop: offline-first apps that keep data on the device, with an AI assistant built in.</p>
+          <ul class="chips"><li>Flutter</li><li>Dart</li><li>Material 3</li><li>SQLite</li><li>Gemini</li></ul>
+        </article>
+        <article class="svc spot reveal" style="--c:var(--lime)">
+          <div class="svc-top"><span class="svc-icon"><svg class="icon"><use href="#i-code"/></svg></span><span class="svc-num">/04</span></div>
+          <h3>Full-stack web</h3>
+          <p>REST APIs and fast web apps, from a full Laravel platform with authentication to a static Next.js site any host can serve.</p>
+          <ul class="chips"><li>Laravel</li><li>PHP</li><li>JavaScript</li><li>TypeScript</li><li>React</li><li>Next.js</li><li>Tailwind</li><li>Supabase</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WEBSITES FOR BUSINESSES ============ -->
+  <section class="sec" id="websites">
+    <div class="shell">
+      <p class="sec-head reveal"><b>02</b>// websites &amp; online stores</p>
+      <div class="biz">
+        <div>
+          <h2 class="h2 reveal">Websites and stores <em>for local businesses.</em></h2>
+          <p class="sec-sub reveal">I build fast, modern websites and online stores for brands and local businesses, in English, Arabic, or both.</p>
+          <p class="biz-ai reveal"><svg class="icon"><use href="#i-spark"/></svg><span>I build with modern AI tools, which means faster delivery and lower prices, and I personally review and test everything before launch.</span></p>
+          <div class="hero-actions reveal">
+            <a href="mailto:meselmanialihadi@gmail.com?subject=Website%20for%20my%20business" class="btn btn-lime"><svg class="icon"><use href="#i-mail"/></svg>Start your website</a>
+            <a href="#contact" class="btn btn-line">Ask a question</a>
+          </div>
+          <div class="biz-stack reveal"><span>built with</span><ul class="chips"><li>Next.js</li><li>React</li><li>TypeScript</li><li>Tailwind CSS</li><li>Laravel</li><li>Supabase</li></ul></div>
+        </div>
+
+        <!-- Demo store: shows the language switch (with right-to-left Arabic) and delivery fees by area. -->
+        <figure class="store spot reveal" id="store" dir="ltr" lang="en" aria-label="Demo online store">
+          <div class="store-top">
+            <span data-ar="متجر تجريبي">demo store</span>
+            <span class="lang" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="ar" aria-pressed="false">عربي</button></span>
+          </div>
+          <p class="store-name" data-ar="بوتيك لينا">Lina's Boutique</p>
+          <div class="product">
+            <span class="thumb" aria-hidden="true"></span>
+            <div>
+              <p class="p-name" data-ar="قميص كتان">Linen shirt</p>
+              <p class="p-price">$24</p>
+              <div class="opts" role="group" aria-label="Color">
+                <button type="button" class="sw" style="--sw:#e9e2d0" aria-label="Sand" aria-pressed="true"></button><button type="button" class="sw" style="--sw:#7c8b6f" aria-label="Olive" aria-pressed="false"></button><button type="button" class="sw" style="--sw:#2f3a4f" aria-label="Navy" aria-pressed="false"></button>
+              </div>
+              <div class="opts" role="group" aria-label="Size">
+                <button type="button" class="sz" aria-pressed="false">S</button><button type="button" class="sz" aria-pressed="true">M</button><button type="button" class="sz" aria-pressed="false">L</button>
+              </div>
+            </div>
+          </div>
+          <div class="store-rows">
+            <div><label for="area" data-ar="التوصيل">Delivery</label>
+              <select id="area">
+                <option value="3" data-ar="بيروت · $3">Beirut · $3</option>
+                <option value="4" data-ar="جبل لبنان · $4">Mount Lebanon · $4</option>
+                <option value="5" data-ar="الجنوب · $5">South · $5</option>
+              </select>
+            </div>
+            <div><span data-ar="الدفع">Payment</span><span data-ar="الدفع عند الاستلام">Cash on delivery</span></div>
+            <div class="total"><span data-ar="المجموع">Total</span><span id="store-total">$27</span></div>
+          </div>
+          <span class="wa"><svg class="icon"><use href="#i-chat"/></svg><span data-ar="اطلب عبر واتساب">Order on WhatsApp</span></span>
+        </figure>
+      </div>
+
+      <ul class="biz-list mt">
+        <li class="reveal"><b>Bilingual websites</b> with full right-to-left Arabic support and a one-click language switch</li>
+        <li class="reveal"><b>E-commerce stores</b> with product catalogs, color and size options, shopping cart, and checkout</li>
+        <li class="reveal"><b>Flexible payment options:</b> cash on delivery, money transfer services, and online payments</li>
+        <li class="reveal"><b>Automatic delivery fees</b> calculated by area</li>
+        <li class="reveal"><b>Orders sent straight to the store owner's WhatsApp</b> for quick confirmation</li>
+        <li class="reveal"><b>Simple admin panels</b> so owners can track and update orders without technical skills</li>
+        <li class="reveal"><b>Showcase sites</b> that can be upgraded to full online stores later, with no rebuild needed</li>
+        <li class="reveal"><b>Mobile-first, responsive designs</b> that look sharp on every screen</li>
+        <li class="reveal"><b>Dark and light themes,</b> custom branding, and smooth animations</li>
+        <li class="reveal"><b>Low-cost hosting and databases,</b> so small businesses can launch with no monthly fees</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ WORK ============ -->
+  <!-- Hand-picked cards first. data-repo = GitHub repo name, so the automatic list below skips it. -->
+  <section class="sec" id="work">
+    <div class="shell">
+      <p class="sec-head reveal"><b>03</b>// selected work</p>
+      <h2 class="h2 reveal">Projects <em>that shipped.</em></h2>
+      <div class="filters mt reveal" role="group" aria-label="Filter projects">
+        <button type="button" class="filter" data-f="all" aria-pressed="true">all</button>
+        <button type="button" class="filter" data-f="ai" aria-pressed="false">ai &amp; llm</button>
+        <button type="button" class="filter" data-f="flutter" aria-pressed="false">flutter</button>
+        <button type="button" class="filter" data-f="web" aria-pressed="false">web</button>
+      </div>
+      <div class="projects">
+        <article class="proj featured spot reveal" data-tags="ai" data-repo="Isacademy-Rag">
+          <img class="shot" src="img/isacademy.webp" style="object-fit: contain; background: #0f0f12" alt="Isacademy side by side: an English question answered from PDFs with page-cited sources, and the same app in Arabic, right to left" width="1600" height="800" loading="lazy" decoding="async">
+          <div class="info">
+            <div class="proj-top"><span class="kind k-ai">RAG</span><span class="kind k-ai">Capstone</span><span class="year">2026</span></div>
+            <h3>Isacademy · document intelligence</h3>
+            <p>Upload PDFs, ask in English or Arabic, and get answers grounded in your documents: page-level citations, the actual chart when you ask about a chart, and a semantic PCA map showing which passages sit closest to your question, and why. It never invents a citation.</p>
+            <ul class="metrics"><li><b>EN + AR</b> right-to-left</li><li><b>page-level</b> citations</li><li><b>3 agents</b>, no framework</li></ul>
+            <ul class="chips"><li>Python</li><li>Gemini</li><li>ChromaDB</li><li>BGE embeddings</li><li>PyMuPDF</li><li>Streamlit</li><li>Plotly</li></ul>
+            <div class="proj-links"><a href="https://github.com/AliHadi315/Isacademy-Rag" target="_blank" rel="noopener noreferrer">Source code<svg class="icon"><use href="#i-arrow"/></svg></a></div>
+          </div>
+          <pre class="code" aria-label="RAG pipeline"><span class="code-name">rag pipeline</span><span class="fn">PDF</span> → <span class="kw">PyMuPDF</span> → pages, tables, figures
+    → <span class="st">sentence-aligned chunks</span>
+    → <span class="kw">BAAI/bge-small-en-v1.5</span> embeddings
+    → <span class="kw">ChromaDB</span> (cosine, persistent)
+    → top-K → <span class="st">similarity threshold</span>
+    → <span class="fn">Gemini</span> answer + page citations
+
+<span class="cm">// nothing above the threshold? it says so.</span></pre>
+        </article>
+
+        <article class="proj featured spot reveal" data-tags="web ai" data-repo="BaleeghLB">
+          <img class="shot" src="img/baleegh.webp" alt="Baleegh landing page: Your voice, your municipality, in English and Arabic" width="1400" height="875" loading="lazy" decoding="async">
+          <div class="info">
+            <div class="proj-top"><span class="kind k-web">Web</span><span class="kind k-web">Civic tech</span><span class="year">2026</span></div>
+            <h3>Baleegh · بلّغ</h3>
+            <p>A civic platform connecting Lebanese citizens with all 1,005 municipalities. Report a problem with photos, a map pin and voice dictation, follow the fix, sign petitions, vote and volunteer. Municipalities get AI-prioritised reports, and everyone gets a public budget and projects board.</p>
+            <ul class="metrics"><li><b>1,005</b> municipalities</li><li><b>3</b> languages</li><li><b>PWA</b> with web push</li></ul>
+            <ul class="chips"><li>Laravel 12</li><li>Livewire 4</li><li>Alpine.js</li><li>Tailwind</li><li>Leaflet</li><li>SQLite</li></ul>
+            <div class="proj-links"><a href="https://github.com/AliHadi315/BaleeghLB" target="_blank" rel="noopener noreferrer">Source code<svg class="icon"><use href="#i-arrow"/></svg></a></div>
+          </div>
+          <pre class="code" aria-label="Project summary"><span class="code-name">baleegh</span><span class="kw">stack</span>     = <span class="st">Laravel 12 · Livewire 4 · Alpine · Tailwind</span>
+<span class="kw">reach</span>     = <span class="st">1,005 municipalities · 8 governorates</span>
+<span class="kw">languages</span> = <span class="st">EN · العربية (RTL) · FR</span>
+<span class="kw">reports</span>   = <span class="fn">photos</span> + <span class="fn">map pin</span> + <span class="fn">voice</span>
+<span class="kw">ai</span>        = <span class="st">triage + priorities</span>
+<span class="kw">app</span>       = <span class="st">installable PWA · web push</span>
+
+<span class="cm">// report → track → resolve → rate</span></pre>
+        </article>
+
+        <article class="proj spot reveal" data-tags="ai web" data-repo="Sightline">
+          <img class="shot" src="img/sightline.webp" alt="Sightline reading a room sign aloud: EXIT, Meeting Room 2B" width="1100" height="688" loading="lazy" decoding="async">
+          <div class="proj-top"><span class="kind k-ai">AI vision</span><span class="kind k-web">Live</span><span class="year">2026</span></div>
+          <h3>Sightline</h3>
+          <p>Hear what your camera sees. A scene narrator for people with low vision: one press describes what is in front of you, or reads visible text aloud, with directions like "to your left". Manual capture only, no guessing about people, nothing stored.</p>
+          <ul class="metrics"><li><b>$0</b> to run, free tiers</li><li><b>3</b> front ends</li></ul>
+          <ul class="chips"><li>Python</li><li>Gemini vision</li><li>FastAPI</li><li>React</li><li>OpenCV</li><li>Vercel</li></ul>
+          <div class="proj-links"><a href="https://sightline-rho-khaki.vercel.app" target="_blank" rel="noopener noreferrer">Live demo<svg class="icon"><use href="#i-arrow"/></svg></a><a href="https://github.com/AliHadi315/Sightline" target="_blank" rel="noopener noreferrer">Source code<svg class="icon"><use href="#i-arrow"/></svg></a></div>
+        </article>
+
+        <article class="proj spot reveal" data-tags="web ai" data-repo="unimate-Web-Application">
+          <img class="shot" src="img/unimate-web.webp" alt="UniMate's AI turning a syllabus into a list of tasks to review" width="1100" height="825" loading="lazy" decoding="async">
+          <div class="proj-top"><span class="kind k-web">Web</span><span class="kind k-ai">AI</span><span class="year">2026</span></div>
+          <h3>UniMate · web platform</h3>
+          <p>Courses, deadlines, timetables, GPA tracking and classmate collaboration in one place, with an AI assistant that turns a syllabus PDF into a semester of tasks.</p>
+          <ul class="metrics"><li><b>Laravel 12</b> REST API</li><li><b>CI</b> on GitHub Actions</li></ul>
+          <ul class="chips"><li>Laravel</li><li>PHP 8.2</li><li>Sanctum</li><li>vanilla JS</li><li>Docker</li></ul>
+          <div class="proj-links"><a href="https://github.com/AliHadi315/unimate-Web-Application" target="_blank" rel="noopener noreferrer">Source code<svg class="icon"><use href="#i-arrow"/></svg></a></div>
+        </article>
+
+        <article class="proj spot reveal" data-tags="flutter ai" data-repo="uniMate-Mobile-Application">
+          <img class="shot" src="img/unimate-mobile.webp" alt="UniMate mobile: dashboard, AI study assistant and agenda screens" width="1100" height="688" loading="lazy" decoding="async">
+          <div class="proj-top"><span class="kind k-flutter">Flutter</span><span class="kind k-ai">AI</span><span class="year">2025</span></div>
+          <h3>UniMate · mobile app</h3>
+          <p>A whole semester in one app: courses, deadlines, timetable, grades and Pomodoro focus time, with a Gemini study assistant that knows your real workload. Offline-first, so everything stays on the device. Built with Ali Rammal.</p>
+          <ul class="metrics"><li><b>66</b> tests passing</li><li><b>Android · iOS · Desktop</b></li></ul>
+          <ul class="chips"><li>Flutter</li><li>Dart</li><li>Material 3</li><li>SQLite</li><li>Gemini</li></ul>
+          <div class="proj-links"><a href="https://github.com/AliHadi315/uniMate-Mobile-Application" target="_blank" rel="noopener noreferrer">Source code<svg class="icon"><use href="#i-arrow"/></svg></a></div>
+        </article>
+
+        <article class="proj spot reveal" data-tags="web" data-repo="alqaysar-menu">
+          <img class="shot" src="img/alqaysar.webp" alt="Dishes from the Al Qaysr digital menu" width="1100" height="688" loading="lazy" decoding="async">
+          <div class="proj-top"><span class="kind k-web">Web</span><span class="kind k-web">Client</span><span class="year">2026</span></div>
+          <h3>Al Qaysr · digital menu</h3>
+          <p>A fast, mobile-first menu for a restaurant in Beirut. Search, take-away and dine-in prices from a single JSON file, and printable QR codes for the tables. No database, no login: plain HTML any host can serve.</p>
+          <ul class="metrics"><li><b>167</b> dishes</li><li><b>18</b> sections</li><li><b>0</b> backend</li></ul>
+          <ul class="chips"><li>Next.js</li><li>TypeScript</li><li>Tailwind v4</li><li>static export</li></ul>
+          <div class="proj-links"><a href="https://github.com/AliHadi315/alqaysar-menu" target="_blank" rel="noopener noreferrer">Source code<svg class="icon"><use href="#i-arrow"/></svg></a></div>
+        </article>
+      </div>
+
+      <!-- Loads automatically from GitHub: every public repo appears here, newest first.
+           To hide one, add the topic "no-portfolio" to it on GitHub. -->
+      <div class="gh mt reveal">
+        <div class="gh-head">
+          <h3>More on GitHub <span>· updates automatically</span></h3>
+          <a href="https://github.com/AliHadi315" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-github"/></svg>AliHadi315</a>
+        </div>
+        <ul class="gh-list" id="gh-list" aria-live="polite"><li class="gh-note">Loading repositories…</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROCESS ============ -->
+  <section class="sec" id="process">
+    <div class="shell">
+      <p class="sec-head reveal"><b>04</b>// process</p>
+      <h2 class="h2 reveal">How I ship AI <em>that holds up.</em></h2>
+      <p class="sec-sub reveal">Demos are easy. Features people trust take a process.</p>
+      <ol class="steps mt">
+        <li class="step reveal"><span class="mono">step_01</span><h3>Find the use case</h3><p>Pick the one task where AI saves real time or money, and agree on what "good" looks like.</p></li>
+        <li class="step reveal"><span class="mono">step_02</span><h3>Build fast, with AI</h3><p>I work with AI coding agents like Claude Code, Codex and Antigravity, so a working demo on your real data takes days, not months.</p></li>
+        <li class="step reveal"><span class="mono">step_03</span><h3>Own every line</h3><p>I review, test and understand every line before it goes live. AI writes faster; I stay responsible for what ships.</p></li>      </ol>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section class="sec" id="experience">
+    <div class="shell">
+      <p class="sec-head reveal"><b>05</b>// git log --career</p>
+      <h2 class="h2 reveal">Experience</h2>
+      <ol class="log mt">
+        <li class="commit head reveal">
+          <div class="commit-meta"><span class="hash">9f2c1ab</span><span class="ref h">HEAD → now</span><span>Jan 2025 — present · full-time · hybrid</span></div>
+          <h3>Junior AI Developer <span>@ Develoop Group</span></h3>
+          <ul class="bul">
+            <li>Engineered custom Python RAG pipelines and multi-layer conversational agents with automated intent routing and tool execution, to streamline routine business tasks.</li>
+            <li>Built end-to-end automations connecting LLM APIs with internal business workflows, removing manual bottlenecks and speeding up execution.</li>
+            <li>Led hands-on training for non-technical staff on generative AI tools and prompting, while rapidly prototyping emerging AI frameworks.</li>
+          </ul>
+          <ul class="chips"><li>Python</li><li>RAG</li><li>AI agents</li><li>chatbots</li><li>n8n</li><li>prompt engineering</li><li>workflow automation</li><li>technical training</li></ul>
+        </li>
+        <li class="commit head reveal">
+          <div class="commit-meta"><span class="hash">5a7d2e4</span><span class="ref h">now</span><span>Jan 2026 — present · full-time · hybrid</span></div>
+          <h3>Junior Web Developer <span>@ Develoop Group</span></h3>
+          <ul class="bul">
+            <li>Build fast, mobile-first websites and online stores for brands and local businesses in English, Arabic or both, with full right-to-left support and a one-click language switch.</li>
+            <li>Develop e-commerce features end to end: product catalogs with color and size options, cart and checkout, flexible payments, and delivery fees calculated automatically by area.</li>
+            <li>Send orders straight to the owner's WhatsApp, build simple admin panels for non-technical staff, and keep running costs low with lightweight hosting and databases.</li>
+          </ul>
+          <ul class="chips"><li>Next.js</li><li>React</li><li>TypeScript</li><li>Tailwind CSS</li><li>Laravel</li><li>Supabase</li><li>responsive design</li><li>RTL / Arabic</li></ul>
+        </li>
+        <li class="commit reveal">
+          <div class="commit-meta"><span class="hash">7c3e5d2</span><span>May 2025 — Jan 2026 · part-time</span></div>
+          <h3>Customer Service Agent <span>@ touch Lebanon</span></h3>
+          <ul class="bul">
+            <li>Resolved billing disputes, account inquiries and mobile/SIM network configurations on the front line.</li>
+            <li>Recommended prepaid and postpaid plans to fit each subscriber, and drove add-on sales.</li>
+            <li>Processed account updates and kept data accurate through physical and digital archiving.</li>
+          </ul>
+        </li>
+        <li class="commit reveal">
+          <div class="commit-meta"><span class="hash">b81f0a9</span><span>2025 — 2026</span></div>
+          <h3>Data Entry <span>@ Marjuha Restaurant</span></h3>
+          <ul class="bul">
+            <li>Logged recipe specifications, queries and operational records across internal software, at high volume and with consistent precision.</li>
+            <li>Cross-checked records against physical documents to remove entry errors.</li>
+          </ul>
+        </li>
+        <li class="commit reveal">
+          <div class="commit-meta"><span class="hash">3d94c6e</span><span>2024 — 2025</span></div>
+          <h3>Cashier, Call Center &amp; Delivery Coordinator <span>@ Grillo Nassar Restaurant</span></h3>
+          <ul class="bul">
+            <li>Handled in-store and delivery payments, phone orders and customer inquiries.</li>
+            <li>Coordinated delivery dispatch and cash reconciliation.</li>
+          </ul>
+        </li>
+        <li class="commit reveal">
+          <div class="commit-meta"><span class="hash">0a19b3f</span><span class="ref t">tag: v1.0</span><span>2022 — 2024</span></div>
+          <h3>Marketing &amp; Sales Intern</h3>
+          <ul class="bul">
+            <li>Tested code and applications systematically to find functional defects and support development cycles.</li>
+            <li>Ran digital marketing initiatives and supported client accounts and campaigns.</li>
+          </ul>
+        </li>
+      </ol>
+      <ul class="creds mt reveal" aria-label="Education and languages">
+        <li><small>degree · in progress</small>B.S. Computer Science<span>Al Maaref University · 2023 — 2027</span></li>
+        <li><small>education</small>Computer Science<span>Lebanese University · 2023</span></li>
+        <li><small>AI training program</small>Isacademy<span>Capstone: <a href="#work">bilingual RAG document intelligence</a> · 2026</span></li>
+        <li><small>languages</small>Arabic · English<span>Native · Professional</span></li>
+      </ul>
+
+      <div class="certs mt reveal">
+        <div class="gh-head">
+          <h3>Licenses &amp; certifications <span>· 9</span></h3>
+          <a href="https://www.linkedin.com/in/alihadimeselmani/" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-linkedin"/></svg>View on LinkedIn</a>
+        </div>
+        <ul>
+          <li><b>Computer Network<small>computer networking</small></b><span>Udemy</span><time>Nov 2025</time></li>
+          <li><b>AI for Everyone: From Concept to Daily Use<small>ChatGPT · AI prompting</small></b><span>Al Maaref University</span><time>May 2025</time></li>
+          <li><b>HTML CSS Bootcamp<small>HTML · CSS</small></b><span>Udemy</span><time>Sep 2024</time></li>
+          <li><b>Cyber Security: OS Security<small>cybersecurity · OS security</small></b><span>Udemy</span><time>Apr 2024</time></li>
+          <li><b>Cybersecurity Bootcamp<small>cybersecurity · cyber defense</small></b><span>Udemy</span><time>Apr 2024</time></li>
+          <li><b>Mastering Windows Security<small>Windows security</small></b><span>Udemy</span><time>Apr 2024</time></li>
+          <li><b>Ethical Hacking: File Inclusion<small>ethical hacking</small></b><span>Udemy</span><time>Mar 2024</time></li>
+          <li><b>Problem Solving with C++<small>C++</small></b><span>Udemy</span><time>Feb 2024</time></li>
+          <li><b>Cisco CyberOps Associate<small>cyber operations · cybersecurity</small></b><span>Cisco Networking Academy</span><time>Jan 2024</time></li>
+        </ul>
+      </div>
+
+      <div class="community mt reveal">
+        <div class="gh-head">
+          <h3>Community &amp; events</h3>
+          <a href="https://www.linkedin.com/in/alihadimeselmani/recent-activity/all/" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-linkedin"/></svg>Posts on LinkedIn</a>
+        </div>
+        <ul class="events">
+          <li class="spot"><time>Sep 2026 · Beirut</time><h4>Lebanon AI Festival 2026</h4><p>Joined engineers in Beirut who were shipping agentic AI in practice, not just talking about theoretical futures.</p></li>
+          <li class="spot"><time>Sep 2026 · Develoop</time><h4>Teaching generative AI</h4><p>Led hands-on sessions that showed non-technical staff how to use generative AI tools and write better prompts.</p></li>
+          <li class="spot"><time>Oct 2025 · Beirut</time><h4>DevFest 2025</h4><p>Google Developer Groups' yearly developer festival, hosted in Beirut by GDG Coast.</p></li>
+          <li class="spot"><time>Apr 2025 · Beirut</time><h4>Build with AI 2025</h4><p>GDG Coast Lebanon's AI day at the American University of Beirut, with 15+ speakers on LLM agents, Google Cloud AI tools and more.</p></li>
+          <li class="spot"><time>Jun 2024 · Beirut</time><h4>KotlinConf'24 Global</h4><p>The Beirut edition of KotlinConf Global, by GDG Coast Lebanon and JetBrains: KotlinConf talks plus local sessions on Spring Boot APIs and Kotlin Multiplatform.</p></li>        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TOOLBOX ============ -->
+  <section class="sec" id="toolbox">
+    <div class="shell">
+      <p class="sec-head reveal"><b>06</b>// toolbox</p>
+      <h2 class="h2 reveal">The stack <em>I reach for.</em></h2>
+      <div class="tools mt">
+        <div class="tool spot reveal" style="--c:var(--violet)"><h3>ai/</h3><ul>
+          <li>Language<span>Python</span></li><li>RAG<span>ChromaDB · BGE embeddings</span></li><li>Vision<span>Gemini vision · OpenCV</span></li><li>Agents<span>chatbots · intent routing</span></li><li>Automation<span>n8n · LLM APIs</span></li><li>AI apps<span>Streamlit · Gradio</span></li></ul></div>
+        <div class="tool spot reveal" style="--c:var(--sky)"><h3>mobile/</h3><ul>
+          <li>Flutter<span>Dart</span></li><li>UI<span>Material 3</span></li><li>Storage<span>SQLite · offline-first</span></li><li>AI<span>Gemini assistant</span></li><li>Platforms<span>Android · iOS · desktop</span></li></ul></div>
+        <div class="tool spot reveal" style="--c:var(--lime)"><h3>web/</h3><ul>
+          <li>Backend<span>Laravel 12 · FastAPI</span></li><li>Reactive UI<span>Livewire · Alpine.js</span></li><li>Frontend<span>JavaScript · TypeScript</span></li><li>Framework<span>React · Next.js</span></li><li>Styling<span>Tailwind</span></li></ul></div>
+        <div class="tool spot reveal" style="--c:#e5b567"><h3>tools/</h3><ul>
+          <li>Databases<span>Supabase · Postgres · MySQL</span></li><li>Deploy<span>Docker · Vercel</span></li><li>CI<span>GitHub Actions</span></li><li>Version control<span>Git · GitHub</span></li><li>Quality<span>software testing · QA</span></li><li>Security<span>networking · OS &amp; Windows</span></li></ul></div>
+        <div class="tool workflow spot reveal" style="--c:var(--violet)"><h3>ai workflow/</h3>
+          <p>AI is part of how I work every day, from writing code to researching and learning.</p>
+          <ul>
+            <li>Coding<span>Claude Code · Codex · Antigravity</span></li>
+            <li>Research &amp; learning<span>ChatGPT · Gemini · Claude</span></li>
+            <li>Teaching<span>GenAI tools · prompting</span></li>
+          </ul>
+          <div class="why">
+            <h4>why AI-assisted?</h4>
+            <ul>
+              <li><b>Faster</b>AI drafts the repetitive parts, so projects ship sooner and cost less.</li>
+              <li><b>Reviewed &amp; tested</b>Every line is read, tested and understood before it goes live.</li>
+              <li><b>Private &amp; secure</b>Client passwords and data never go into AI tools.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="shell">
+    <div class="contact reveal">
+      <p class="sec-head" style="justify-content:center"><b>07</b>// contact</p>
+      <h2 class="h2">Let's build something that thinks.</h2>
+      <p class="sec-sub">Based in Beirut, Lebanon. Have an app idea, a role, or a business process that AI could speed up? Tell me about it.</p>
+      <div class="term"><span class="lime">$</span><code>mail <span id="email-text">meselmanialihadi@gmail.com</span></code><button type="button" class="copy" id="copy"><svg class="icon"><use href="#i-copy"/></svg><span>copy</span></button></div>
+      <div class="hero-actions">
+        <a href="mailto:meselmanialihadi@gmail.com" class="btn btn-lime" id="mail-btn"><svg class="icon"><use href="#i-mail"/></svg>Email me</a>
+        <a href="https://www.linkedin.com/in/alihadimeselmani/" target="_blank" rel="noopener noreferrer" class="btn btn-line"><svg class="icon"><use href="#i-linkedin"/></svg>LinkedIn</a>
+        <a href="https://github.com/AliHadi315" target="_blank" rel="noopener noreferrer" class="btn btn-line"><svg class="icon"><use href="#i-github"/></svg>GitHub</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="shell">
+    <p>© <span id="y">2026</span> Ali Hadi Meselmani · hand-written HTML, no trackers</p>
+    <ul>
+      <li><a href="https://github.com/AliHadi315" target="_blank" rel="noopener noreferrer">github</a></li>
+      <li><a href="https://www.linkedin.com/in/alihadimeselmani/" target="_blank" rel="noopener noreferrer">linkedin</a></li>
+      <li><a href="cv.pdf" download>cv.pdf</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  const EMAIL = 'meselmanialihadi@gmail.com';
+  const $ = s => document.querySelector(s);
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const wait = ms => new Promise(r => setTimeout(r, reduce ? 0 : ms));
+  $('#y').textContent = new Date().getFullYear();
+
+  // ---- Links to sections (#work, #contact…): scroll with JS, so they also work in previews
+  // that show the page as a data: URL, where the browser blocks plain #hash navigation. ----
+  document.addEventListener('click', e => {
+    const link = e.target.closest('a[href^="#"]');
+    const target = link && document.getElementById(link.getAttribute('href').slice(1));
+    if (!target) return;
+    e.preventDefault();
+    target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+    try { history.pushState(null, '', link.getAttribute('href')); } catch {} // not allowed on data: URLs
+  });
+
+  // ---- Simulated RAG demo. Edit questions, sources and answers here. ----
+  const QA = [
+    { q: 'What do you build?',
+      st: ['1536-d · 18ms', 'top-k 12 · 41ms', 'kept 3 · 22ms'],
+      src: [['about.md', .93], ['experience/develoop.md', .88], ['services.md', .81]],
+      a: 'At Develoop Group I build RAG pipelines, LLM agents and bilingual websites and online stores. I also take freelance web projects, and build my own apps like UniMate and Baleegh.', ms: 640 },
+    { q: 'How do you use AI in your apps?',
+      st: ['1536-d · 16ms', 'top-k 12 · 38ms', 'kept 3 · 25ms'],
+      src: [['projects/isacademy-rag.md', .95], ['projects/sightline.md', .90], ['projects/baleegh.md', .82]],
+      a: 'Isacademy answers questions over PDFs in English or Arabic, with page-level citations. Sightline describes what a camera sees for people with low vision. Baleegh uses AI to prioritise citizen reports for municipalities.', ms: 702 },
+    { q: 'Do you code with AI?',
+      st: ['1536-d · 15ms', 'top-k 12 · 36ms', 'kept 3 · 21ms'],
+      src: [['workflow.md', .94], ['process.md', .89], ['toolbox.md', .80]],
+      a: 'Yes, every day. I build web and AI projects with coding agents like Claude Code, Codex and Antigravity, and research with ChatGPT, Gemini and Claude. AI makes me faster, but I review, test and understand every line before it ships.', ms: 615 },
+    { q: 'Is AI-written code safe?',
+      st: ['1536-d · 16ms', 'top-k 12 · 39ms', 'kept 3 · 22ms'],
+      src: [['workflow.md', .93], ['process.md', .88], ['toolbox.md', .81]],
+      a: 'Only if someone checks it. AI drafts fast, but I review every line, test it, and fix anything that looks wrong before it ships. Client passwords and data never go into AI tools.', ms: 630 },
+    { q: 'Can you build my online store?',
+      st: ['1536-d · 17ms', 'top-k 12 · 40ms', 'kept 3 · 23ms'],
+      src: [['services/websites.md', .96], ['experience/develoop.md', .87], ['projects/al-qaysr.md', .79]],
+      a: 'Yes. I build fast, mobile-first stores in English, Arabic or both, with product options, cash on delivery or online payments, delivery fees by area, and orders sent straight to your WhatsApp.', ms: 660 },
+    { q: 'Can you add AI to my existing app?',
+      st: ['1536-d · 17ms', 'top-k 12 · 44ms', 'kept 3 · 20ms'],
+      src: [['process.md', .91], ['services.md', .87], ['projects/unimate-web.md', .78]],
+      a: 'Usually, yes. We pick one feature where AI saves real time, I build a working demo on your data within days, and I review and test every line before it goes live.', ms: 588 },
+    { q: 'Are you open to work?',
+      st: ['1536-d · 14ms', 'top-k 12 · 35ms', 'kept 3 · 19ms'],
+      src: [['contact.md', .95], ['about.md', .86], ['cv.pdf#p1', .80]],
+      a: "Yes, remotely: freelance web projects and the right AI or web role. I'm based in Beirut and work in English and Arabic. Email me at meselmanialihadi@gmail.com.", ms: 570 },
+  ];
+  const stages = [...document.querySelectorAll('.stage')];
+  const asks = [...document.querySelectorAll('.ask')];
+  let run = 0, auto = true;
+
+  async function play(i) {
+    const id = ++run, live = () => id === run, d = QA[i];
+    asks.forEach((b, j) => b.setAttribute('aria-pressed', i === j));
+    $('#q').textContent = ''; $('#a').textContent = ''; $('#a').classList.remove('done');
+    $('#chunks').innerHTML = ''; $('#tot').textContent = '—';
+    stages.forEach(s => { s.className = 'stage'; s.querySelector('small').textContent = s.dataset.idle; });
+
+    for (const c of d.q) { $('#q').textContent += c; await wait(26); if (!live()) return; }
+    await wait(250); if (!live()) return;
+    for (let k = 0; k < 3; k++) {
+      stages[k].classList.add('active'); await wait(480); if (!live()) return;
+      stages[k].classList.replace('active', 'done'); stages[k].querySelector('small').textContent = d.st[k];
+      if (k === 1) $('#chunks').innerHTML = d.src.map(([s, v]) => `<li><span>${s}</span><i style="--w:${v * 100}%"></i><b>${v.toFixed(2)}</b></li>`).join('');
+    }
+    const gen = stages[3]; gen.classList.add('active'); gen.querySelector('small').textContent = 'streaming…';
+    const tokens = d.a.match(/\S+\s*/g);
+    for (const t of tokens) { $('#a').textContent += t; await wait(38); if (!live()) return; }
+    gen.classList.replace('active', 'done'); gen.querySelector('small').textContent = `${tokens.length} tokens`;
+    $('#a').classList.add('done');
+    $('#tot').textContent = `${d.ms} ms · grounded in ${d.src.length} sources`;
+    if (auto && !reduce) { await wait(4200); if (live() && auto) play((i + 1) % QA.length); }
+  }
+  asks.forEach(b => b.addEventListener('click', () => { auto = false; play(+b.dataset.i); }));
+  // Start the demo once it's on screen, so the first load stays light (on phones it starts below the fold)
+  new IntersectionObserver((es, obs) => {
+    if (es[0].isIntersecting) { obs.disconnect(); if (run === 0) play(0); }
+  }, { threshold: 0.3 }).observe($('.demo'));
+
+  // ---- Headline word rotator ----
+  if (!reduce) (async () => {
+    const words = ['think', 'talk', 'sell', 'remember', 'reason'], el = $('#rot');
+    for (let w = 0; ; w = (w + 1) % words.length) {
+      await wait(2400);
+      while (el.textContent) { el.textContent = el.textContent.slice(0, -1); await wait(45); }
+      for (const c of words[(w + 1) % words.length]) { el.textContent += c; await wait(80); }
+    }
+  })();
+
+  // ---- Project filter ----
+  const filters = [...document.querySelectorAll('.filter')], projs = [...document.querySelectorAll('.proj')];
+  filters.forEach(f => f.addEventListener('click', () => {
+    filters.forEach(x => x.setAttribute('aria-pressed', x === f));
+    projs.forEach(p => p.hidden = f.dataset.f !== 'all' && !p.dataset.tags.split(' ').includes(f.dataset.f));
+  }));
+
+  // ---- GitHub repos: loaded live, so new public repos show up without editing this page ----
+  const GITHUB_USER = 'AliHadi315';
+  const LANG_COLORS = { Dart: '#00b4ab', PHP: '#777bb4', TypeScript: '#3178c6', JavaScript: '#f1e05a', 'C++': '#f34b7d',
+    Python: '#3572a5', Kotlin: '#a97bff', Java: '#b07219', HTML: '#e34c26', CSS: '#663399', Swift: '#f05138' };
+  (async () => {
+    const list = $('#gh-list');
+    const shown = new Set([...document.querySelectorAll('[data-repo]')].map(el => el.dataset.repo.toLowerCase()));
+    try {
+      const res = await fetch(`https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&sort=pushed`);
+      if (!res.ok) throw new Error(`GitHub returned ${res.status}`);
+      const repos = (await res.json()).filter(r =>
+        !r.fork && !r.archived && !shown.has(r.name.toLowerCase()) && !(r.topics || []).includes('no-portfolio'));
+      if (!repos.length) { list.innerHTML = '<li class="gh-note">New repositories will appear here automatically.</li>'; return; }
+      list.replaceChildren(...repos.map(r => {
+        const li = document.createElement('li');
+        li.innerHTML = `<a class="gh-row" target="_blank" rel="noopener noreferrer"><strong></strong><p></p><span class="gh-meta"></span><svg class="icon arrow"><use href="#i-arrow"/></svg></a>`;
+        const a = li.firstChild;
+        a.href = r.homepage || r.html_url;
+        a.querySelector('strong').textContent = r.name.replace(/[-_]+/g, ' ');
+        const p = a.querySelector('p');
+        p.textContent = r.description || 'No description yet.';
+        if (!r.description) p.className = 'none';
+        const meta = a.querySelector('.gh-meta');
+        if (r.language) {
+          const lang = document.createElement('span');
+          lang.innerHTML = '<i></i>';
+          lang.firstChild.style.setProperty('--c', LANG_COLORS[r.language] || 'var(--muted)');
+          lang.append(r.language);
+          meta.append(lang);
+        }
+        if (r.stargazers_count) meta.append(Object.assign(document.createElement('span'), { textContent: `★ ${r.stargazers_count}` }));
+        meta.append(Object.assign(document.createElement('span'), {
+          textContent: 'updated ' + new Date(r.pushed_at).toLocaleDateString('en', { month: 'short', year: 'numeric' }) }));
+        return li;
+      }));
+    } catch {
+      list.innerHTML = `<li class="gh-note">Couldn't load repositories right now. <a href="https://github.com/${GITHUB_USER}" target="_blank" rel="noopener noreferrer">See them on GitHub ↗</a></li>`;
+    }
+  })();
+
+  // ---- Demo store: EN/AR switch (right-to-left), options, delivery fee by area ----
+  const store = $('#store'), area = $('#area');
+  const translatable = [...store.querySelectorAll('[data-ar]')];
+  translatable.forEach(el => el.dataset.en = el.textContent);
+  store.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => {
+    const ar = b.dataset.lang === 'ar';
+    store.dir = ar ? 'rtl' : 'ltr';
+    store.lang = ar ? 'ar' : 'en';
+    translatable.forEach(el => el.textContent = ar ? el.dataset.ar : el.dataset.en);
+    store.querySelectorAll('.lang button').forEach(x => x.setAttribute('aria-pressed', x === b));
+  }));
+  store.querySelectorAll('.opts').forEach(group => group.addEventListener('click', e => {
+    const pick = e.target.closest('button');
+    if (!pick) return;
+    group.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === pick));
+    if (pick.classList.contains('sw')) store.querySelector('.thumb').style.setProperty('--shirt', pick.style.getPropertyValue('--sw'));
+  }));
+  const SHIRT_PRICE = 24;
+  const updateTotal = () => $('#store-total').textContent = '$' + (SHIRT_PRICE + Number(area.value));
+  area.addEventListener('change', updateTotal);
+  updateTotal();
+
+  // ---- Card spotlight ----
+  document.querySelectorAll('.spot').forEach(el => el.addEventListener('pointermove', e => {
+    const r = el.getBoundingClientRect();
+    el.style.setProperty('--mx', e.clientX - r.left + 'px');
+    el.style.setProperty('--my', e.clientY - r.top + 'px');
+  }));
+
+  // ---- Copy email ----
+  $('#email-text').textContent = EMAIL;
+  $('#mail-btn').href = 'mailto:' + EMAIL;
+  $('#copy').addEventListener('click', async e => {
+    const label = e.currentTarget.querySelector('span');
+    try { await navigator.clipboard.writeText(EMAIL); label.textContent = 'copied!'; }
+    catch { location.href = 'mailto:' + EMAIL; }
+    setTimeout(() => label.textContent = 'copy', 1800);
+  });
+
+  // ---- Mobile menu ----
+  const btn = $('.menu-btn'), menu = $('#mobile-menu');
+  function setMenu(open) {
+    menu.classList.toggle('open', open); menu.inert = !open;
+    btn.setAttribute('aria-expanded', open);
+    btn.querySelector('use').setAttribute('href', open ? '#i-x' : '#i-menu');
+    btn.querySelector('.sr-only').textContent = open ? 'Close menu' : 'Open menu';
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  btn.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
+  menu.addEventListener('click', e => e.target.closest('a') && setMenu(false));
+  addEventListener('keydown', e => e.key === 'Escape' && setMenu(false));
+
+  // ---- Scroll reveal + active nav ----
+  const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && (e.target.classList.add('in'), io.unobserve(e.target))), { rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  const navLinks = [...document.querySelectorAll('.nav-links a')];
+  const spy = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) navLinks.forEach(a => a.setAttribute('aria-current', a.hash === '#' + e.target.id));
+  }), { rootMargin: '-45% 0px -50% 0px' });
+  document.querySelectorAll('main section[id]').forEach(s => spy.observe(s));
+</script>
+</body>
+</html>
