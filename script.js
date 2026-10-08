@@ -60,7 +60,7 @@ async function play(i) {
   const id = ++run, live = () => id === run, d = QA[i];
   asks.forEach((b, j) => b.setAttribute('aria-pressed', i === j));
   $('#q').textContent = ''; $('#a').textContent = ''; $('#a').classList.remove('done');
-  $('#chunks').innerHTML = ''; $('#tot').textContent = '—';
+  $('#chunks').innerHTML = ''; $('#tot').textContent = '—'; $('#demo-announce').textContent = '';
   stages.forEach(s => { s.className = 'stage'; s.querySelector('small').textContent = s.dataset.idle; });
 
   for (const c of d.q) { $('#q').textContent += c; await wait(26); if (!live()) return; }
@@ -76,6 +76,9 @@ async function play(i) {
   gen.classList.replace('active', 'done'); gen.querySelector('small').textContent = `${tokens.length} tokens`;
   $('#a').classList.add('done');
   $('#tot').textContent = `${d.ms} ms · grounded in ${d.src.length} sources`;
+  // The typed text isn't a live region (it would be read letter by letter); announce the full answer once,
+  // and only for questions the visitor clicked, never during autoplay.
+  if (!auto) $('#demo-announce').textContent = `${d.q} ${d.a}`;
   if (auto && !reduce) { await wait(4200); if (live() && auto) play((i + 1) % QA.length); }
 }
 asks.forEach(b => b.addEventListener('click', () => { auto = false; play(+b.dataset.i); }));

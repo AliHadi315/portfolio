@@ -121,7 +121,7 @@
       <figure class="demo rise" style="--d:200" aria-label="Simulated RAG assistant answering questions about my work">
         <div class="demo-bar"><span class="dots"><i></i><i></i><i></i></span><span class="ttl">rag-assistant · simulated</span><span class="live"><i></i>streaming</span></div>
         <div class="demo-body">
-          <p class="q" id="q" aria-live="polite"></p>
+          <p class="q" id="q"></p>
           <ol class="stages">
             <li class="stage" data-idle="waiting"><span>embed</span><small>waiting</small></li>
             <li class="stage" data-idle="waiting"><span>retrieve</span><small>waiting</small></li>
@@ -129,7 +129,8 @@
             <li class="stage" data-idle="waiting"><span>generate</span><small>waiting</small></li>
           </ol>
           <ul class="chunks" id="chunks" aria-label="Retrieved sources"></ul>
-          <p class="answer" id="a" aria-live="polite"></p>
+          <p class="answer" id="a"></p>
+          <p class="sr-only" id="demo-announce" aria-live="polite"></p>
         </div>
         <div class="demo-foot">
           <span>try:</span>
