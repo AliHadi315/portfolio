@@ -111,15 +111,22 @@ const LANG_COLORS = { Dart: '#00b4ab', PHP: '#777bb4', TypeScript: '#3178c6', Ja
   shown.add('portfolio'); // this site's own repo: don't list the portfolio inside itself
   try {
     const res = await fetch(`https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&sort=pushed`);
-    if (!res.ok) throw new Error(`GitHub returned ${res.status}`);
-    const repos = (await res.json()).filter(r =>
+    if (!res.ok) throw new Error(`GitHub returned ${res.status}: ${(await res.text()).slice(0, 200)}`);
+    const data = await res.json();
+    if (!Array.isArray(data)) throw new Error(`GitHub response is not a list of repositories: ${JSON.stringify(data).slice(0, 200)}`);
+    const invalid = data.filter(r => typeof r?.name !== 'string');
+    if (invalid.length) console.warn(`Skipping ${invalid.length} GitHub entries without a name`, invalid);
+    const repos = data.filter(r => typeof r?.name === 'string' &&
       !r.fork && !r.archived && !shown.has(r.name.toLowerCase()) && !(r.topics || []).includes('no-portfolio'));
     if (!repos.length) { list.innerHTML = '<li class="gh-note">New repositories will appear here automatically.</li>'; return; }
     list.replaceChildren(...repos.map(r => {
       const li = document.createElement('li');
       li.innerHTML = `<a class="gh-row" target="_blank" rel="noopener noreferrer"><strong></strong><p></p><span class="gh-meta"></span><svg class="icon arrow"><use href="#i-arrow"/></svg></a>`;
       const a = li.firstChild;
-      a.href = r.homepage || r.html_url;
+      // Only link a repo's "website" if it's a real web address; anything else (e.g. javascript:) links the repo itself
+      const site = /^https?:\/\//i.test(r.homepage ?? '') ? r.homepage : null;
+      if (r.homepage && !site) console.warn(`Ignoring non-web homepage for ${r.name}: ${r.homepage}`);
+      a.href = site ?? `https://github.com/${GITHUB_USER}/${encodeURIComponent(r.name)}`;
       a.querySelector('strong').textContent = r.name.replace(/[-_]+/g, ' ');
       const p = a.querySelector('p');
       p.textContent = r.description || 'No description yet.';
@@ -137,7 +144,8 @@ const LANG_COLORS = { Dart: '#00b4ab', PHP: '#777bb4', TypeScript: '#3178c6', Ja
         textContent: 'updated ' + new Date(r.pushed_at).toLocaleDateString('en', { month: 'short', year: 'numeric' }) }));
       return li;
     }));
-  } catch {
+  } catch (err) {
+    console.error('Could not load GitHub repositories:', err);
     list.innerHTML = `<li class="gh-note">Couldn't load repositories right now. <a href="https://github.com/${GITHUB_USER}" target="_blank" rel="noopener noreferrer">See them on GitHub ↗</a></li>`;
   }
 })();
