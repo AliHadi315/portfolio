@@ -1,3 +1,9 @@
+// Sections are only hidden for the scroll reveal once this script is running (the `js` class),
+// and the reveal is set up first, so a blocked script or a bug further down can't leave the page blank.
+document.documentElement.classList.add('js');
+const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && (e.target.classList.add('in'), io.unobserve(e.target))), { rootMargin: '0px 0px -8% 0px' });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
 const EMAIL = 'meselmanialihadi@gmail.com';
 const $ = s => document.querySelector(s);
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -186,9 +192,7 @@ btn.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
 menu.addEventListener('click', e => e.target.closest('a') && setMenu(false));
 addEventListener('keydown', e => e.key === 'Escape' && setMenu(false));
 
-// ---- Scroll reveal + active nav ----
-const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && (e.target.classList.add('in'), io.unobserve(e.target))), { rootMargin: '0px 0px -8% 0px' });
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+// ---- Active nav ----
 const navLinks = [...document.querySelectorAll('.nav-links a')];
 const spy = new IntersectionObserver(es => es.forEach(e => {
   if (e.isIntersecting) navLinks.forEach(a => a.setAttribute('aria-current', a.hash === '#' + e.target.id));
