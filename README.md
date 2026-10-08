@@ -24,7 +24,7 @@ Personal portfolio of a junior **AI, web and mobile developer** in Beirut: RAG p
 
 ## Built with
 
-Plain **HTML, CSS and JavaScript** in a single `index.html`: no framework and no build step.
+Plain **HTML, CSS and JavaScript** (`index.html`, `styles.css`, `script.js`): no framework and no build step.
 
 - Fonts: Bricolage Grotesque, Geist and Geist Mono, self-hosted in `fonts/` (SIL Open Font License)
 - Icons: [Lucide](https://lucide.dev) (ISC License), inlined as SVG
@@ -41,7 +41,9 @@ Then open <http://localhost:5500>. A local server behaves like the live site; op
 ## Project structure
 
 ```
-index.html          the whole site: markup, styles and scripts
+index.html          page content and structure
+styles.css          all styles, including the font setup
+script.js           demo, store, filters, GitHub list, menu and scroll effects
 cv.pdf              downloadable CV
 img/                project screenshots and the link preview image (og.jpg)
 fonts/              self-hosted web fonts
