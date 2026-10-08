@@ -10,17 +10,6 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const wait = ms => new Promise(r => setTimeout(r, reduce ? 0 : ms));
 $('#y').textContent = new Date().getFullYear();
 
-// ---- Links to sections (#work, #contact…): scroll with JS, so they also work in previews
-// that show the page as a data: URL, where the browser blocks plain #hash navigation. ----
-document.addEventListener('click', e => {
-  const link = e.target.closest('a[href^="#"]');
-  const target = link && document.getElementById(link.getAttribute('href').slice(1));
-  if (!target) return;
-  e.preventDefault();
-  target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
-  if (location.protocol !== 'data:') history.pushState(null, '', link.getAttribute('href')); // browsers refuse this on data: URLs
-});
-
 // ---- Simulated RAG demo. Edit questions, sources and answers here. ----
 const QA = [
   { q: 'What do you build?',
