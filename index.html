@@ -74,9 +74,7 @@
   [hidden] { display: none !important; }
   .shell { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: 1.25rem; }
   .mono { font-family: var(--mono); }
-  .muted { color: var(--muted); }
   .lime { color: var(--lime); }
-  .violet { color: var(--violet); }
   .icon { width: 1rem; height: 1rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
   .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .skip:focus { position: fixed; left: 1rem; top: 1rem; z-index: 60; width: auto; height: auto; clip: auto; padding: .5rem 1rem; background: var(--lime); color: var(--lime-ink); border-radius: 8px; }
@@ -928,9 +926,9 @@
       <p class="sec-head" style="justify-content:center"><b>07</b>// contact</p>
       <h2 class="h2">Let's build something that thinks.</h2>
       <p class="sec-sub">Based in Beirut, Lebanon. Have an app idea, a role, or a business process that AI could speed up? Tell me about it.</p>
-      <div class="term"><span class="lime">$</span><code>mail <span id="email-text">meselmanialihadi@gmail.com</span></code><button type="button" class="copy" id="copy"><svg class="icon"><use href="#i-copy"/></svg><span>copy</span></button></div>
+      <div class="term"><span class="lime">$</span><code>mail meselmanialihadi@gmail.com</code><button type="button" class="copy" id="copy"><svg class="icon"><use href="#i-copy"/></svg><span>copy</span></button></div>
       <div class="hero-actions">
-        <a href="mailto:meselmanialihadi@gmail.com" class="btn btn-lime" id="mail-btn"><svg class="icon"><use href="#i-mail"/></svg>Email me</a>
+        <a href="mailto:meselmanialihadi@gmail.com" class="btn btn-lime"><svg class="icon"><use href="#i-mail"/></svg>Email me</a>
         <a href="https://www.linkedin.com/in/alihadimeselmani/" target="_blank" rel="noopener noreferrer" class="btn btn-line"><svg class="icon"><use href="#i-linkedin"/></svg>LinkedIn</a>
         <a href="https://github.com/AliHadi315" target="_blank" rel="noopener noreferrer" class="btn btn-line"><svg class="icon"><use href="#i-github"/></svg>GitHub</a>
       </div>
@@ -964,7 +962,7 @@
     if (!target) return;
     e.preventDefault();
     target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
-    try { history.pushState(null, '', link.getAttribute('href')); } catch {} // not allowed on data: URLs
+    if (location.protocol !== 'data:') history.pushState(null, '', link.getAttribute('href')); // browsers refuse this on data: URLs
   });
 
   // ---- Simulated RAG demo. Edit questions, sources and answers here. ----
@@ -1118,8 +1116,6 @@
   }));
 
   // ---- Copy email ----
-  $('#email-text').textContent = EMAIL;
-  $('#mail-btn').href = 'mailto:' + EMAIL;
   $('#copy').addEventListener('click', async e => {
     const label = e.currentTarget.querySelector('span');
     try { await navigator.clipboard.writeText(EMAIL); label.textContent = 'copied!'; }
