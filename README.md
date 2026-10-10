@@ -41,15 +41,16 @@ Then open <http://localhost:5500>. A local server behaves like the live site; op
 ## Project structure
 
 ```
-index.html          page content and structure
-styles.css          all styles, including the font setup
-script.js           demo, store, filters, GitHub list, menu and scroll effects
-cv.pdf              downloadable CV
-img/                project screenshots and the link preview image (og.jpg)
-fonts/              self-hosted web fonts
-robots.txt          search engine rules
-sitemap.xml         page list for search engines
-docs/screenshots/   images used in this README (not deployed)
+index.html                  page content and structure
+styles.css                  all styles, including the font setup
+script.js                   demo, store, filters, GitHub list, menu and scroll effects
+Ali_Hadi_Meselmani_CV.pdf   downloadable CV
+vercel.json                 redirects the old /cv.pdf link to the CV
+img/                        project screenshots and the link preview image (og.jpg)
+fonts/                      self-hosted web fonts
+robots.txt                  search engine rules
+sitemap.xml                 page list for search engines
+docs/screenshots/           images used in this README (not deployed)
 ```
 
 ## Contact
