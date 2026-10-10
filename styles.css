@@ -333,6 +333,7 @@ section.sec { padding-top: 8.5rem; }
 .certs time { font: 12px var(--mono); color: var(--dim); align-self: center; }
 @media (min-width: 720px) {
   .certs li { grid-template-columns: minmax(0, 1fr) 14rem 5.5rem; align-items: baseline; padding-inline: .75rem; }
+  .certs li:lang(ar) { grid-template-columns: minmax(0, 1fr) 14rem 7.5rem; } /* Lebanese month names, e.g. تشرين الثاني, are longer */
   .certs b { grid-column: auto; }
   .certs time { text-align: end; }
 }

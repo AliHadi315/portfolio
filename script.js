@@ -17,7 +17,7 @@ const ltr = s => AR ? `⁦${s}⁩` : s;
 const T = AR ? {
   streaming: 'يبثّ…', tokens: n => `${n} رمزًا`, grounded: (ms, n) => `${ltr(`${ms} ms`)} · من ${n} مصادر`,
   words: ['تفكّر', 'تتحدّث', 'تبيع', 'تتذكّر', 'تستنتج'],
-  noRepos: 'ستظهر المستودعات الجديدة هنا تلقائيًا.', noDesc: 'لا يوجد وصف بعد.', updated: 'آخر تحديث ', dateLocale: 'ar-u-nu-latn',
+  noRepos: 'ستظهر المستودعات الجديدة هنا تلقائيًا.', noDesc: 'لا يوجد وصف بعد.', updated: 'آخر تحديث ', dateLocale: 'ar-LB-u-nu-latn',
   loadFail: 'تعذّر تحميل المستودعات الآن.', seeOnGitHub: 'شاهدها على GitHub ↗',
   copy: 'نسخ', copied: 'تم النسخ!', openMenu: 'فتح القائمة', closeMenu: 'إغلاق القائمة',
 } : {
