@@ -1,6 +1,6 @@
 # Ali Hadi Meselmani · Portfolio
 
-**Live site: [ali-hadi-meselmani.vercel.app](https://ali-hadi-meselmani.vercel.app)**
+**Live site: [ali-hadi-meselmani.vercel.app](https://ali-hadi-meselmani.vercel.app)** · in Arabic: [/ar/](https://ali-hadi-meselmani.vercel.app/ar/)
 
 ![Portfolio hero: "I build apps that think", with a simulated RAG assistant](docs/screenshots/desktop-hero.jpg)
 
@@ -12,6 +12,7 @@ Personal portfolio of a junior **AI, web and mobile developer** in Beirut: RAG p
 - **Websites & online stores** section with a working **demo store**: switch between English and Arabic (full right-to-left), pick a color and size, and see the delivery fee change by area.
 - **Projects** with real screenshots, a filter (AI & LLM / Flutter / Web), and a **"More on GitHub"** list that loads my public repositories live from the GitHub API, so new repos appear without editing the page.
 - **Experience** styled as a `git log`, plus certifications and community events.
+- **Arabic version** at `/ar/`: the whole site in Arabic, right to left, with an EN | عربي switch in the header.
 - **Link preview card** (Open Graph / Twitter), structured data for search engines, `robots.txt` and `sitemap.xml`.
 
 ## Screenshots
@@ -26,7 +27,7 @@ Personal portfolio of a junior **AI, web and mobile developer** in Beirut: RAG p
 
 Plain **HTML, CSS and JavaScript** (`index.html`, `styles.css`, `script.js`): no framework and no build step.
 
-- Fonts: Bricolage Grotesque, Geist and Geist Mono, self-hosted in `fonts/` (SIL Open Font License)
+- Fonts: Bricolage Grotesque, Geist, Geist Mono and IBM Plex Sans Arabic, self-hosted in `fonts/` (SIL Open Font License)
 - Icons: [Lucide](https://lucide.dev) (ISC License), inlined as SVG
 - Hosting: [Vercel](https://vercel.com), deployed with the Vercel CLI
 
@@ -36,14 +37,15 @@ Plain **HTML, CSS and JavaScript** (`index.html`, `styles.css`, `script.js`): no
 python -m http.server 5500
 ```
 
-Then open <http://localhost:5500>. A local server behaves like the live site; opening `index.html` directly also works.
+Then open <http://localhost:5500> (Arabic: <http://localhost:5500/ar/>). A local server behaves like the live site. Opening `index.html` directly also works, but the Arabic page needs the server: its links to the shared files start with `/`.
 
 ## Project structure
 
 ```
 index.html                  page content and structure
+ar/index.html               the same page in Arabic (right to left); change both pages together
 styles.css                  all styles, including the font setup
-script.js                   demo, store, filters, GitHub list, menu and scroll effects
+script.js                   demo, store, filters, GitHub list, menu and scroll effects (English and Arabic text)
 Ali_Hadi_Meselmani_CV.pdf   downloadable CV
 vercel.json                 redirects the old /cv.pdf link to the CV
 img/                        project screenshots and the link preview image (og.jpg)
