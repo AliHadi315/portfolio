@@ -10,37 +10,70 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const wait = ms => new Promise(r => setTimeout(r, reduce ? 0 : ms));
 $('#y').textContent = new Date().getFullYear();
 
-// ---- Simulated RAG demo. Edit questions, sources and answers here. ----
+// The Arabic page (/ar/) runs this same script and picks its text by <html lang>
+const AR = document.documentElement.lang === 'ar';
+// Isolates a Latin snippet like "1536-d · 18ms" so right-to-left Arabic text doesn't reorder its parts
+const ltr = s => AR ? `⁦${s}⁩` : s;
+const T = AR ? {
+  streaming: 'يبثّ…', tokens: n => `${n} رمزًا`, grounded: (ms, n) => `${ltr(`${ms} ms`)} · من ${n} مصادر`,
+  words: ['تفكّر', 'تتحدّث', 'تبيع', 'تتذكّر', 'تستنتج'],
+  noRepos: 'ستظهر المستودعات الجديدة هنا تلقائيًا.', noDesc: 'لا يوجد وصف بعد.', updated: 'آخر تحديث ', dateLocale: 'ar-u-nu-latn',
+  loadFail: 'تعذّر تحميل المستودعات الآن.', seeOnGitHub: 'شاهدها على GitHub ↗',
+  copy: 'نسخ', copied: 'تم النسخ!', openMenu: 'فتح القائمة', closeMenu: 'إغلاق القائمة',
+} : {
+  streaming: 'streaming…', tokens: n => `${n} tokens`, grounded: (ms, n) => `${ms} ms · grounded in ${n} sources`,
+  words: ['think', 'talk', 'sell', 'remember', 'reason'],
+  noRepos: 'New repositories will appear here automatically.', noDesc: 'No description yet.', updated: 'updated ', dateLocale: 'en',
+  loadFail: "Couldn't load repositories right now.", seeOnGitHub: 'See them on GitHub ↗',
+  copy: 'copy', copied: 'copied!', openMenu: 'Open menu', closeMenu: 'Close menu',
+};
+
+// ---- Simulated RAG demo. Edit questions, sources and answers here (qAr/aAr: the Arabic page). ----
 const QA = [
   { q: 'What do you build?',
     st: ['1536-d · 18ms', 'top-k 12 · 41ms', 'kept 3 · 22ms'],
     src: [['about.md', .93], ['experience/develoop.md', .88], ['services.md', .81]],
-    a: 'At Develoop Group I build RAG pipelines, LLM agents and bilingual websites and online stores. I also take freelance web projects, and build my own apps like UniMate and Baleegh.', ms: 640 },
+    a: 'At Develoop Group I build RAG pipelines, LLM agents and bilingual websites and online stores. I also take freelance web projects, and build my own apps like UniMate and Baleegh.', ms: 640,
+    qAr: 'ماذا تبني؟',
+    aAr: 'في Develoop Group أبني أنظمة RAG ووكلاء LLM ومواقع ومتاجر إلكترونية ثنائية اللغة. وأعمل أيضًا على مشاريع ويب مستقلة، وأبني تطبيقاتي الخاصة مثل UniMate وبلّغ.' },
   { q: 'How do you use AI in your apps?',
     st: ['1536-d · 16ms', 'top-k 12 · 38ms', 'kept 3 · 25ms'],
     src: [['projects/isacademy-rag.md', .95], ['projects/sightline.md', .90], ['projects/baleegh.md', .82]],
-    a: 'Isacademy answers questions over PDFs in English or Arabic, with page-level citations. Sightline describes what a camera sees for people with low vision. Baleegh uses AI to prioritise citizen reports for municipalities.', ms: 702 },
+    a: 'Isacademy answers questions over PDFs in English or Arabic, with page-level citations. Sightline describes what a camera sees for people with low vision. Baleegh uses AI to prioritise citizen reports for municipalities.', ms: 702,
+    qAr: 'كيف تستخدم الذكاء الاصطناعي في تطبيقاتك؟',
+    aAr: 'يجيب Isacademy عن الأسئلة من ملفات PDF بالعربية أو الإنجليزية، مع الإشارة إلى الصفحة. ويصف Sightline ما تراه الكاميرا للأشخاص ضعاف البصر. ويستخدم بلّغ الذكاء الاصطناعي لترتيب أولوية بلاغات المواطنين للبلديات.' },
   { q: 'Do you code with AI?',
     st: ['1536-d · 15ms', 'top-k 12 · 36ms', 'kept 3 · 21ms'],
     src: [['workflow.md', .94], ['process.md', .89], ['toolbox.md', .80]],
-    a: 'Yes, every day. I build web and AI projects with coding agents like Claude Code, Codex and Antigravity, and research with ChatGPT, Gemini and Claude. AI makes me faster, but I review, test and understand every line before it ships.', ms: 615 },
+    a: 'Yes, every day. I build web and AI projects with coding agents like Claude Code, Codex and Antigravity, and research with ChatGPT, Gemini and Claude. AI makes me faster, but I review, test and understand every line before it ships.', ms: 615,
+    qAr: 'هل تبرمج بالذكاء الاصطناعي؟',
+    aAr: 'نعم، كل يوم. أبني مشاريع الويب والذكاء الاصطناعي مع وكلاء برمجة مثل Claude Code وCodex وAntigravity، وأبحث باستخدام ChatGPT وGemini وClaude. الذكاء الاصطناعي يجعلني أسرع، لكنني أراجع كل سطر وأختبره وأفهمه قبل إطلاقه.' },
   { q: 'Is AI-written code safe?',
     st: ['1536-d · 16ms', 'top-k 12 · 39ms', 'kept 3 · 22ms'],
     src: [['workflow.md', .93], ['process.md', .88], ['toolbox.md', .81]],
-    a: 'Only if someone checks it. AI drafts fast, but I review every line, test it, and fix anything that looks wrong before it ships. Client passwords and data never go into AI tools.', ms: 630 },
+    a: 'Only if someone checks it. AI drafts fast, but I review every line, test it, and fix anything that looks wrong before it ships. Client passwords and data never go into AI tools.', ms: 630,
+    qAr: 'هل الكود الذي يكتبه الذكاء الاصطناعي آمن؟',
+    aAr: 'فقط إذا راجعه أحد. الذكاء الاصطناعي يكتب المسودة بسرعة، لكنني أراجع كل سطر وأختبره وأصلح أي خلل قبل الإطلاق. ولا تدخل كلمات مرور العملاء أو بياناتهم في أدوات الذكاء الاصطناعي أبدًا.' },
   { q: 'Can you build my online store?',
     st: ['1536-d · 17ms', 'top-k 12 · 40ms', 'kept 3 · 23ms'],
     src: [['services/websites.md', .96], ['experience/develoop.md', .87], ['projects/al-qaysr.md', .79]],
-    a: 'Yes. I build fast, mobile-first stores in English, Arabic or both, with product options, cash on delivery or online payments, delivery fees by area, and orders sent straight to your WhatsApp.', ms: 660 },
+    a: 'Yes. I build fast, mobile-first stores in English, Arabic or both, with product options, cash on delivery or online payments, delivery fees by area, and orders sent straight to your WhatsApp.', ms: 660,
+    qAr: 'هل يمكنك بناء متجري الإلكتروني؟',
+    aAr: 'نعم. أبني متاجر سريعة مصمّمة للجوّال أولًا بالعربية أو الإنجليزية أو كلتيهما، مع خيارات للمنتجات، والدفع عند الاستلام أو الدفع الإلكتروني، ورسوم توصيل حسب المنطقة، وطلبات تصل مباشرة إلى واتساب.' },
   { q: 'Can you add AI to my existing app?',
     st: ['1536-d · 17ms', 'top-k 12 · 44ms', 'kept 3 · 20ms'],
     src: [['process.md', .91], ['services.md', .87], ['projects/unimate-web.md', .78]],
-    a: 'Usually, yes. We pick one feature where AI saves real time, I build a working demo on your data within days, and I review and test every line before it goes live.', ms: 588 },
+    a: 'Usually, yes. We pick one feature where AI saves real time, I build a working demo on your data within days, and I review and test every line before it goes live.', ms: 588,
+    qAr: 'هل يمكنك إضافة الذكاء الاصطناعي إلى تطبيقي الحالي؟',
+    aAr: 'غالبًا نعم. نختار ميزة واحدة يوفّر فيها الذكاء الاصطناعي وقتًا حقيقيًا، وأبني نموذجًا عمليًا على بياناتك خلال أيام، وأراجع كل سطر وأختبره قبل الإطلاق.' },
   { q: 'Are you open to work?',
     st: ['1536-d · 14ms', 'top-k 12 · 35ms', 'kept 3 · 19ms'],
     src: [['contact.md', .95], ['about.md', .86], ['cv.pdf#p1', .80]],
-    a: "Yes, remotely: freelance web projects and the right AI or web role. I'm based in Beirut and work in English and Arabic. Email me at meselmanialihadi@gmail.com.", ms: 570 },
+    a: "Yes, remotely: freelance web projects and the right AI or web role. I'm based in Beirut and work in English and Arabic. Email me at meselmanialihadi@gmail.com.", ms: 570,
+    qAr: 'هل أنت متاح للعمل؟',
+    aAr: 'نعم، عن بُعد: مشاريع ويب مستقلة، ووظيفة مناسبة في الذكاء الاصطناعي أو الويب. أنا مقيم في بيروت وأعمل بالعربية والإنجليزية. راسلني على meselmanialihadi@gmail.com.' },
 ];
+if (AR) QA.forEach(d => Object.assign(d, { q: d.qAr, a: d.aAr }));
 const stages = [...document.querySelectorAll('.stage')];
 const asks = [...document.querySelectorAll('.ask')];
 let run = 0, auto = true;
@@ -56,15 +89,15 @@ async function play(i) {
   await wait(250); if (!live()) return;
   for (let k = 0; k < 3; k++) {
     stages[k].classList.add('active'); await wait(480); if (!live()) return;
-    stages[k].classList.replace('active', 'done'); stages[k].querySelector('small').textContent = d.st[k];
+    stages[k].classList.replace('active', 'done'); stages[k].querySelector('small').textContent = ltr(d.st[k]);
     if (k === 1) $('#chunks').innerHTML = d.src.map(([s, v]) => `<li><span>${s}</span><i style="--w:${v * 100}%"></i><b>${v.toFixed(2)}</b></li>`).join('');
   }
-  const gen = stages[3]; gen.classList.add('active'); gen.querySelector('small').textContent = 'streaming…';
+  const gen = stages[3]; gen.classList.add('active'); gen.querySelector('small').textContent = T.streaming;
   const tokens = d.a.match(/\S+\s*/g);
   for (const t of tokens) { $('#a').textContent += t; await wait(38); if (!live()) return; }
-  gen.classList.replace('active', 'done'); gen.querySelector('small').textContent = `${tokens.length} tokens`;
+  gen.classList.replace('active', 'done'); gen.querySelector('small').textContent = T.tokens(tokens.length);
   $('#a').classList.add('done');
-  $('#tot').textContent = `${d.ms} ms · grounded in ${d.src.length} sources`;
+  $('#tot').textContent = T.grounded(d.ms, d.src.length);
   // The typed text isn't a live region (it would be read letter by letter); announce the full answer once,
   // and only for questions the visitor clicked, never during autoplay.
   if (!auto) $('#demo-announce').textContent = `${d.q} ${d.a}`;
@@ -78,7 +111,7 @@ new IntersectionObserver((es, obs) => {
 
 // ---- Headline word rotator ----
 if (!reduce) (async () => {
-  const words = ['think', 'talk', 'sell', 'remember', 'reason'], el = $('#rot');
+  const words = T.words, el = $('#rot');
   for (let w = 0; ; w = (w + 1) % words.length) {
     await wait(2400);
     while (el.textContent) { el.textContent = el.textContent.slice(0, -1); await wait(45); }
@@ -110,7 +143,7 @@ const LANG_COLORS = { Dart: '#00b4ab', PHP: '#777bb4', TypeScript: '#3178c6', Ja
     if (invalid.length) console.warn(`Skipping ${invalid.length} GitHub entries without a name`, invalid);
     const repos = data.filter(r => typeof r?.name === 'string' &&
       !r.fork && !r.archived && !shown.has(r.name.toLowerCase()) && !(r.topics || []).includes('no-portfolio'));
-    if (!repos.length) { list.innerHTML = '<li class="gh-note">New repositories will appear here automatically.</li>'; return; }
+    if (!repos.length) { list.replaceChildren(Object.assign(document.createElement('li'), { className: 'gh-note', textContent: T.noRepos })); return; }
     list.replaceChildren(...repos.map(r => {
       const li = document.createElement('li');
       li.innerHTML = `<a class="gh-row" target="_blank" rel="noopener noreferrer"><strong></strong><p></p><span class="gh-meta"></span><svg class="icon arrow"><use href="#i-arrow"/></svg></a>`;
@@ -121,7 +154,7 @@ const LANG_COLORS = { Dart: '#00b4ab', PHP: '#777bb4', TypeScript: '#3178c6', Ja
       a.href = site ?? `https://github.com/${GITHUB_USER}/${encodeURIComponent(r.name)}`;
       a.querySelector('strong').textContent = r.name.replace(/[-_]+/g, ' ');
       const p = a.querySelector('p');
-      p.textContent = r.description || 'No description yet.';
+      p.textContent = r.description || T.noDesc;
       if (!r.description) p.className = 'none';
       const meta = a.querySelector('.gh-meta');
       if (r.language) {
@@ -133,12 +166,12 @@ const LANG_COLORS = { Dart: '#00b4ab', PHP: '#777bb4', TypeScript: '#3178c6', Ja
       }
       if (r.stargazers_count) meta.append(Object.assign(document.createElement('span'), { textContent: `★ ${r.stargazers_count}` }));
       meta.append(Object.assign(document.createElement('span'), {
-        textContent: 'updated ' + new Date(r.pushed_at).toLocaleDateString('en', { month: 'short', year: 'numeric' }) }));
+        textContent: T.updated + new Date(r.pushed_at).toLocaleDateString(T.dateLocale, { month: 'short', year: 'numeric' }) }));
       return li;
     }));
   } catch (err) {
     console.error('Could not load GitHub repositories:', err);
-    list.innerHTML = `<li class="gh-note">Couldn't load repositories right now. <a href="https://github.com/${GITHUB_USER}" target="_blank" rel="noopener noreferrer">See them on GitHub ↗</a></li>`;
+    list.innerHTML = `<li class="gh-note">${T.loadFail} <a href="https://github.com/${GITHUB_USER}" target="_blank" rel="noopener noreferrer">${T.seeOnGitHub}</a></li>`;
   }
 })();
 
@@ -153,6 +186,7 @@ store.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', 
   translatable.forEach(el => el.textContent = ar ? el.dataset.ar : el.dataset.en);
   store.querySelectorAll('.lang button').forEach(x => x.setAttribute('aria-pressed', x === b));
 }));
+if (AR) store.querySelector('.lang button[data-lang="ar"]').click(); // the Arabic page shows the store in Arabic first
 store.querySelectorAll('.opts').forEach(group => group.addEventListener('click', e => {
   const pick = e.target.closest('button');
   if (!pick) return;
@@ -174,9 +208,9 @@ document.querySelectorAll('.spot').forEach(el => el.addEventListener('pointermov
 // ---- Copy email ----
 $('#copy').addEventListener('click', async e => {
   const label = e.currentTarget.querySelector('span');
-  try { await navigator.clipboard.writeText(EMAIL); label.textContent = 'copied!'; }
+  try { await navigator.clipboard.writeText(EMAIL); label.textContent = T.copied; }
   catch { location.href = 'mailto:' + EMAIL; }
-  setTimeout(() => label.textContent = 'copy', 1800);
+  setTimeout(() => label.textContent = T.copy, 1800);
 });
 
 // ---- Mobile menu ----
@@ -185,7 +219,7 @@ function setMenu(open) {
   menu.classList.toggle('open', open); menu.inert = !open;
   btn.setAttribute('aria-expanded', open);
   btn.querySelector('use').setAttribute('href', open ? '#i-x' : '#i-menu');
-  btn.querySelector('.sr-only').textContent = open ? 'Close menu' : 'Open menu';
+  btn.querySelector('.sr-only').textContent = open ? T.closeMenu : T.openMenu;
   document.body.style.overflow = open ? 'hidden' : '';
 }
 btn.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
