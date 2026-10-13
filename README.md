@@ -47,9 +47,9 @@ ar/index.html               the same page in Arabic (right to left); change both
 styles.css                  all styles, including the font setup
 script.js                   demo, store, filters, GitHub list, menu and scroll effects (English and Arabic text)
 Ali_Hadi_Meselmani_CV.pdf   downloadable CV
-vercel.json                 redirects the old /cv.pdf link to the CV
-img/                        project screenshots and the link preview image (og.jpg)
-fonts/                      self-hosted web fonts
+vercel.json                 redirects the old /cv.pdf link to the CV; browser caching for fonts and images
+img/                        project screenshots and the link preview image (og.jpg); browsers keep them a week
+fonts/                      self-hosted web fonts; browsers keep them a year, so give a changed font a new filename
 robots.txt                  search engine rules
 sitemap.xml                 page list for search engines
 docs/screenshots/           images used in this README (not deployed)
