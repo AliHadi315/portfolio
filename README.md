@@ -25,36 +25,39 @@ Personal portfolio of a junior **AI, web and mobile developer** in Beirut: RAG p
 
 ## Built with
 
-Plain **HTML, CSS and JavaScript** (`index.html`, `styles.css`, `script.js`): no framework and no build step.
+Plain **HTML, CSS and JavaScript**: no framework and no build step. Everything the site serves is in `public/`.
 
-- Fonts: Bricolage Grotesque, Geist, Geist Mono and IBM Plex Sans Arabic, self-hosted in `fonts/` (SIL Open Font License)
+- Fonts: Bricolage Grotesque, Geist, Geist Mono and IBM Plex Sans Arabic, self-hosted in `public/assets/fonts/` (SIL Open Font License)
 - Icons: [Lucide](https://lucide.dev) (ISC License), inlined as SVG
-- Hosting: [Vercel](https://vercel.com), deployed with the Vercel CLI
+- Hosting: [Vercel](https://vercel.com), deployed with the Vercel CLI; it publishes only the `public/` folder
 
 ## Run it locally
 
 ```bash
-python -m http.server 5500
+python -m http.server 5500 --directory public
 ```
 
-Then open <http://localhost:5500> (Arabic: <http://localhost:5500/ar/>). A local server behaves like the live site. Opening `index.html` directly also works, but the Arabic page needs the server: its links to the shared files start with `/`.
+Then open <http://localhost:5500> (Arabic: <http://localhost:5500/ar/>). A local server behaves like the live site. Opening `public/index.html` directly also works, but the Arabic page and the 404 page need the server: their links to the shared files start with `/`.
 
 ## Project structure
 
 ```
-index.html                  page content and structure
-ar/index.html               the same page in Arabic (right to left); change both pages together
-styles.css                  all styles, including the font setup
-script.js                   demo, store, filters, GitHub list, menu and scroll effects (English and Arabic text)
-Ali_Hadi_Meselmani_CV.pdf   downloadable CV
-vercel.json                 redirects the old /cv.pdf link to the CV; browser caching for fonts and images
-img/                        project screenshots and the link preview image (og.jpg); browsers keep them a week
-fonts/                      self-hosted web fonts; browsers keep them a year, so give a changed font a new filename
-404.html                    page shown for addresses that don't exist (English and Arabic)
-favicon.ico, apple-touch-icon.png   the "A/" icon for browsers, crawlers and iPhone home screens
-robots.txt                  search engine rules
-sitemap.xml                 page list for search engines
-docs/screenshots/           images used in this README (not deployed)
+public/                         everything the website serves (nothing outside it is published)
+  index.html                    English page
+  ar/index.html                 the same page in Arabic (right to left); change both pages together
+  404.html                      page shown for addresses that don't exist (English and Arabic)
+  Ali_Hadi_Meselmani_CV.pdf     downloadable CV
+  favicon.ico                   the "A/" icon for browsers and crawlers
+  apple-touch-icon.png          the same icon for iPhone home screens
+  robots.txt, sitemap.xml       rules and page list for search engines
+  assets/
+    css/styles.css              all styles, including the font setup
+    js/script.js                demo, store, filters, GitHub list, menu and scroll effects (English and Arabic text)
+    fonts/                      self-hosted web fonts; browsers keep them a year, so give a changed font a new filename
+    img/                        project screenshots and the link preview image (og.jpg); browsers keep them a week
+docs/screenshots/               images used in this README (not published)
+vercel.json                     publishes public/, redirects old /cv.pdf and /img/ links, sets browser caching
+.gitignore, .vercelignore       keep local files out of git and out of deploys
 ```
 
 ## Contact
