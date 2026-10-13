@@ -50,6 +50,8 @@ Ali_Hadi_Meselmani_CV.pdf   downloadable CV
 vercel.json                 redirects the old /cv.pdf link to the CV; browser caching for fonts and images
 img/                        project screenshots and the link preview image (og.jpg); browsers keep them a week
 fonts/                      self-hosted web fonts; browsers keep them a year, so give a changed font a new filename
+404.html                    page shown for addresses that don't exist (English and Arabic)
+favicon.ico, apple-touch-icon.png   the "A/" icon for browsers, crawlers and iPhone home screens
 robots.txt                  search engine rules
 sitemap.xml                 page list for search engines
 docs/screenshots/           images used in this README (not deployed)
