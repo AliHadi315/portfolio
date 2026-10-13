@@ -17,13 +17,13 @@ const ltr = s => AR ? `⁦${s}⁩` : s;
 const T = AR ? {
   streaming: 'يبثّ…', tokens: n => `${n} رمزًا`, grounded: (ms, n) => `${ltr(`${ms} ms`)} · من ${n} مصادر`,
   words: ['تفكّر', 'تتحدّث', 'تبيع', 'تتذكّر', 'تستنتج'],
-  noRepos: 'ستظهر المستودعات الجديدة هنا تلقائيًا.', noDesc: 'لا يوجد وصف بعد.', updated: 'آخر تحديث ', dateLocale: 'ar-LB-u-nu-latn',
+  updated: 'آخر تحديث ', dateLocale: 'ar-LB-u-nu-latn',
   loadFail: 'تعذّر تحميل المستودعات الآن.', seeOnGitHub: 'شاهدها على GitHub ↗',
   copy: 'نسخ', copied: 'تم النسخ!', openMenu: 'فتح القائمة', closeMenu: 'إغلاق القائمة',
 } : {
   streaming: 'streaming…', tokens: n => `${n} tokens`, grounded: (ms, n) => `${ms} ms · grounded in ${n} sources`,
   words: ['think', 'talk', 'sell', 'remember', 'reason'],
-  noRepos: 'New repositories will appear here automatically.', noDesc: 'No description yet.', updated: 'updated ', dateLocale: 'en',
+  updated: 'updated ', dateLocale: 'en',
   loadFail: "Couldn't load repositories right now.", seeOnGitHub: 'See them on GitHub ↗',
   copy: 'copy', copied: 'copied!', openMenu: 'Open menu', closeMenu: 'Close menu',
 };
@@ -135,15 +135,17 @@ const LANG_COLORS = { Dart: '#00b4ab', PHP: '#777bb4', TypeScript: '#3178c6', Ja
   const shown = new Set([...document.querySelectorAll('[data-repo]')].map(el => el.dataset.repo.toLowerCase()));
   shown.add('portfolio'); // this site's own repo: don't list the portfolio inside itself
   try {
-    const res = await fetch(`https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&sort=pushed`);
+    // GitHub's API (no login: 60 requests an hour per network) can be slow or refuse; after 8 s show the fallback below
+    const res = await fetch(`https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&sort=pushed`, { signal: AbortSignal.timeout(8000) });
     if (!res.ok) throw new Error(`GitHub returned ${res.status}: ${(await res.text()).slice(0, 200)}`);
     const data = await res.json();
     if (!Array.isArray(data)) throw new Error(`GitHub response is not a list of repositories: ${JSON.stringify(data).slice(0, 200)}`);
     const invalid = data.filter(r => typeof r?.name !== 'string');
     if (invalid.length) console.warn(`Skipping ${invalid.length} GitHub entries without a name`, invalid);
-    const repos = data.filter(r => typeof r?.name === 'string' &&
+    // Only repos with a description: one without looks unfinished next to the featured projects
+    const repos = data.filter(r => typeof r?.name === 'string' && typeof r.description === 'string' && r.description.trim() &&
       !r.fork && !r.archived && !shown.has(r.name.toLowerCase()) && !(r.topics || []).includes('no-portfolio'));
-    if (!repos.length) { list.replaceChildren(Object.assign(document.createElement('li'), { className: 'gh-note', textContent: T.noRepos })); return; }
+    if (!repos.length) { list.closest('.gh').hidden = true; return; } // nothing to show: hide the whole "More on GitHub" block
     list.replaceChildren(...repos.map(r => {
       const li = document.createElement('li');
       li.innerHTML = `<a class="gh-row" target="_blank" rel="noopener noreferrer"><strong></strong><p></p><span class="gh-meta"></span><svg class="icon arrow"><use href="#i-arrow"/></svg></a>`;
@@ -154,8 +156,7 @@ const LANG_COLORS = { Dart: '#00b4ab', PHP: '#777bb4', TypeScript: '#3178c6', Ja
       a.href = site ?? `https://github.com/${GITHUB_USER}/${encodeURIComponent(r.name)}`;
       a.querySelector('strong').textContent = r.name.replace(/[-_]+/g, ' ');
       const p = a.querySelector('p');
-      p.textContent = r.description || T.noDesc;
-      if (!r.description) p.className = 'none';
+      p.textContent = r.description;
       const meta = a.querySelector('.gh-meta');
       if (r.language) {
         const lang = document.createElement('span');

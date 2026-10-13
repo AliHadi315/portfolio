@@ -237,7 +237,6 @@ section.sec { padding-top: 8.5rem; }
 .gh-row strong { font-weight: 500; transition: color .2s; }
 .gh-row:hover strong { color: var(--lime); }
 .gh-row p { color: var(--muted); font-size: .9375rem; }
-.gh-row p.none { color: var(--dim); font-style: italic; }
 .gh-meta { display: flex; flex-wrap: wrap; gap: .25rem 1rem; font: 12px var(--mono); color: var(--dim); }
 .gh-meta i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-inline-end: .4rem; background: var(--c, var(--dim)); }
 .gh-row .arrow { display: none; color: var(--dim); transition: translate .2s, color .2s; }
