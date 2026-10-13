@@ -10,7 +10,7 @@ Personal portfolio of a junior **AI, web and mobile developer** in Beirut: RAG p
 
 - **Simulated RAG assistant** in the hero: each question walks through *embed → retrieve → rerank → generate* and streams a scripted answer, with the "retrieved sources" and their scores. It is clearly labelled as simulated.
 - **Websites & online stores** section with a working **demo store**: switch between English and Arabic (full right-to-left), pick a color and size, and see the delivery fee change by area.
-- **Projects** with real screenshots, a filter (AI & LLM / Flutter / Web), and a **"More on GitHub"** list that loads my public repositories live from the GitHub API, so new repos appear without editing the page.
+- **Projects** with real screenshots, a filter (AI & LLM / Flutter / Web), and a **"More on GitHub"** list that loads my public repositories live from the GitHub API, so new repos appear without editing the page (only repos with a description; the list hides itself when there are none).
 - **Experience** styled as a `git log`, plus certifications and community events.
 - **Arabic version** at `/ar/`: the whole site in Arabic, right to left, with an EN | عربي switch in the header.
 - **Link preview card** (Open Graph / Twitter), structured data for search engines, `robots.txt` and `sitemap.xml`.
@@ -47,9 +47,11 @@ ar/index.html               the same page in Arabic (right to left); change both
 styles.css                  all styles, including the font setup
 script.js                   demo, store, filters, GitHub list, menu and scroll effects (English and Arabic text)
 Ali_Hadi_Meselmani_CV.pdf   downloadable CV
-vercel.json                 redirects the old /cv.pdf link to the CV
-img/                        project screenshots and the link preview image (og.jpg)
-fonts/                      self-hosted web fonts
+vercel.json                 redirects the old /cv.pdf link to the CV; browser caching for fonts and images
+img/                        project screenshots and the link preview image (og.jpg); browsers keep them a week
+fonts/                      self-hosted web fonts; browsers keep them a year, so give a changed font a new filename
+404.html                    page shown for addresses that don't exist (English and Arabic)
+favicon.ico, apple-touch-icon.png   the "A/" icon for browsers, crawlers and iPhone home screens
 robots.txt                  search engine rules
 sitemap.xml                 page list for search engines
 docs/screenshots/           images used in this README (not deployed)

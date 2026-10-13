@@ -33,6 +33,7 @@
   --display: "Bricolage Grotesque", "IBM Plex Sans Arabic", ui-sans-serif, system-ui, sans-serif;
   --sans: "Geist", "IBM Plex Sans Arabic", ui-sans-serif, system-ui, sans-serif;
   --mono: "Geist Mono", "IBM Plex Sans Arabic", ui-monospace, Menlo, monospace;
+  font-family: var(--sans);
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { color-scheme: dark; scroll-behavior: smooth; scroll-padding-top: 5rem; }
@@ -94,8 +95,7 @@ header nav { display: flex; align-items: center; justify-content: space-between;
 .hero::before { width: 520px; height: 520px; inset-inline-end: -120px; top: 40px; background: rgba(167,139,250,.16); }
 .hero::after { width: 420px; height: 420px; inset-inline-end: 260px; top: 260px; background: rgba(198,243,107,.08); }
 .hero-grid { position: relative; z-index: 1; display: grid; gap: 4rem; align-items: center; }
-.kicker { display: inline-flex; align-items: center; gap: .6rem; font: 13px var(--mono); color: var(--muted); border: 1px solid var(--line-2); border-radius: 999px; padding-block: .35rem; padding-inline: .45rem .9rem; background: rgba(18,18,21,.6); }
-.kicker b { white-space: nowrap; font-weight: 500; color: var(--lime-ink); background: var(--lime); border-radius: 999px; padding: .05rem .55rem; }
+.kicker { font: 13px var(--mono); color: var(--muted); text-wrap: balance; }
 .hello { margin-top: 1.75rem; font: 500 clamp(1.35rem, 2.6vw, 1.9rem)/1.2 var(--display); letter-spacing: -.02em; color: var(--muted); }
 .hello strong { color: var(--fg); font-weight: 700; }
 h1 { margin-top: .9rem; font: 700 clamp(3rem, 7.4vw, 5.75rem)/.98 var(--display); letter-spacing: -.045em; }
@@ -237,7 +237,6 @@ section.sec { padding-top: 8.5rem; }
 .gh-row strong { font-weight: 500; transition: color .2s; }
 .gh-row:hover strong { color: var(--lime); }
 .gh-row p { color: var(--muted); font-size: .9375rem; }
-.gh-row p.none { color: var(--dim); font-style: italic; }
 .gh-meta { display: flex; flex-wrap: wrap; gap: .25rem 1rem; font: 12px var(--mono); color: var(--dim); }
 .gh-meta i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-inline-end: .4rem; background: var(--c, var(--dim)); }
 .gh-row .arrow { display: none; color: var(--dim); transition: translate .2s, color .2s; }
@@ -259,7 +258,6 @@ section.sec { padding-top: 8.5rem; }
 .biz-ai .icon { width: 1.1rem; height: 1.1rem; margin-top: .15rem; color: var(--violet); }
 .biz-stack { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; margin-top: 2rem; font: 12px var(--mono); color: var(--dim); }
 .store { width: 100%; max-width: 400px; justify-self: center; padding: 1.25rem; border-radius: 22px; background: linear-gradient(180deg, #151519, #101013); }
-.store[lang="ar"] { font-family: var(--sans); }
 .store-top { display: flex; justify-content: space-between; align-items: center; gap: 1rem; font: 12px var(--mono); color: var(--dim); }
 .lang { display: inline-flex; padding: 2px; border: 1px solid var(--line-2); border-radius: 999px; }
 .lang button { font: 12px var(--mono); color: var(--muted); padding: .2rem .7rem; border-radius: 999px; transition: .2s; }
@@ -331,6 +329,12 @@ section.sec { padding-top: 8.5rem; }
 .certs b small { display: block; margin-top: .15rem; font: 12px var(--mono); color: var(--dim); font-weight: 400; }
 .certs span { color: var(--muted); font-size: .9375rem; }
 .certs time { font: 12px var(--mono); color: var(--dim); align-self: center; }
+/* the rest of the certificates sit in a native <details>: no script needed, and screen readers announce open/closed */
+.certs summary { display: inline-flex; margin-top: 1rem; padding: .45rem .9rem; border: 1px solid var(--line-2); border-radius: 999px; font: 13px var(--mono); color: var(--muted); cursor: pointer; list-style: none; transition: color .2s, border-color .2s; }
+.certs summary::-webkit-details-marker { display: none; }
+.certs summary:hover { color: var(--fg); border-color: var(--fg); }
+.certs details[open] summary { margin-bottom: 1rem; }
+.certs details[open] .more, .certs details:not([open]) .less { display: none; }
 @media (min-width: 720px) {
   .certs li { grid-template-columns: minmax(0, 1fr) 14rem 5.5rem; align-items: baseline; padding-inline: .75rem; }
   .certs li:lang(ar) { grid-template-columns: minmax(0, 1fr) 14rem 7.5rem; } /* Lebanese month names, e.g. تشرين الثاني, are longer */
@@ -375,9 +379,13 @@ footer a:hover { color: var(--fg); }
 
 /* motion */
 .rise { animation: rise .8s var(--ease) both; animation-delay: calc(var(--d, 0) * 1ms); }
+/* the headline slides in without fading: Chrome only counts a faded-in headline as shown when its text next changes,
+   so the word rotator pushed the page's "largest paint" score to ~3 s */
+h1.rise { animation-name: slide; }
 .js .reveal { opacity: 0; transform: translateY(20px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
 .reveal.in { opacity: 1; transform: none; }
 @keyframes rise { from { opacity: 0; transform: translateY(14px); } }
+@keyframes slide { from { transform: translateY(14px); } }
 @keyframes blink { 50% { opacity: 0; } }
 @keyframes pulse { 50% { opacity: .35; } }
 @keyframes scroll { to { transform: translateX(-50%); } }
@@ -415,7 +423,6 @@ h1:lang(ar) { line-height: 1.25; }
   .menu-btn { display: grid; }
 }
 @media (max-width: 420px) {
-  .kicker-loc { display: none; }
   /* make room for the language switch next to the menu button on small phones */
   header nav { gap: .75rem; }
   .logo { font-size: 13px; }
