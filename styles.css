@@ -95,8 +95,7 @@ header nav { display: flex; align-items: center; justify-content: space-between;
 .hero::before { width: 520px; height: 520px; inset-inline-end: -120px; top: 40px; background: rgba(167,139,250,.16); }
 .hero::after { width: 420px; height: 420px; inset-inline-end: 260px; top: 260px; background: rgba(198,243,107,.08); }
 .hero-grid { position: relative; z-index: 1; display: grid; gap: 4rem; align-items: center; }
-.kicker { display: inline-flex; align-items: center; gap: .6rem; font: 13px var(--mono); color: var(--muted); border: 1px solid var(--line-2); border-radius: 999px; padding-block: .35rem; padding-inline: .45rem .9rem; background: rgba(18,18,21,.6); }
-.kicker b { white-space: nowrap; font-weight: 500; color: var(--lime-ink); background: var(--lime); border-radius: 999px; padding: .05rem .55rem; }
+.kicker { font: 13px var(--mono); color: var(--muted); text-wrap: balance; }
 .hello { margin-top: 1.75rem; font: 500 clamp(1.35rem, 2.6vw, 1.9rem)/1.2 var(--display); letter-spacing: -.02em; color: var(--muted); }
 .hello strong { color: var(--fg); font-weight: 700; }
 h1 { margin-top: .9rem; font: 700 clamp(3rem, 7.4vw, 5.75rem)/.98 var(--display); letter-spacing: -.045em; }
@@ -424,7 +423,6 @@ h1:lang(ar) { line-height: 1.25; }
   .menu-btn { display: grid; }
 }
 @media (max-width: 420px) {
-  .kicker-loc { display: none; }
   /* make room for the language switch next to the menu button on small phones */
   header nav { gap: .75rem; }
   .logo { font-size: 13px; }
