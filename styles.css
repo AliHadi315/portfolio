@@ -33,6 +33,7 @@
   --display: "Bricolage Grotesque", "IBM Plex Sans Arabic", ui-sans-serif, system-ui, sans-serif;
   --sans: "Geist", "IBM Plex Sans Arabic", ui-sans-serif, system-ui, sans-serif;
   --mono: "Geist Mono", "IBM Plex Sans Arabic", ui-monospace, Menlo, monospace;
+  font-family: var(--sans);
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { color-scheme: dark; scroll-behavior: smooth; scroll-padding-top: 5rem; }
@@ -258,7 +259,6 @@ section.sec { padding-top: 8.5rem; }
 .biz-ai .icon { width: 1.1rem; height: 1.1rem; margin-top: .15rem; color: var(--violet); }
 .biz-stack { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; margin-top: 2rem; font: 12px var(--mono); color: var(--dim); }
 .store { width: 100%; max-width: 400px; justify-self: center; padding: 1.25rem; border-radius: 22px; background: linear-gradient(180deg, #151519, #101013); }
-.store[lang="ar"] { font-family: var(--sans); }
 .store-top { display: flex; justify-content: space-between; align-items: center; gap: 1rem; font: 12px var(--mono); color: var(--dim); }
 .lang { display: inline-flex; padding: 2px; border: 1px solid var(--line-2); border-radius: 999px; }
 .lang button { font: 12px var(--mono); color: var(--muted); padding: .2rem .7rem; border-radius: 999px; transition: .2s; }
