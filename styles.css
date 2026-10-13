@@ -330,6 +330,12 @@ section.sec { padding-top: 8.5rem; }
 .certs b small { display: block; margin-top: .15rem; font: 12px var(--mono); color: var(--dim); font-weight: 400; }
 .certs span { color: var(--muted); font-size: .9375rem; }
 .certs time { font: 12px var(--mono); color: var(--dim); align-self: center; }
+/* the rest of the certificates sit in a native <details>: no script needed, and screen readers announce open/closed */
+.certs summary { display: inline-flex; margin-top: 1rem; padding: .45rem .9rem; border: 1px solid var(--line-2); border-radius: 999px; font: 13px var(--mono); color: var(--muted); cursor: pointer; list-style: none; transition: color .2s, border-color .2s; }
+.certs summary::-webkit-details-marker { display: none; }
+.certs summary:hover { color: var(--fg); border-color: var(--fg); }
+.certs details[open] summary { margin-bottom: 1rem; }
+.certs details[open] .more, .certs details:not([open]) .less { display: none; }
 @media (min-width: 720px) {
   .certs li { grid-template-columns: minmax(0, 1fr) 14rem 5.5rem; align-items: baseline; padding-inline: .75rem; }
   .certs li:lang(ar) { grid-template-columns: minmax(0, 1fr) 14rem 7.5rem; } /* Lebanese month names, e.g. تشرين الثاني, are longer */
