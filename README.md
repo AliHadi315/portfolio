@@ -52,7 +52,8 @@ public/                         everything the website serves (nothing outside i
   robots.txt, sitemap.xml       rules and page list for search engines
   assets/
     css/styles.css              all styles, including the font setup
-    js/script.js                demo, store, filters, GitHub list, menu and scroll effects (English and Arabic text)
+    js/content.js               all the text the script writes, in English and Arabic: demo questions and answers, labels
+    js/script.js                behaviour: demo, store, filters, GitHub list, menu and scroll effects
     fonts/                      self-hosted web fonts; browsers keep them a year, so give a changed font a new filename
     img/                        project screenshots and the link preview image (og.jpg); browsers keep them a week
 docs/screenshots/               images used in this README (not published)
