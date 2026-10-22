@@ -202,28 +202,41 @@ section.sec { padding-top: 8.5rem; }
 .filter { font: 13px var(--mono); color: var(--muted); border: 1px solid var(--line-2); border-radius: 999px; padding: .4rem .9rem; transition: .2s; }
 .filter:hover { color: var(--fg); }
 .filter[aria-pressed="true"] { color: var(--bg); background: var(--fg); border-color: var(--fg); }
-.projects { display: grid; gap: 1rem; margin-top: 2rem; }
-.proj { padding: 1.75rem; display: flex; flex-direction: column; gap: .9rem; overflow: hidden; }
-.shot { display: block; width: calc(100% + 3.5rem); max-width: none; height: auto; margin: -1.75rem -1.75rem .35rem;
-  aspect-ratio: 16 / 10; object-fit: cover; object-position: top center; border-bottom: 1px solid var(--line);
-  background: var(--card-2); transition: transform .6s var(--ease); }
-.proj:hover .shot { transform: scale(1.025); }
-.proj.featured .shot { width: 100%; margin: 0; aspect-ratio: 16 / 9; }
+.projects { display: grid; gap: 1rem; margin-top: 2rem; counter-reset: proj; }
+.proj { --pad: 1.75rem; padding: var(--pad); display: flex; flex-direction: column; gap: .9rem; overflow: hidden; counter-increment: proj; }
+/* every screenshot sits in the same dark frame and rises from its bottom edge, so light and dark screenshots read as one set */
+.shot-frame { margin: calc(var(--pad) * -1) calc(var(--pad) * -1) .35rem; padding: 1.5rem 1.5rem 0; overflow: hidden; border-bottom: 1px solid var(--line);
+  background: radial-gradient(90% 70% at 50% 0%, rgba(255,255,255,.05), transparent 70%), #0e0e11; }
+.shot { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top center;
+  margin-bottom: -6px; border: 1px solid var(--line-2); border-radius: 10px 10px 0 0; background: var(--card-2);
+  box-shadow: 0 24px 60px -24px rgba(0, 0, 0, .9); transition: transform .5s var(--ease); }
+/* a side-by-side composite (Isacademy) keeps its own shape instead of being cropped into 16:10 */
+.shot.whole { aspect-ratio: auto; background: #0f0f12; }
+/* the 6px tucked under the frame's edge keeps the lift from opening a gap */
+.proj:hover .shot { transform: translateY(-4px); }
 .proj-top { display: flex; align-items: center; gap: .4rem; }
+/* project number, like the services' /01; filtered-out cards don't count, so the numbers stay in sequence */
+.proj-top::before { content: "/" counter(proj, decimal-leading-zero); direction: ltr; margin-inline-end: .35rem; font: 12px var(--mono); color: var(--dim); }
 .kind { font: 11px/1 var(--mono); letter-spacing: .04em; text-transform: uppercase; padding: .35rem .5rem; border-radius: 6px; color: var(--c); background: color-mix(in srgb, var(--c) 12%, transparent); }
 .k-ai { --c: var(--violet); } .k-flutter { --c: var(--sky); } .k-web { --c: var(--lime); }
 .year { margin-inline-start: auto; font: 12px var(--mono); color: var(--dim); }
 .proj h3 { font: 600 1.6rem/1.1 var(--display); letter-spacing: -.03em; }
 .proj p { color: var(--muted); }
-.metrics { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; font: 13px var(--mono); color: var(--dim); }
+/* dividers between figures: the list is shifted 1rem back and clipped, so the divider in front of the first figure on each line is hidden */
+.metrics { display: flex; flex-wrap: wrap; gap: .5rem 0; margin-inline-start: -1rem; overflow: hidden; font: 13px var(--mono); color: var(--dim); }
+.metrics li { margin-inline-start: -1px; padding-inline: 1rem; border-inline-start: 1px solid var(--line-2); }
 .metrics b { color: var(--fg); font-weight: 500; }
-.proj-links { display: flex; gap: 1.25rem; margin-top: auto; padding-top: .5rem; font-size: .9375rem; }
+.proj-links { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1.25rem; margin-top: auto; padding-top: .5rem; font-size: .9375rem; }
 .proj-links a { display: inline-flex; align-items: center; gap: .35rem; color: var(--muted); transition: color .2s; }
 .proj-links a:hover { color: var(--lime); }
 .proj-links a .icon { transition: translate .2s; }
 .proj-links a:hover .icon { translate: 2px -2px; }
+.proj-links .live { padding: .45rem .95rem; border-radius: 999px; background: var(--lime); color: var(--lime-ink); font-weight: 500; }
+.proj-links .live:hover { background: #d6fa8c; color: var(--lime-ink); }
 .proj.featured { padding: 0; display: grid; overflow: hidden; }
-.proj.featured .info { padding: 2.25rem; display: flex; flex-direction: column; gap: .9rem; }
+.proj.featured .shot-frame { margin: 0; }
+.proj.featured .info { padding: 2.25rem; display: flex; flex-direction: column; justify-content: center; gap: .9rem; }
+.proj.featured .proj-links { margin-top: .25rem; }
 .proj.featured h3 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
 .code { margin: 0; padding: 1.5rem; border-top: 1px solid var(--line); background: #0d0d10; font: 13px/1.75 var(--mono); color: var(--muted); overflow-x: auto; }
 .code .fn { color: var(--lime); } .code .kw { color: var(--violet); } .code .st { color: var(--sky); } .code .cm { color: var(--dim); }
@@ -409,11 +422,14 @@ h1:lang(ar) { line-height: 1.25; }
 @media (min-width: 1024px) {
   .hero { padding-top: 10rem; }
   .hero-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); }
-  .proj.featured { grid-column: 1 / -1; grid-template-columns: 1.1fr 1fr; }
-  .proj.featured .shot { grid-column: 1 / -1; aspect-ratio: 21 / 8; }
-  .proj.featured .code { border-top: 0; border-inline-start: 1px solid var(--line); padding: 2.25rem 1.75rem; }
-  /* the code block stays left to right (dir="ltr"), so on the Arabic page its divider goes on its right, facing the text */
-  [dir="rtl"] .proj.featured .code { border-inline-start: 0; border-inline-end: 1px solid var(--line); }
+  /* featured projects side by side: screenshot and code on one side, the story on the other, alternating */
+  .proj.featured { grid-column: 1 / -1; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); grid-template-rows: auto 1fr;
+    grid-template-areas: "frame info" "code info"; }
+  .proj.featured.flip { grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); grid-template-areas: "info frame" "info code"; }
+  .proj.featured .shot-frame { grid-area: frame; }
+  .proj.featured .code { grid-area: code; border-top: 0; padding: 1.75rem; }
+  .proj.featured .info { grid-area: info; border-inline-start: 1px solid var(--line); }
+  .proj.featured.flip .info { border-inline-start: 0; border-inline-end: 1px solid var(--line); }
 }
 @media (min-width: 720px) and (max-width: 1023px) { .proj.featured { grid-column: 1 / -1; } }
 @media (max-width: 1200px) { .status { display: none; } }
@@ -434,6 +450,10 @@ h1:lang(ar) { line-height: 1.25; }
   .hero { padding-top: 7.5rem; }
   section.sec { padding-top: 6.5rem; }
   .demo-foot .tot { width: 100%; margin-inline-start: 0; }
+  .proj { --pad: 1.25rem; }
+  .shot-frame { padding: 1rem 1rem 0; }
+  .proj.featured .info { padding: 1.5rem 1.25rem; }
+  .code { padding: 1.25rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
