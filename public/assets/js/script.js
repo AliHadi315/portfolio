@@ -69,6 +69,8 @@ filters.forEach(f => f.addEventListener('click', () => {
   filters.forEach(x => x.setAttribute('aria-pressed', x === f));
   projs.forEach(p => p.hidden = f.dataset.f !== 'all' && !p.dataset.tags.split(' ').includes(f.dataset.f));
 }));
+// "See the work" on a service jumps to the projects with its filter already on
+document.querySelectorAll('.svc-link').forEach(a => a.addEventListener('click', () => $(`.filter[data-f="${a.dataset.f}"]`).click()));
 
 // ---- GitHub repos: loaded live, so new public repos show up without editing this page ----
 const GITHUB_USER = 'AliHadi315';
