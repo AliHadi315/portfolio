@@ -455,6 +455,8 @@ section.sec { padding-top: 8.5rem; }
 
 /* toolbox */
 .tools { display: grid; gap: 1rem; }
+/* the four stack cards' wrapper only matters on phones, where it becomes a swipeable row */
+.stack { display: contents; }
 .tool { padding: 1.5rem; }
 /* the folder heading is underlined in the card's own colour, so the four categories read as a colour-coded set */
 .tool h3 { font: 500 14px var(--mono); color: var(--c); margin-bottom: 1rem; padding-bottom: .75rem; border-bottom: 1px solid color-mix(in srgb, var(--c) 35%, transparent); }
@@ -467,14 +469,20 @@ section.sec { padding-top: 8.5rem; }
 /* the workflow rows are long (three tools each), so their caption always sits above the names */
 .workflow > ul > li { flex-direction: column; align-items: flex-start; gap: .2rem; }
 .workflow > ul > li span { text-align: start; }
-.why { margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px dashed var(--line-2); }
-.why h4 { margin-bottom: .75rem; font: 500 13px var(--mono); color: var(--violet); }
-.why ul { display: grid; gap: 1rem; }
-.why li { display: block; color: var(--muted); font-size: .9rem; }
-.why b { display: block; margin-bottom: .2rem; color: var(--fg); font-weight: 500; }
+.workflow .why { margin: 1.25rem 0 0; padding-top: 1.25rem; border-top: 1px dashed var(--line-2); font-size: .9375rem; }
+.why b { color: var(--fg); font-weight: 500; }
 @media (min-width: 720px) {
   .workflow ul { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 2.5rem; }
   .workflow > ul > li { border-bottom: 0; }
+}
+/* phones: the four stack cards sit in one row you swipe through, edge to edge, with the next card peeking in */
+@media (width < 720px) {
+  .stack { display: flex; gap: .75rem; margin-inline: -1.25rem; padding-inline: 1.25rem; scroll-padding-inline: 1.25rem;
+    overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none; }
+  .stack::-webkit-scrollbar { display: none; }
+  .stack > .tool { flex: 0 0 85%; scroll-snap-align: start; }
+  /* cards off to the side never cross the viewport, so they skip the scroll reveal */
+  .js .stack > .reveal { opacity: 1; transform: none; }
 }
 
 /* contact: the pitch and actions on one side, the ways to reach me on the other */
