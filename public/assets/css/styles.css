@@ -380,20 +380,25 @@ section.sec { padding-top: 8.5rem; }
 /* toolbox */
 .tools { display: grid; gap: 1rem; }
 .tool { padding: 1.5rem; }
-.tool h3 { font: 500 14px var(--mono); color: var(--c); margin-bottom: 1rem; }
-.tool li { display: flex; justify-content: space-between; gap: 1rem; padding: .45rem 0; border-bottom: 1px dashed var(--line); font-size: .9375rem; }
-.tool li:last-child { border: 0; }
-.tool li span { font: 12px var(--mono); color: var(--dim); }
+/* the folder heading is underlined in the card's own colour, so the four categories read as a colour-coded set */
+.tool h3 { font: 500 14px var(--mono); color: var(--c); margin-bottom: 1rem; padding-bottom: .75rem; border-bottom: 1px solid color-mix(in srgb, var(--c) 35%, transparent); }
+/* each row: the category is a small caption, the tech names lead */
+.tool > ul > li { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: .55rem 0; border-bottom: 1px dashed var(--line); font: 12px var(--mono); color: var(--dim); }
+.tool > ul > li:last-child { border: 0; }
+.tool > ul > li span { font: 500 .875rem/1.45 var(--sans); color: var(--fg); text-align: end; }
 .tool.workflow { grid-column: 1 / -1; }
 .workflow p { color: var(--muted); margin-bottom: .5rem; }
+/* the workflow rows are long (three tools each), so their caption always sits above the names */
+.workflow > ul > li { flex-direction: column; align-items: flex-start; gap: .2rem; }
+.workflow > ul > li span { text-align: start; }
 .why { margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px dashed var(--line-2); }
 .why h4 { margin-bottom: .75rem; font: 500 13px var(--mono); color: var(--violet); }
 .why ul { display: grid; gap: 1rem; }
-.tool .why li { display: block; padding: 0; border: 0; color: var(--muted); font-size: .9rem; }
+.why li { display: block; color: var(--muted); font-size: .9rem; }
 .why b { display: block; margin-bottom: .2rem; color: var(--fg); font-weight: 500; }
 @media (min-width: 720px) {
   .workflow ul { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 2.5rem; }
-  .workflow li { flex-direction: column; gap: .3rem; border-bottom: 0; }
+  .workflow > ul > li { border-bottom: 0; }
 }
 
 /* contact */
@@ -456,7 +461,12 @@ h1:lang(ar) { line-height: 1.25; }
 }
 @media (min-width: 720px) and (max-width: 1023px) { .proj.featured { grid-column: 1 / -1; } }
 @media (max-width: 1200px) { .status { display: none; } }
-@media (min-width: 1200px) { .tools { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 1200px) {
+  .tools { grid-template-columns: repeat(4, 1fr); }
+  /* four narrow columns: the caption sits above the tech names, so the names never wrap */
+  .tool:not(.workflow) > ul > li { flex-direction: column; align-items: flex-start; gap: .15rem; }
+  .tool:not(.workflow) > ul > li span { text-align: start; }
+}
 @media (max-width: 960px) {
   .nav-links, .nav-cta { display: none; }
   .menu-btn { display: grid; }
