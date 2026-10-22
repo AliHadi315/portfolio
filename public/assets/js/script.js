@@ -182,6 +182,12 @@ $('#copy').addEventListener('click', async e => {
   setTimeout(() => label.textContent = T.copy, 1800);
 });
 
+// ---- Header: see-through over the top of the hero, frosted once the page scrolls ----
+const header = $('header');
+const onScroll = () => header.classList.toggle('scrolled', scrollY > 8);
+addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
 // ---- Mobile menu ----
 const btn = $('.menu-btn'), menu = $('#mobile-menu');
 function setMenu(open) {
@@ -196,7 +202,7 @@ menu.addEventListener('click', e => e.target.closest('a') && setMenu(false));
 addEventListener('keydown', e => e.key === 'Escape' && setMenu(false));
 
 // ---- Active nav ----
-const navLinks = [...document.querySelectorAll('.nav-links a')];
+const navLinks = [...document.querySelectorAll('.nav-links a, #mobile-menu > a:not(.btn)')];
 const spy = new IntersectionObserver(es => es.forEach(e => {
   if (e.isIntersecting) navLinks.forEach(a => a.setAttribute('aria-current', a.hash === '#' + e.target.id));
 }), { rootMargin: '-45% 0px -50% 0px' });
