@@ -326,12 +326,41 @@ section.sec { padding-top: 8.5rem; }
 @media (min-width: 1024px) { .biz { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); } }
 
 /* process */
-.steps { display: grid; gap: 1rem; counter-reset: s; }
-.step { padding: 1.75rem; border-top: 1px solid var(--line-2); position: relative; }
-.step::before { content: ""; position: absolute; top: -4px; inset-inline-start: 0; width: 7px; height: 7px; border-radius: 50%; background: var(--lime); }
-.step .mono { font-size: 12px; color: var(--lime); }
-.step h3 { font: 600 1.35rem var(--display); letter-spacing: -.02em; margin: .5rem 0; }
+/* process: one timeline through numbered steps, down the side on phones and across from 720px.
+   Each step's connecting line draws in once the step is revealed; without the script it is simply there. */
+/* the grey half of the heading starts its own line, so "up." never sits alone */
+#process .h2 em { display: block; }
+.steps { display: grid; }
+.step { position: relative; padding-inline-start: 3.75rem; padding-bottom: 2.5rem; }
+.step:last-child { padding-bottom: 0; }
+.step-num { position: absolute; inset-inline-start: 0; top: 0; display: grid; place-items: center; width: 2.5rem; height: 2.5rem; border: 1px solid var(--line-2); border-radius: 50%; background: var(--bg); font: 500 13px var(--mono); color: var(--lime); }
+.step::after { content: ""; position: absolute; inset-inline-start: calc(1.25rem - .5px); top: 3rem; bottom: .5rem; width: 1px; background: var(--line-2); transform-origin: top; transition: transform .8s var(--ease) .3s; }
+.step:last-child::after { display: none; }
+.js .step:not(.in)::after { transform: scaleY(0); }
+.step h3 { margin-bottom: .5rem; padding-top: .35rem; font: 600 1.35rem var(--display); letter-spacing: -.02em; }
 .step p { color: var(--muted); font-size: .9375rem; }
+.step .step-out { margin-top: 1rem; padding-top: .9rem; border-top: 1px dashed var(--line-2); color: var(--fg); }
+.step-out b { margin-inline-end: .2rem; font: 400 12px var(--mono); color: var(--lime); }
+.steps-cta { margin-top: 3rem; color: var(--muted); }
+.steps-cta a { display: inline-flex; align-items: center; gap: .4rem; margin-inline-start: .35rem; font-weight: 500; color: var(--fg); transition: color .2s; }
+.steps-cta a:hover { color: var(--lime); }
+/* the link points down the page to Contact, so the arrow needs no mirroring on the Arabic page */
+.steps-cta .icon { rotate: 180deg; color: var(--lime); transition: translate .2s; }
+.steps-cta a:hover .icon { translate: 0 2px; }
+@media (min-width: 720px) {
+  .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 2rem; }
+  /* "you get" sits at the bottom of each column, so the three line up */
+  .step { display: flex; flex-direction: column; padding: 0; }
+  .step .step-out { margin-top: auto; }
+  .step h3 + p { margin-bottom: 1rem; }
+  .step-num { position: relative; margin-bottom: 1.5rem; }
+  .step h3 { padding-top: 0; }
+  /* the line runs from this step's number to the next one's, across the column gap */
+  .step::after { inset-block: 1.25rem auto; inset-inline: 3.25rem -1.25rem; width: auto; height: 1px; transform-origin: left; }
+  [dir="rtl"] .step::after { transform-origin: right; }
+  .js .step:not(.in)::after { transform: scaleX(0); }
+  .step:nth-child(2)::after { transition-delay: .7s; }
+}
 
 /* experience: git log */
 .log { position: relative; }
@@ -499,7 +528,6 @@ h1:lang(ar) { line-height: 1.25; }
 
 @media (min-width: 720px) {
   .projects, .tools { grid-template-columns: 1fr 1fr; }
-  .steps { grid-template-columns: repeat(3, 1fr); }
   .creds { grid-template-columns: repeat(2, 1fr); }
 }
 @media (min-width: 1024px) {
