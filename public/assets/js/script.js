@@ -9,6 +9,13 @@ const $ = s => document.querySelector(s);
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const wait = ms => new Promise(r => setTimeout(r, reduce ? 0 : ms));
 $('#y').textContent = new Date().getFullYear();
+// Beirut time in the footer, so a remote client can see what time it is here before writing
+const clock = $('#clock');
+const beirut = new Intl.DateTimeFormat(T.dateLocale, { hour: '2-digit', minute: '2-digit', hourCycle: 'h23', timeZone: 'Asia/Beirut' });
+const tick = () => { clock.textContent = beirut.format(new Date()); };
+tick();
+clock.parentElement.hidden = false;
+setInterval(tick, 15000);
 
 // ---- Simulated RAG demo (its questions and answers are in content.js) ----
 const stages = [...document.querySelectorAll('.stage')];
