@@ -108,7 +108,7 @@ h1 { margin-top: .9rem; font: 700 clamp(3rem, 7.4vw, 5.75rem)/.98 var(--display)
 .lead { margin-top: 1.75rem; max-width: 34rem; font-size: 1.125rem; color: var(--muted); }
 .lead strong { color: var(--fg); font-weight: 500; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2.25rem; }
-.hero-stats { display: flex; flex-wrap: wrap; gap: 1.75rem; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px dashed var(--line-2); font: 13px var(--mono); color: var(--dim); }
+.hero-stats { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 1.75rem; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px dashed var(--line-2); font: 13px var(--mono); color: var(--dim); }
 .hero-stats b { display: block; font: 600 1.75rem var(--display); letter-spacing: -.03em; color: var(--fg); }
 
 /* RAG demo window */
@@ -146,6 +146,8 @@ h1 { margin-top: .9rem; font: 700 clamp(3rem, 7.4vw, 5.75rem)/.98 var(--display)
 .answer.done::after { display: none; }
 .demo-foot { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; padding: .9rem 1.25rem; border-top: 1px solid var(--line); }
 .demo-foot > span { color: var(--dim); font-size: 12px; }
+/* the questions' wrapper only matters on phones, where it becomes a swipeable row */
+.asks { display: contents; }
 .ask { font: 12px var(--mono); color: var(--muted); border: 1px solid var(--line-2); border-radius: 999px; padding: .25rem .7rem; transition: .2s; }
 .ask:hover { color: var(--fg); border-color: var(--fg); }
 .ask[aria-pressed="true"] { color: var(--lime-ink); background: var(--lime); border-color: var(--lime); }
@@ -555,6 +557,9 @@ h1:lang(ar) { line-height: 1.25; }
   /* make room for the language switch next to the menu button on small phones */
   header nav { gap: .75rem; }
   .logo { font-size: 13px; }
+  /* the window dots make way, and the title wraps rather than cutting off "simulated" */
+  .demo-bar .dots { display: none; }
+  .demo-bar .ttl { white-space: normal; }
 }
 @media (max-width: 360px) { .logo .lt, .logo .sl { display: none; } }
 @media (max-width: 520px) {
@@ -563,6 +568,10 @@ h1:lang(ar) { line-height: 1.25; }
   .hero { padding-top: 7.5rem; }
   section.sec { padding-top: 6.5rem; }
   .demo-foot .tot { width: 100%; margin-inline-start: 0; }
+  /* the questions sit in one row you can swipe, instead of six stacked lines; the padding keeps focus rings unclipped */
+  .asks { display: flex; flex: 1; min-width: 0; gap: .5rem; padding: 5px; margin: -5px; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; }
+  .asks::-webkit-scrollbar { display: none; }
+  .ask { flex: none; }
   .proj { --pad: 1.25rem; }
   .shot-frame { padding: 1rem 1rem 0; }
   .proj.featured .info { padding: 1.5rem 1.25rem; }

@@ -21,10 +21,19 @@ setInterval(tick, 15000);
 const stages = [...document.querySelectorAll('.stage')];
 const asks = [...document.querySelectorAll('.ask')];
 let run = 0, auto = true;
+// On phones the questions scroll sideways in one row: keep the one playing in view, moving the row only, never the page
+const askRow = $('.asks');
+const showAsk = b => {
+  const row = askRow.getBoundingClientRect(), r = b.getBoundingClientRect();
+  if (askRow.scrollWidth <= askRow.clientWidth) return;
+  if (r.left < row.left) askRow.scrollBy({ left: r.left - row.left - 8, behavior: reduce ? 'auto' : 'smooth' });
+  else if (r.right > row.right) askRow.scrollBy({ left: r.right - row.right + 8, behavior: reduce ? 'auto' : 'smooth' });
+};
 
 async function play(i) {
   const id = ++run, live = () => id === run, d = QA[i];
   asks.forEach((b, j) => b.setAttribute('aria-pressed', i === j));
+  showAsk(asks[i]);
   $('#q').textContent = ''; $('#a').textContent = ''; $('#a').classList.remove('done');
   $('#chunks').innerHTML = ''; $('#tot').textContent = '—'; $('#demo-announce').textContent = '';
   stages.forEach(s => { s.className = 'stage'; s.querySelector('small').textContent = s.dataset.idle; });
