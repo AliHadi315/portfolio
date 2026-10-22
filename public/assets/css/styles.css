@@ -421,10 +421,29 @@ section.sec { padding-top: 8.5rem; }
 .reach .copy:hover { border-color: var(--lime); color: var(--lime); }
 @media (min-width: 900px) { .contact { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); column-gap: 4rem; } }
 
-footer .shell { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; padding-block: 2rem; border-top: 1px solid var(--line); font: 13px var(--mono); color: var(--dim); }
-footer ul { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; }
-footer a { transition: color .2s; }
-footer a:hover { color: var(--fg); }
+/* footer: who I am, an index of the page and my links; below them copyright, Beirut time, language and back to top.
+   The dividers sit inside the shell, so they line up with the content edges. */
+footer .shell { padding-bottom: 2rem; }
+.foot { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 1.5rem; padding-top: 3rem; border-top: 1px solid var(--line); }
+.foot-brand { grid-column: 1 / -1; }
+.foot-brand p { margin-top: .75rem; color: var(--muted); font-size: .9375rem; text-wrap: balance; }
+.foot-h { margin-bottom: 1rem; font: 12px var(--mono); color: var(--dim); }
+.foot ul { display: grid; gap: .65rem; }
+.foot ul a { display: inline-flex; align-items: center; gap: .6rem; color: var(--muted); transition: color .2s; }
+.foot ul a:hover { color: var(--fg); }
+.foot ul a span { font: 12px var(--mono); color: var(--dim); transition: color .2s; }
+.foot ul a:hover span { color: var(--lime); }
+.foot ul .icon { width: .85rem; height: .85rem; margin-inline-start: -.25rem; color: var(--dim); }
+.foot-bottom { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px dashed var(--line); font: 13px var(--mono); color: var(--dim); }
+.foot-tools { display: flex; align-items: center; gap: .75rem; margin-inline-start: auto; }
+.to-top { display: grid; place-items: center; width: 2.5rem; height: 2.5rem; border: 1px solid var(--line-2); border-radius: 50%; color: var(--fg); transition: color .2s, border-color .2s; }
+.to-top:hover { color: var(--lime); border-color: var(--lime); }
+/* phones: the copyright gets its own line, Beirut time and the buttons share the next */
+@media (max-width: 599px) { .foot-bottom > p:first-child { flex-basis: 100%; } }
+@media (min-width: 900px) {
+  .foot { grid-template-columns: minmax(0, 2fr) repeat(2, minmax(0, 1fr)); }
+  .foot-brand { grid-column: auto; }
+}
 
 /* motion */
 .rise { animation: rise .8s var(--ease) both; animation-delay: calc(var(--d, 0) * 1ms); }
