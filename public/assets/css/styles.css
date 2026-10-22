@@ -348,11 +348,9 @@ section.sec { padding-top: 8.5rem; }
 .steps-cta .icon { rotate: 180deg; color: var(--lime); transition: translate .2s; }
 .steps-cta a:hover .icon { translate: 0 2px; }
 @media (min-width: 720px) {
-  .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 2rem; }
-  /* "you get" sits at the bottom of each column, so the three line up */
-  .step { display: flex; flex-direction: column; padding: 0; }
-  .step .step-out { margin-top: auto; }
-  .step h3 + p { margin-bottom: 1rem; }
+  /* each step spans four shared rows (number, title, text, "you get"), so those line up across the columns at every width */
+  .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(4, auto); column-gap: 2rem; }
+  .step { display: grid; grid-row: span 4; grid-template-rows: subgrid; padding: 0; }
   .step-num { position: relative; margin-bottom: 1.5rem; }
   .step h3 { padding-top: 0; }
   /* the line runs from this step's number to the next one's, across the column gap */
