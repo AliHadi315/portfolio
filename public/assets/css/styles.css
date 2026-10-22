@@ -401,20 +401,29 @@ section.sec { padding-top: 8.5rem; }
   .workflow > ul > li { border-bottom: 0; }
 }
 
-/* contact */
-.contact { margin: 8.5rem 0 4rem; padding: clamp(2rem, 6vw, 4.5rem); border-radius: 28px; text-align: center; position: relative; overflow: hidden; border: 1px solid var(--line-2);
-  background: radial-gradient(60% 80% at 50% 0%, rgba(167,139,250,.18), transparent 70%), radial-gradient(40% 60% at 50% 110%, rgba(198,243,107,.12), transparent 70%), var(--card); }
-.contact .h2 { margin-inline: auto; max-width: 14ch; }
-.contact .sec-sub { margin-inline: auto; }
-.term { display: inline-flex; align-items: center; gap: .6rem; margin-top: 2rem; max-width: 100%; font: 14px var(--mono); color: var(--muted);
-  padding: .7rem; padding-inline-start: 1.1rem; border: 1px solid var(--line-2); border-radius: 12px; background: rgba(10,10,11,.6); }
-.term code { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.term .copy { display: inline-flex; align-items: center; gap: .35rem; font: 12px var(--mono); padding: .35rem .6rem; border-radius: 8px; border: 1px solid var(--line-2); color: var(--fg); transition: .2s; }
-.term .copy:hover { border-color: var(--lime); color: var(--lime); }
-.contact .hero-actions { justify-content: center; }
+/* contact: the pitch and actions on one side, the ways to reach me on the other */
+.contact { display: grid; gap: 2.5rem; margin: 8.5rem 0 4rem; padding: clamp(2rem, 6vw, 4.5rem); border-radius: 28px; position: relative; overflow: hidden; border: 1px solid var(--line-2);
+  background: radial-gradient(70% 55% at 50% 0%, rgba(198,243,107,.07), transparent 70%), var(--card); }
+.contact .h2 { max-width: 14ch; }
+.reach { align-self: center; }
+.reach li { display: grid; gap: .3rem; padding: .95rem 0; border-bottom: 1px dashed var(--line); }
+.reach li:first-child { padding-top: 0; }
+.reach li:last-child { padding-bottom: 0; border-bottom: 0; }
+.reach li > span { font: 12px var(--mono); color: var(--dim); }
+.reach a, .reach p, .reach code { color: var(--fg); font-weight: 500; }
+.reach a { display: inline-flex; align-items: center; gap: .4rem; width: fit-content; transition: color .2s; }
+.reach a:hover { color: var(--lime); }
+.reach a .icon { width: .9rem; height: .9rem; color: var(--dim); }
+/* the full address always shows: it wraps on the narrowest phones instead of being cut off */
+.reach-email { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .75rem; }
+.reach code { font: 500 15px var(--mono); overflow-wrap: anywhere; }
+.reach .copy { display: inline-flex; align-items: center; gap: .35rem; font: 12px var(--mono); padding: .35rem .6rem; border-radius: 8px; border: 1px solid var(--line-2); color: var(--fg); transition: .2s; }
+.reach .copy:hover { border-color: var(--lime); color: var(--lime); }
+@media (min-width: 900px) { .contact { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); column-gap: 4rem; } }
 
 footer .shell { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; padding-block: 2rem; border-top: 1px solid var(--line); font: 13px var(--mono); color: var(--dim); }
-footer ul { display: flex; gap: 1.25rem; }
+footer ul { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; }
+footer a { transition: color .2s; }
 footer a:hover { color: var(--fg); }
 
 /* motion */
