@@ -144,6 +144,19 @@ const SHIRT_PRICE = 24;
 const updateTotal = () => $('#store-total').textContent = '$' + (SHIRT_PRICE + Number(area.value));
 area.addEventListener('change', updateTotal);
 updateTotal();
+// "Order on WhatsApp" shows the message the store owner would get; it follows the options while it is open
+const order = $('#order'), orderBtn = store.querySelector('.wa');
+orderBtn.addEventListener('click', () => { order.hidden = !order.hidden; orderBtn.setAttribute('aria-expanded', !order.hidden); });
+const writeOrder = () => {
+  const sw = store.querySelector('.sw[aria-pressed="true"]');
+  order.querySelector('.o-color').textContent = store.lang === 'ar' ? sw.dataset.arName : sw.dataset.enName;
+  order.querySelector('.o-size').textContent = store.querySelector('.sz[aria-pressed="true"]').textContent;
+  order.querySelector('.o-area').textContent = area.selectedOptions[0].textContent;
+  order.querySelector('.o-total').textContent = $('#store-total').textContent;
+};
+writeOrder();
+// the store's own handlers run first (they sit on elements inside it), so this reads the updated choices
+['click', 'change'].forEach(type => store.addEventListener(type, writeOrder));
 
 // ---- Card spotlight ----
 document.querySelectorAll('.spot').forEach(el => el.addEventListener('pointermove', e => {

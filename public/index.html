@@ -254,53 +254,79 @@
           <div class="biz-stack reveal"><span>built with</span><ul class="chips"><li>Next.js</li><li>React</li><li>TypeScript</li><li>Tailwind CSS</li><li>Laravel</li><li>Supabase</li></ul></div>
         </div>
 
-        <!-- Demo store: shows the language switch (with right-to-left Arabic) and delivery fees by area. -->
-        <figure class="store spot reveal" id="store" dir="ltr" lang="en" aria-label="Demo online store">
-          <div class="store-top">
-            <span data-ar="متجر تجريبي">demo store</span>
-            <span class="lang" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="ar" aria-pressed="false">عربي</button></span>
-          </div>
-          <p class="store-name" data-ar="بوتيك لينا">Lina's Boutique</p>
-          <div class="product">
-            <span class="thumb" aria-hidden="true"></span>
-            <div>
-              <p class="p-name" data-ar="قميص كتان">Linen shirt</p>
-              <p class="p-price">$24</p>
-              <div class="opts" role="group" aria-label="Color">
-                <button type="button" class="sw" style="--sw:#e9e2d0" aria-label="Sand" aria-pressed="true"></button><button type="button" class="sw" style="--sw:#7c8b6f" aria-label="Olive" aria-pressed="false"></button><button type="button" class="sw" style="--sw:#2f3a4f" aria-label="Navy" aria-pressed="false"></button>
-              </div>
-              <div class="opts" role="group" aria-label="Size">
-                <button type="button" class="sz" aria-pressed="false">S</button><button type="button" class="sz" aria-pressed="true">M</button><button type="button" class="sz" aria-pressed="false">L</button>
+        <!-- Demo store: shows the language switch (with right-to-left Arabic), delivery fees by area and the WhatsApp order message. -->
+        <div class="store-wrap reveal">
+          <figure class="store spot" id="store" dir="ltr" lang="en" aria-label="Demo online store">
+            <div class="store-top">
+              <span data-ar="متجر تجريبي">demo store</span>
+              <span class="lang" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="ar" aria-pressed="false">عربي</button></span>
+            </div>
+            <p class="store-name" data-ar="بوتيك لينا">Lina's Boutique</p>
+            <div class="product">
+              <span class="thumb" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg></span>
+              <div>
+                <p class="p-name" data-ar="قميص كتان">Linen shirt</p>
+                <p class="p-price">$24</p>
+                <div class="opts" role="group" aria-label="Color">
+                  <button type="button" class="sw" style="--sw:#e9e2d0" data-en-name="Sand" data-ar-name="رملي" aria-label="Sand" aria-pressed="true"></button><button type="button" class="sw" style="--sw:#7c8b6f" data-en-name="Olive" data-ar-name="زيتي" aria-label="Olive" aria-pressed="false"></button><button type="button" class="sw" style="--sw:#2f3a4f" data-en-name="Navy" data-ar-name="كحلي" aria-label="Navy" aria-pressed="false"></button>
+                </div>
+                <div class="opts" role="group" aria-label="Size">
+                  <button type="button" class="sz" aria-pressed="false">S</button><button type="button" class="sz" aria-pressed="true">M</button><button type="button" class="sz" aria-pressed="false">L</button>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="store-rows">
-            <div><label for="area" data-ar="التوصيل">Delivery</label>
-              <select id="area">
-                <option value="3" data-ar="بيروت · $3">Beirut · $3</option>
-                <option value="4" data-ar="جبل لبنان · $4">Mount Lebanon · $4</option>
-                <option value="5" data-ar="الجنوب · $5">South · $5</option>
-              </select>
+            <div class="store-rows">
+              <div><label for="area" data-ar="التوصيل">Delivery</label>
+                <select id="area">
+                  <option value="3" data-ar="بيروت · $3">Beirut · $3</option>
+                  <option value="4" data-ar="جبل لبنان · $4">Mount Lebanon · $4</option>
+                  <option value="5" data-ar="الجنوب · $5">South · $5</option>
+                </select>
+              </div>
+              <div><span data-ar="الدفع">Payment</span><span data-ar="الدفع عند الاستلام">Cash on delivery</span></div>
+              <div class="total"><span data-ar="المجموع">Total</span><span id="store-total">$27</span></div>
             </div>
-            <div><span data-ar="الدفع">Payment</span><span data-ar="الدفع عند الاستلام">Cash on delivery</span></div>
-            <div class="total"><span data-ar="المجموع">Total</span><span id="store-total">$27</span></div>
-          </div>
-          <span class="wa"><svg class="icon"><use href="#i-chat"/></svg><span data-ar="اطلب عبر واتساب">Order on WhatsApp</span></span>
-        </figure>
+            <button type="button" class="wa" aria-expanded="false" aria-controls="order"><svg class="icon"><use href="#i-chat"/></svg><span data-ar="اطلب عبر واتساب">Order on WhatsApp</span></button>
+            <!-- the message the store owner receives; the script fills it from the options picked -->
+            <div class="order" id="order" hidden>
+              <b data-ar="طلب جديد">New order</b>
+              <span><span data-ar="قميص كتان">Linen shirt</span> · <span class="o-color"></span> · <span class="o-size"></span></span>
+              <span><span data-ar="التوصيل:">Delivery:</span> <span class="o-area"></span></span>
+              <span><span data-ar="المجموع:">Total:</span> <span class="o-total" dir="ltr"></span> · <span data-ar="الدفع عند الاستلام">cash on delivery</span></span>
+              <small aria-hidden="true">✓✓</small>
+            </div>
+          </figure>
+          <p class="store-hint"><span>try:</span> switch to <span lang="ar">عربي</span>, pick a colour and size, change the area, then order.</p>
+        </div>
       </div>
 
-      <ul class="biz-list mt">
-        <li class="reveal"><b>Bilingual websites</b> with full right-to-left Arabic support and a one-click language switch</li>
-        <li class="reveal"><b>E-commerce stores</b> with product catalogs, color and size options, shopping cart, and checkout</li>
-        <li class="reveal"><b>Flexible payment options:</b> cash on delivery, money transfer services, and online payments</li>
-        <li class="reveal"><b>Automatic delivery fees</b> calculated by area</li>
-        <li class="reveal"><b>Orders sent straight to the store owner's WhatsApp</b> for quick confirmation</li>
-        <li class="reveal"><b>Simple admin panels</b> so owners can track and update orders without technical skills</li>
-        <li class="reveal"><b>Showcase sites</b> that can be upgraded to full online stores later, with no rebuild needed</li>
-        <li class="reveal"><b>Mobile-first, responsive designs</b> that look sharp on every screen</li>
-        <li class="reveal"><b>Dark and light themes,</b> custom branding, and smooth animations</li>
-        <li class="reveal"><b>Low-cost hosting and databases,</b> so small businesses can launch with no monthly fees</li>
-      </ul>
+      <div class="biz-groups mt">
+        <div class="reveal">
+          <h3>// sell online</h3>
+          <ul class="biz-list">
+            <li><b>E-commerce stores</b> with product catalogs, color and size options, shopping cart, and checkout</li>
+            <li><b>Flexible payment options:</b> cash on delivery, money transfer services, and online payments</li>
+            <li><b>Automatic delivery fees</b> calculated by area</li>
+            <li><b>Orders sent straight to the store owner's WhatsApp</b> for quick confirmation</li>
+          </ul>
+        </div>
+        <div class="reveal">
+          <h3>// look the part</h3>
+          <ul class="biz-list">
+            <li><b>Bilingual websites</b> with full right-to-left Arabic support and a one-click language switch</li>
+            <li><b>Mobile-first, responsive designs</b> that look sharp on every screen</li>
+            <li><b>Dark and light themes,</b> custom branding, and smooth animations</li>
+          </ul>
+        </div>
+        <div class="reveal">
+          <h3>// easy to run</h3>
+          <ul class="biz-list">
+            <li><b>Simple admin panels</b> so owners can track and update orders without technical skills</li>
+            <li><b>Showcase sites</b> that can be upgraded to full online stores later, with no rebuild needed</li>
+            <li><b>Low-cost hosting and databases,</b> so small businesses can launch with no monthly fees</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
