@@ -5,7 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>علي الهادي مسلماني | مطوّر مبتدئ في الذكاء الاصطناعي والويب وتطبيقات الجوّال</title>
 <meta name="description" content="أبني ذكاءً اصطناعيًا يعمل في العالم الحقيقي. علي الهادي مسلماني، مطوّر مبتدئ في الذكاء الاصطناعي والويب وتطبيقات الجوّال في بيروت: أنظمة RAG ووكلاء LLM، ومواقع ومتاجر إلكترونية ثنائية اللغة، وتطبيقات Flutter.">
-<meta name="theme-color" content="#0a0a0b">
+<meta name="theme-color" content="#0a0a0b" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fafaf8" media="(prefers-color-scheme: light)">
+<!-- Theme before the first paint: the visitor's saved pick, else the system setting (theme.js runs the switch) -->
+<script>try{var t=localStorage.getItem('theme')}catch(e){}document.documentElement.dataset.theme=t==='light'||t==='dark'?t:matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'</script>
 <link rel="canonical" href="https://ali-hadi-meselmani.vercel.app/ar/">
 <!-- Arabic version of the English page at /; keep both pages' content in step -->
 <link rel="alternate" hreflang="en" href="https://ali-hadi-meselmani.vercel.app/">
@@ -69,6 +72,8 @@
   <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></symbol>
   <symbol id="i-chat" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
   <symbol id="i-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></symbol>
   <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
   <symbol id="i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol>
@@ -91,6 +96,7 @@
     </ul>
     <div class="nav-right">
       <span class="status"><i></i>متاح للعمل عن بُعد</span>
+      <button type="button" class="theme-toggle" aria-pressed="false" aria-label="الوضع الفاتح" hidden><svg class="icon sun"><use href="#i-sun"/></svg><svg class="icon moon"><use href="#i-moon"/></svg></button>
       <a href="/" class="lang-switch" hreflang="en" lang="en">EN</a>
       <a href="#contact" class="btn btn-lime nav-cta">لنتحدّث</a>
       <button type="button" class="menu-btn" aria-expanded="false" aria-controls="mobile-menu"><svg class="icon"><use href="#i-menu"/></svg><span class="sr-only">فتح القائمة</span></button>
@@ -131,11 +137,14 @@
           <a href="#work" class="btn btn-lime">شاهد أعمالي<svg class="icon"><use href="#i-arrow"/></svg></a>
           <a href="/Ali_Hadi_Meselmani_CV.pdf" download class="btn btn-line"><svg class="icon"><use href="#i-download"/></svg>السيرة الذاتية (بالإنجليزية)</a>
         </div>
-        <dl class="hero-stats rise" style="--d:320">
-          <div><dt class="sr-only">أعمل مطوّرًا للذكاء الاصطناعي منذ</dt><dd><b>2025</b>مطوّر ذكاء اصطناعي منذ</dd></div>
-          <div><dt class="sr-only">المشاريع المميّزة</dt><dd><b>6</b>مشاريع مميّزة</dd></div>
-          <div><dt class="sr-only">سنوات الخبرة العملية</dt><dd><b><span dir="ltr">4+</span></b>سنوات من العمل</dd></div>
-        </dl>
+        <div class="shipped rise" style="--d:320">
+          <p class="shipped-label">أُطلقت مؤخرًا</p>
+          <ul>
+            <li><a href="/ar/work/isacademy/"><img src="/assets/img/thumb-isacademy.webp" alt="" width="240" height="150" loading="lazy" decoding="async"><span><b>Isacademy</b> <small>RAG · بلغتين</small><span class="sr-only"> — دراسة حالة</span></span></a></li>
+            <li><a href="/ar/work/baleegh/"><img src="/assets/img/thumb-baleegh.webp" alt="" width="240" height="150" loading="lazy" decoding="async"><span><b>بلّغ</b> <small>تقنية مدنية</small><span class="sr-only"> — دراسة حالة</span></span></a></li>
+            <li><a href="/ar/work/sightline/"><img src="/assets/img/thumb-sightline.webp" alt="" width="240" height="150" loading="lazy" decoding="async"><span><b>Sightline</b> <small>رؤية حاسوبية</small><span class="sr-only"> — دراسة حالة</span></span></a></li>
+          </ul>
+        </div>
       </div>
 
       <!-- Simulated RAG pipeline. The questions and answers live in the QA array in /script.js (qAr/aAr). -->
@@ -174,7 +183,7 @@
   <section class="tagline reveal" aria-label="الشعار">
     <div class="shell">
       <p class="tagline-text">أبني ذكاءً اصطناعيًا يعمل <span>في العالم الحقيقي.</span></p>
-      <p class="tagline-pillars"><span style="--c:var(--violet)">تعلّم الآلة</span><span style="--c:var(--sky)">تطبيقات الويب والجوّال</span><span style="--c:var(--lime)">كود نظيف وقابل للتوسّع</span></p>
+      <p class="tagline-pillars"><span style="--c:var(--violet)">تعلّم الآلة</span><span style="--c:var(--sky)">تطبيقات الويب والجوّال</span><span style="--c:var(--accent)">كود نظيف وقابل للتوسّع</span></p>
     </div>
   </section>
 
@@ -183,12 +192,12 @@
       <ul>
         <li style="--c:var(--violet)">Python</li><li style="--c:var(--violet)">أنظمة RAG</li><li style="--c:var(--violet)">وكلاء LLM</li><li style="--c:var(--violet)">LLM APIs</li><li style="--c:var(--violet)">Gemini</li><li style="--c:var(--violet)">ChromaDB</li><li style="--c:var(--violet)">التضمينات</li><li style="--c:var(--violet)">FastAPI</li><li style="--c:var(--violet)">OpenCV</li><li style="--c:var(--violet)">Streamlit</li><li style="--c:var(--violet)">أتمتة سير العمل</li><li style="--c:var(--violet)">n8n</li><li style="--c:var(--violet)">هندسة الأوامر</li><li style="--c:var(--violet)">روبوتات المحادثة</li>
         <li style="--c:var(--sky)">Flutter</li><li style="--c:var(--sky)">Dart</li><li>Laravel</li><li>Livewire</li><li>Alpine.js</li><li>PHP</li><li>JavaScript</li><li>TypeScript</li><li>React</li><li>Next.js</li><li>Tailwind</li><li>Supabase</li>
-        <li style="--c:#e5b567">SQLite</li><li style="--c:#e5b567">MySQL</li><li style="--c:#e5b567">PostgreSQL</li><li style="--c:#e5b567">Docker</li><li style="--c:#e5b567">Vercel</li><li style="--c:#e5b567">GitHub Actions</li><li style="--c:#e5b567">Git</li><li style="--c:#e5b567">C++</li><li style="--c:#e5b567">الأمن السيبراني</li>
+        <li style="--c:var(--amber)">SQLite</li><li style="--c:var(--amber)">MySQL</li><li style="--c:var(--amber)">PostgreSQL</li><li style="--c:var(--amber)">Docker</li><li style="--c:var(--amber)">Vercel</li><li style="--c:var(--amber)">GitHub Actions</li><li style="--c:var(--amber)">Git</li><li style="--c:var(--amber)">C++</li><li style="--c:var(--amber)">الأمن السيبراني</li>
       </ul>
       <ul aria-hidden="true">
         <li style="--c:var(--violet)">Python</li><li style="--c:var(--violet)">أنظمة RAG</li><li style="--c:var(--violet)">وكلاء LLM</li><li style="--c:var(--violet)">LLM APIs</li><li style="--c:var(--violet)">Gemini</li><li style="--c:var(--violet)">ChromaDB</li><li style="--c:var(--violet)">التضمينات</li><li style="--c:var(--violet)">FastAPI</li><li style="--c:var(--violet)">OpenCV</li><li style="--c:var(--violet)">Streamlit</li><li style="--c:var(--violet)">أتمتة سير العمل</li><li style="--c:var(--violet)">n8n</li><li style="--c:var(--violet)">هندسة الأوامر</li><li style="--c:var(--violet)">روبوتات المحادثة</li>
         <li style="--c:var(--sky)">Flutter</li><li style="--c:var(--sky)">Dart</li><li>Laravel</li><li>Livewire</li><li>Alpine.js</li><li>PHP</li><li>JavaScript</li><li>TypeScript</li><li>React</li><li>Next.js</li><li>Tailwind</li><li>Supabase</li>
-        <li style="--c:#e5b567">SQLite</li><li style="--c:#e5b567">MySQL</li><li style="--c:#e5b567">PostgreSQL</li><li style="--c:#e5b567">Docker</li><li style="--c:#e5b567">Vercel</li><li style="--c:#e5b567">GitHub Actions</li><li style="--c:#e5b567">Git</li><li style="--c:#e5b567">C++</li><li style="--c:#e5b567">الأمن السيبراني</li>
+        <li style="--c:var(--amber)">SQLite</li><li style="--c:var(--amber)">MySQL</li><li style="--c:var(--amber)">PostgreSQL</li><li style="--c:var(--amber)">Docker</li><li style="--c:var(--amber)">Vercel</li><li style="--c:var(--amber)">GitHub Actions</li><li style="--c:var(--amber)">Git</li><li style="--c:var(--amber)">C++</li><li style="--c:var(--amber)">الأمن السيبراني</li>
       </ul>
     </div>
   </div>
@@ -612,9 +621,9 @@
             <li>اللغة<span>Python</span></li><li>RAG<span>ChromaDB · BGE embeddings</span></li><li>الرؤية<span>Gemini vision · OpenCV</span></li><li>الوكلاء<span>روبوتات المحادثة · توجيه النيّة</span></li><li>الأتمتة<span>n8n · LLM APIs</span></li><li>تطبيقات الذكاء الاصطناعي<span>Streamlit · Gradio</span></li></ul></div>
           <div class="tool spot reveal" style="--c:var(--sky)"><h3>الجوّال/</h3><ul>
             <li>Flutter<span>Dart</span></li><li>الواجهة<span>Material 3</span></li><li>التخزين<span>SQLite · يعمل دون اتصال</span></li><li>الذكاء الاصطناعي<span>مساعد Gemini</span></li><li>المنصّات<span>Android · iOS · سطح المكتب</span></li></ul></div>
-          <div class="tool spot reveal" style="--c:var(--lime)"><h3>الويب/</h3><ul>
+          <div class="tool spot reveal" style="--c:var(--accent)"><h3>الويب/</h3><ul>
             <li>الخادم الخلفي<span>Laravel 12 · FastAPI</span></li><li>واجهة تفاعلية<span>Livewire · Alpine.js</span></li><li>الواجهة الأمامية<span>JavaScript · TypeScript</span></li><li>إطار العمل<span>React · Next.js</span></li><li>التنسيق<span>Tailwind</span></li></ul></div>
-          <div class="tool spot reveal" style="--c:#e5b567"><h3>الأدوات/</h3><ul>
+          <div class="tool spot reveal" style="--c:var(--amber)"><h3>الأدوات/</h3><ul>
             <li>قواعد البيانات<span>Supabase · Postgres · MySQL</span></li><li>النشر<span>Docker · Vercel</span></li><li>التكامل المستمر<span>GitHub Actions</span></li><li>إدارة الإصدارات<span>Git · GitHub</span></li><li>الجودة<span>اختبار البرمجيات · ضمان الجودة</span></li><li>الأمان<span>الشبكات · أنظمة التشغيل وWindows</span></li></ul></div>
         </div>
         <div class="tool workflow spot reveal" style="--c:var(--violet)"><h3>سير العمل بالذكاء الاصطناعي/</h3>
@@ -685,6 +694,7 @@
   </div>
 </footer>
 
+<script src="/assets/js/theme.js"></script>
 <script src="/assets/js/content.js"></script>
 <script src="/assets/js/script.js"></script>
 </body>
