@@ -1,0 +1,89 @@
+/* Case-study pages (/work/<project>/ and /ar/work/<project>/), loaded after styles.css.
+   One article per project: a hero, a large cover in the same browser window as the home page cards,
+   then the story beside a column of facts. The page's colour (--c) comes from the project's k-* class on <main>. */
+
+/* header: a way back to the work, in place of the home page's section links */
+.case-back { display: inline-flex; align-items: center; gap: .4rem; padding: .4rem .6rem; font-size: .9375rem; color: var(--muted); transition: color .2s; }
+.case-back:hover { color: var(--fg); }
+[dir="rtl"] .icon:has(> use[href="#i-back"]) { scale: -1 1; }
+
+.case-hero { padding-top: 8rem; }
+.case-tags { position: static; margin-top: 2rem; }
+.case-tags .year { margin-inline-start: .5rem; }
+.case-title { margin-top: 1.25rem; max-width: 18ch; font: 700 clamp(2.4rem, 6vw, 4.5rem)/1.02 var(--display); letter-spacing: -.04em; }
+.case-title:lang(ar) { line-height: 1.25; letter-spacing: 0; }
+.case-lead { margin-top: 1.5rem; max-width: 44rem; font-size: 1.125rem; color: var(--muted); }
+.case-hero .hero-actions { margin-top: 2rem; }
+
+/* the cover: the home page card's panel and browser window, larger and without the tilt */
+.case-cover { margin-top: 3.5rem; }
+.case-cover .proj-visual { margin: 0; padding: clamp(1.25rem, 4vw, 3rem); }
+.case-cover .browser { rotate: 0deg; }
+/* here every screenshot shows whole, at its own shape (the home page cards crop them all to 16:10) */
+.case .browser img { aspect-ratio: auto; object-fit: contain; }
+
+/* minmax(0, 1fr): a long line in a code block scrolls inside its box instead of widening the page */
+.case-body { display: grid; grid-template-columns: minmax(0, 1fr); gap: 3rem; margin-top: 4.5rem; }
+.case-facts dl { display: grid; gap: 1.25rem; padding: 1.5rem; border: 1px solid var(--line); border-radius: 18px; background: var(--card); }
+.case-facts dt { margin-bottom: .3rem; font: 12px var(--mono); color: var(--dim); }
+.case-facts dd { color: var(--fg); }
+.case-links { display: grid; gap: .45rem; }
+.case-links a { display: inline-flex; align-items: center; gap: .35rem; width: fit-content; color: var(--muted); transition: color .2s; }
+.case-links a:hover { color: var(--lime); }
+
+.case-text > section + section, .case-text > section + .case-shots, .case-shots + section { margin-top: 3.5rem; }
+.case-text h2 { margin-bottom: 1rem; font: 600 clamp(1.5rem, 2.6vw, 2rem)/1.15 var(--display); letter-spacing: -.03em; }
+.case-text h2:lang(ar) { letter-spacing: 0; }
+.case-text p { max-width: 42rem; color: var(--muted); }
+.case-text p + p { margin-top: 1rem; }
+.case-list { display: grid; gap: .8rem; max-width: 42rem; }
+.case-list li { position: relative; padding-inline-start: 1.25rem; color: var(--muted); }
+.case-list li::before { content: ""; position: absolute; inset-inline-start: 0; top: .7em; width: 6px; height: 6px; border-radius: 2px; background: var(--c); }
+.case-list b { font-weight: 500; color: var(--fg); }
+
+/* the pipeline and structure snippets that used to sit on the home page cards */
+.code { margin: 1.5rem 0 0; padding: 1.5rem; border: 1px solid var(--line); border-radius: 14px; background: #0d0d10; font: 13px/1.75 var(--mono); color: var(--muted); overflow-x: auto; }
+.code .fn { color: var(--lime); } .code .kw { color: var(--violet); } .code .st { color: var(--sky); } .code .cm { color: var(--dim); }
+.code-name { display: block; margin-bottom: .75rem; font-size: 12px; color: var(--dim); }
+
+.case-results { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 1rem; }
+.case-results li { padding: 1.25rem; border: 1px solid var(--line); border-radius: 14px; background: var(--card); font-size: .9375rem; color: var(--muted); }
+.case-results b { display: block; margin-bottom: .3rem; font: 600 1.75rem/1.1 var(--display); letter-spacing: -.03em; color: var(--fg); }
+
+/* screenshots: wide screens in a browser window, phone screens in a phone frame */
+.case-shots { display: grid; gap: 2rem; }
+.case-shots figcaption { margin-top: .8rem; font-size: .875rem; color: var(--dim); }
+.shot-wide .browser { rotate: 0deg; }
+.phones { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; padding: clamp(1.25rem, 4vw, 2.5rem); border: 1px solid var(--line); border-radius: 22px;
+  background: radial-gradient(80% 70% at 50% 0%, color-mix(in srgb, var(--c) 14%, transparent), transparent 70%), color-mix(in srgb, var(--c) 4%, var(--card)); }
+.phone-shot { width: min(15rem, 100%); }
+.phone { padding: 7px; border: 1px solid var(--line-2); border-radius: 28px; background: #0f0f12; box-shadow: 0 30px 60px -30px rgba(0,0,0,.9); }
+.phone img { display: block; width: 100%; height: auto; border-radius: 21px; }
+.phone-shot figcaption { text-align: center; }
+
+.case-next { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 1.5rem; margin-top: 5rem; padding-top: 2rem; border-top: 1px solid var(--line); }
+.case-next-link { display: grid; grid-template-columns: auto auto; align-items: center; column-gap: .75rem; }
+.case-next-link span { grid-column: 1 / -1; margin-bottom: .35rem; font: 12px var(--mono); color: var(--dim); }
+.case-next-link strong { font: 600 clamp(1.5rem, 3vw, 2.2rem)/1.1 var(--display); letter-spacing: -.03em; transition: color .2s; }
+.case-next-link .icon { width: 1.3rem; height: 1.3rem; color: var(--dim); transition: color .2s, translate .2s; }
+.case-next-link:hover strong, .case-next-link:hover .icon { color: var(--lime); }
+.case-next-link:hover .icon { translate: 2px -2px; }
+[dir="rtl"] .case-next-link:hover .icon { translate: -2px -2px; }
+.case-all { display: inline-flex; align-items: center; gap: .4rem; font-size: .9375rem; color: var(--muted); transition: color .2s; }
+.case-all:hover { color: var(--fg); }
+
+.case-cta { margin: 5rem auto 4rem; padding: clamp(2rem, 6vw, 3.5rem); border: 1px solid var(--line-2); border-radius: 28px; text-align: center;
+  background: radial-gradient(70% 60% at 50% 0%, rgba(198,243,107,.07), transparent 70%), var(--card); }
+.case-cta h2 { font: 700 clamp(1.8rem, 4vw, 2.8rem)/1.1 var(--display); letter-spacing: -.035em; }
+.case-cta h2:lang(ar) { line-height: 1.35; letter-spacing: 0; }
+.case-cta p { max-width: 34rem; margin: 1rem auto 1.75rem; color: var(--muted); }
+
+@media (min-width: 960px) {
+  .case-body { grid-template-columns: 16rem minmax(0, 1fr); column-gap: 4rem; align-items: start; }
+  /* the facts stay in view while the story scrolls */
+  .case-facts { position: sticky; top: 6rem; }
+}
+/* small phones: the back link keeps its arrow, and its words stay for screen readers */
+@media (max-width: 420px) {
+  .case-back span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+}
