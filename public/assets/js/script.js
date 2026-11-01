@@ -92,7 +92,9 @@ const projProgress = () => {
 projRow.addEventListener('scroll', projProgress, { passive: true });
 addEventListener('resize', projProgress);
 filters.forEach(f => f.addEventListener('click', () => { projRow.scrollLeft = 0; projProgress(); }));
-projProgress();
+// Measured once the row is on screen, not while the page loads: reading its width then forces a full layout of the
+// page in the middle of this script (on the Arabic page, a long freeze on slow phones)
+new IntersectionObserver((es, obs) => { if (es[0].isIntersecting) { obs.disconnect(); projProgress(); } }).observe(projRow);
 
 // ---- GitHub repos: loaded live, so new public repos show up without editing this page ----
 const GITHUB_USER = 'AliHadi315';
@@ -199,7 +201,7 @@ $('#copy').addEventListener('click', async e => {
 const header = $('header');
 const onScroll = () => header.classList.toggle('scrolled', scrollY > 8);
 addEventListener('scroll', onScroll, { passive: true });
-onScroll();
+requestAnimationFrame(onScroll); // on the next frame, once the page is laid out anyway (reading scrollY now would force it)
 
 // ---- Mobile menu ----
 const btn = $('.menu-btn'), menu = $('#mobile-menu');
