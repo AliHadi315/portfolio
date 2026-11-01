@@ -21,7 +21,7 @@
   unicode-range: U+0600-06FF, U+0750-077F, U+0870-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC; }
 :root {
   --bg: #0a0a0b; --card: #121215; --card-2: #17171b; --line: #222227; --line-2: #313138;
-  --fg: #ededf0; --muted: #a1a1ab; --dim: #6d6d77;
+  --fg: #ededf0; --muted: #a1a1ab; --dim: #8a8a94; /* --dim (captions) keeps 4.5:1 even on the lightest dark card */
   --lime: #c6f36b; --lime-ink: #0e1600; --violet: #a78bfa; --sky: #67c8f5;
   /* --accent is lime used as text or a thin line; in the light theme it turns darker to stay readable on white */
   --accent: #c6f36b; --amber: #e5b567; --header: rgba(10,10,11,.72); --dots: rgba(255,255,255,.045);
@@ -44,7 +44,7 @@
    :where() keeps this at the weight of one class, so each component's own colours still win. */
 [data-theme="light"] :where(.demo, .store, .browser, .phone, .code) {
   --bg: #0a0a0b; --card: #121215; --card-2: #17171b; --line: #222227; --line-2: #313138;
-  --fg: #ededf0; --muted: #a1a1ab; --dim: #6d6d77; --accent: #c6f36b; --violet: #a78bfa; --sky: #67c8f5;
+  --fg: #ededf0; --muted: #a1a1ab; --dim: #8a8a94; --accent: #c6f36b; --violet: #a78bfa; --sky: #67c8f5;
   color-scheme: dark; color: var(--fg);
 }
 /* rings and borders written as lime/violet tints get the light theme's colours */
