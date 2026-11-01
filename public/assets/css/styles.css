@@ -363,8 +363,8 @@ section.sec { padding-top: 8.5rem; }
 /* process */
 /* process: one timeline through numbered steps, down the side on phones and across from 720px.
    Each step's connecting line draws in once the step is revealed; without the script it is simply there. */
-/* the grey half of the heading starts its own line, so "up." never sits alone */
-#process .h2 em { display: block; }
+/* the grey half of the heading starts its own line, so no single word ("up.", "for.") is left alone on phones */
+#process .h2 em, #toolbox .h2 em { display: block; }
 .steps { display: grid; }
 .step { position: relative; padding-inline-start: 3.75rem; padding-bottom: 2.5rem; }
 .step:last-child { padding-bottom: 0; }
