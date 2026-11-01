@@ -283,6 +283,8 @@ section.sec { padding-top: 8.5rem; }
 .filter { font: 13px var(--mono); color: var(--muted); border: 1px solid var(--line-2); border-radius: 999px; padding: .4rem .9rem; transition: .2s; }
 .filter:hover { color: var(--fg); }
 .filter[aria-pressed="true"] { color: var(--bg); background: var(--fg); border-color: var(--fg); }
+.filter-n { color: var(--dim); }
+.filter[aria-pressed="true"] .filter-n { color: inherit; opacity: .65; }
 /* projects: equal cards, each a browser window showing the project on a panel tinted in its colour;
    the title is the link, stretched over the whole card */
 .projects { display: grid; gap: 3rem 1.5rem; margin-top: 2rem; }
@@ -308,6 +310,16 @@ section.sec { padding-top: 8.5rem; }
 .proj h3 a::after { content: ""; position: absolute; inset: 0; border-radius: 22px; }
 .proj p { max-width: 46ch; color: var(--muted); }
 /* Sightline's card goes to the live demo, so its code gets its own link, above the stretched one */
+.proj .proj-stack { font: 12px/1.6 var(--mono); color: var(--dim); }
+/* footer: two results from the case study, then the links; on phones it sits at the bottom of the card */
+.proj-foot { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1.25rem; margin-top: auto; padding-top: .9rem; border-top: 1px dashed var(--line-2); }
+.proj-facts { display: flex; flex-wrap: wrap; gap: .25rem 1.25rem; margin-inline-end: auto; font-size: .875rem; color: var(--muted); }
+.proj-facts b { margin-inline-end: .15rem; font: 600 1.0625rem var(--display); color: var(--fg); }
+/* "Case study" repeats the title link (stretched over the card), so it's only a visual cue */
+.proj-more { display: inline-flex; align-items: center; gap: .35rem; font-size: .9375rem; color: var(--fg); transition: color .2s; }
+.proj-more .icon { transition: translate .2s; }
+.proj:hover .proj-more { color: var(--accent); }
+.proj:hover .proj-more .icon { translate: 2px -2px; }
 .proj-src { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: .35rem; width: fit-content; font-size: .9375rem; color: var(--muted); transition: color .2s; }
 .proj-src:hover { color: var(--accent); }
 .proj-src .icon { transition: translate .2s; }
@@ -333,6 +345,8 @@ section.sec { padding-top: 8.5rem; }
   /* cards off to the side never cross the viewport, so they skip the scroll reveal */
   .js .projects > .reveal { opacity: 1; transform: none; }
   .proj-visual { padding: 3.25rem 1.25rem 1.25rem; }
+  /* the results take their own line, so every footer is two lines and the cards beside each other match */
+  .proj-facts { flex-basis: 100%; }
   .proj-progress { display: block; height: 2px; margin-top: 1.75rem; background: var(--line); }
   .proj-progress span { display: block; width: 100%; height: 100%; background: var(--accent); transition: width .2s, margin .2s; }
 }
@@ -607,10 +621,16 @@ h1:lang(ar) { line-height: 1.25; }
 [dir="rtl"] .chunks i::after { background: linear-gradient(270deg, var(--violet), var(--accent)); }
 [dir="rtl"] .chunks span::before { content: "◂ "; }
 [dir="rtl"] .icon:has(> use[href="#i-arrow"]) { scale: -1 1; }
-[dir="rtl"] .proj-src:hover .icon, [dir="rtl"] .gh-row:hover .arrow { translate: -2px -2px; }
+[dir="rtl"] .proj-src:hover .icon, [dir="rtl"] .proj:hover .proj-more .icon, [dir="rtl"] .gh-row:hover .arrow { translate: -2px -2px; }
 
 @media (min-width: 720px) {
   .projects, .tools { grid-template-columns: 1fr 1fr; }
+  /* each card spans five shared rows (picture, title, text, stack, footer), so the footers line up across a row.
+     The rows have no gap of their own: margins space a card's parts, and the footer's margin spaces the rows of cards. */
+  .projects { row-gap: 0; margin-bottom: -3rem; }
+  .proj { display: grid; grid-row: span 5; grid-template-rows: subgrid; gap: 0; }
+  .proj h3, .proj > p, .proj-foot { margin-top: .7rem; }
+  .proj-foot { margin-bottom: 3rem; }
   .creds { grid-template-columns: repeat(2, 1fr); }
 }
 @media (min-width: 1024px) {
