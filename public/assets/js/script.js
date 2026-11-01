@@ -74,6 +74,9 @@ if (!reduce) (async () => {
 
 // ---- Project filter ----
 const filters = [...document.querySelectorAll('.filter')], projs = [...document.querySelectorAll('.proj')];
+// each filter shows how many projects it has, counted from the cards so the number can't go stale
+filters.forEach(f => f.insertAdjacentHTML('beforeend',
+  ` <span class="filter-n">${projs.filter(p => f.dataset.f === 'all' || p.dataset.tags.split(' ').includes(f.dataset.f)).length}</span>`));
 filters.forEach(f => f.addEventListener('click', () => {
   filters.forEach(x => x.setAttribute('aria-pressed', x === f));
   projs.forEach(p => p.hidden = f.dataset.f !== 'all' && !p.dataset.tags.split(' ').includes(f.dataset.f));
