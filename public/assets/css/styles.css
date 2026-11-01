@@ -157,21 +157,16 @@ h1 { margin-top: .9rem; font: 700 clamp(3rem, 7.4vw, 5.75rem)/.98 var(--display)
 .lead { margin-top: 1.75rem; max-width: 34rem; font-size: 1.125rem; color: var(--muted); }
 .lead strong { color: var(--fg); font-weight: 500; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2.25rem; }
-/* recently shipped: three projects under the buttons, each a small crop of its screenshot, opening its case study */
-.shipped { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px dashed var(--line-2); }
-.shipped-label { margin-bottom: .9rem; font: 12px var(--mono); color: var(--dim); }
-.shipped ul { display: flex; flex-wrap: wrap; gap: 1rem 1.25rem; }
-.shipped a { display: flex; align-items: center; gap: .65rem; }
-.shipped img { flex: none; width: 2.75rem; height: auto; aspect-ratio: 16 / 10; object-fit: cover; border: 1px solid var(--line-2); border-radius: 6px; transition: translate .25s var(--ease), border-color .25s; }
-.shipped b { display: block; font-size: .9375rem; font-weight: 500; color: var(--fg); transition: color .2s; }
-.shipped small { display: block; font: 12px var(--mono); color: var(--dim); }
-.shipped a:hover b { color: var(--accent); }
-.shipped a:hover img { translate: 0 -2px; border-color: var(--fg); }
-/* phones: three tiles side by side, the picture on top */
-@media (width < 720px) {
-  .shipped ul { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .75rem; max-width: 24rem; }
-  .shipped a { flex-direction: column; align-items: stretch; gap: .5rem; }
-  .shipped img { width: 100%; border-radius: 8px; }
+/* three facts under the buttons: the value large, what it means underneath (the label comes first in the markup) */
+.hero-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem 1.75rem; max-width: 34rem; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px dashed var(--line-2); }
+.hero-stats div { display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: .4rem; }
+.hero-stats dd { font: 600 1.75rem/1 var(--display); letter-spacing: -.03em; color: var(--fg); white-space: nowrap; }
+.hero-stats dt { font: .875rem/1.45 var(--sans); color: var(--dim); }
+/* phones: three columns are too narrow, so each fact is one line, the value beside what it means */
+@media (width < 560px) {
+  .hero-stats { grid-template-columns: minmax(0, 1fr); gap: .85rem; }
+  .hero-stats div { flex-direction: row-reverse; align-items: baseline; gap: 1rem; }
+  .hero-stats dd { flex: none; width: 5.25rem; font-size: 1.5rem; }
 }
 
 /* RAG demo window */
