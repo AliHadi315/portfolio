@@ -350,6 +350,11 @@
     <div class="shell">
       <p class="sec-head reveal"><b>03</b>// أعمال مختارة</p>
       <h2 class="h2 reveal">مشاريع <em>أُطلقت فعلًا.</em></h2>
+      <div class="work-peek" aria-hidden="true">
+        <img src="/assets/img/sightline-landing.webp" alt="" width="1100" height="688" loading="lazy" decoding="async">
+        <img src="/assets/img/baleegh.webp" alt="" width="1400" height="875" loading="lazy" decoding="async">
+        <img src="/assets/img/unimate-mobile.webp" alt="" width="1100" height="688" loading="lazy" decoding="async">
+      </div>
       <div class="filters mt reveal" role="group" aria-label="تصفية المشاريع">
         <button type="button" class="filter" data-f="all" aria-pressed="true">الكل</button>
         <button type="button" class="filter" data-f="ai" aria-pressed="false">الذكاء الاصطناعي و LLM</button>
@@ -357,86 +362,80 @@
         <button type="button" class="filter" data-f="web" aria-pressed="false">الويب</button>
       </div>
       <div class="projects">
-        <article class="proj featured spot reveal" data-tags="ai" data-repo="Isacademy-Rag">
-          <div class="shot-frame"><img class="shot whole" src="/assets/img/isacademy.webp" alt="Isacademy جنبًا إلى جنب: سؤال بالإنجليزية يُجاب عنه من ملفات PDF مع مصادر مرقّمة بالصفحات، والتطبيق نفسه بالعربية من اليمين إلى اليسار" width="1600" height="800" loading="lazy" decoding="async"></div>
-          <div class="info">
-            <div class="proj-top"><span class="kind k-ai">RAG</span><span class="kind k-ai">مشروع تخرّج</span><span class="year">2026</span></div>
-            <h3>Isacademy · ذكاء المستندات</h3>
-            <p>ارفع ملفات PDF، واسأل بالعربية أو الإنجليزية، واحصل على إجابات مبنية على مستنداتك: إشارات إلى الصفحات، والرسم البياني نفسه حين تسأل عن رسم بياني، وخريطة PCA دلالية تُظهر أيّ المقاطع أقرب إلى سؤالك ولماذا. ولا يخترع أي مرجع أبدًا.</p>
-            <ul class="metrics"><li><b>EN + AR</b> من اليمين إلى اليسار</li><li><b>إشارات</b> لكل صفحة</li><li><b>3 وكلاء</b> دون إطار عمل</li></ul>
-            <ul class="chips"><li>Python</li><li>Gemini</li><li>ChromaDB</li><li>BGE embeddings</li><li>PyMuPDF</li><li>Streamlit</li><li>Plotly</li></ul>
-            <div class="proj-links"><a href="https://github.com/AliHadi315/Isacademy-Rag" target="_blank" rel="noopener noreferrer">الكود المصدري<svg class="icon"><use href="#i-arrow"/></svg></a></div>
+        <article class="proj k-ai reveal" data-tags="ai" data-repo="Isacademy-Rag">
+          <div class="proj-visual">
+            <div class="proj-tags"><span class="kind k-ai">RAG</span><span class="kind k-ai">مشروع تخرّج</span><span class="year">2026</span></div>
+            <div class="browser">
+              <div class="browser-bar" aria-hidden="true"><span dir="ltr">github.com/AliHadi315/Isacademy-Rag</span><svg class="icon"><use href="#i-arrow"/></svg></div>
+              <img class="whole" src="/assets/img/isacademy.webp" alt="Isacademy جنبًا إلى جنب: سؤال بالإنجليزية يُجاب عنه من ملفات PDF مع مصادر مرقّمة بالصفحات، والتطبيق نفسه بالعربية من اليمين إلى اليسار" width="1600" height="800" loading="lazy" decoding="async">
+            </div>
           </div>
-          <pre class="code" dir="ltr" aria-label="مسار RAG"><span class="code-name">rag pipeline</span><span class="fn">PDF</span> → <span class="kw">PyMuPDF</span> → pages, tables, figures
-    → <span class="st">sentence-aligned chunks</span>
-    → <span class="kw">BAAI/bge-small-en-v1.5</span> embeddings
-    → <span class="kw">ChromaDB</span> (cosine, persistent)
-    → top-K → <span class="st">similarity threshold</span>
-    → <span class="fn">Gemini</span> answer + page citations
-
-<span class="cm">// nothing above the threshold? it says so.</span></pre>
+          <h3><a href="https://github.com/AliHadi315/Isacademy-Rag" target="_blank" rel="noopener noreferrer">Isacademy · ذكاء المستندات<span class="sr-only"> — الكود المصدري على GitHub</span></a></h3>
+          <p>اسأل ملفات PDF بالعربية أو الإنجليزية واحصل على إجابات مبنية عليها، مع إشارات إلى الصفحات. ولا يخترع أي مرجع أبدًا.</p>
         </article>
 
-        <article class="proj featured flip spot reveal" data-tags="web ai" data-repo="BaleeghLB">
-          <div class="shot-frame"><img class="shot" src="/assets/img/baleegh.webp" alt="الصفحة الرئيسية لمنصة بلّغ: صوتك، بلديتك، بالعربية والإنجليزية" width="1400" height="875" loading="lazy" decoding="async"></div>
-          <div class="info">
-            <div class="proj-top"><span class="kind k-web">ويب</span><span class="kind k-web">تقنية مدنية</span><span class="year">2026</span></div>
-            <h3>بلّغ · Baleegh</h3>
-            <p>منصة مدنية تربط المواطنين اللبنانيين بجميع البلديات الـ1,005. أبلِغ عن مشكلة بالصور ودبوس على الخريطة والإملاء الصوتي، وتابع إصلاحها، ووقّع العرائض، وصوّت وتطوّع. تحصل البلديات على بلاغات مرتّبة حسب الأولوية بالذكاء الاصطناعي، ويحصل الجميع على لوحة عامة للميزانية والمشاريع.</p>
-            <ul class="metrics"><li><b>1,005</b> بلديات</li><li><b>3</b> لغات</li><li><b>PWA</b> مع إشعارات الويب</li></ul>
-            <ul class="chips"><li>Laravel 12</li><li>Livewire 4</li><li>Alpine.js</li><li>Tailwind</li><li>Leaflet</li><li>SQLite</li></ul>
-            <div class="proj-links"><a href="https://github.com/AliHadi315/BaleeghLB" target="_blank" rel="noopener noreferrer">الكود المصدري<svg class="icon"><use href="#i-arrow"/></svg></a></div>
+        <article class="proj k-web reveal" data-tags="web ai" data-repo="BaleeghLB">
+          <div class="proj-visual">
+            <div class="proj-tags"><span class="kind k-web">ويب</span><span class="kind k-web">تقنية مدنية</span><span class="year">2026</span></div>
+            <div class="browser">
+              <div class="browser-bar" aria-hidden="true"><span dir="ltr">github.com/AliHadi315/BaleeghLB</span><svg class="icon"><use href="#i-arrow"/></svg></div>
+              <img src="/assets/img/baleegh.webp" alt="الصفحة الرئيسية لمنصة بلّغ: صوتك، بلديتك، بالعربية والإنجليزية" width="1400" height="875" loading="lazy" decoding="async">
+            </div>
           </div>
-          <pre class="code" dir="ltr" aria-label="ملخّص المشروع"><span class="code-name">baleegh</span><span class="kw">stack</span>     = <span class="st">Laravel 12 · Livewire 4 · Alpine · Tailwind</span>
-<span class="kw">reach</span>     = <span class="st">1,005 municipalities · 8 governorates</span>
-<span class="kw">languages</span> = <span class="st">EN · العربية (RTL) · FR</span>
-<span class="kw">reports</span>   = <span class="fn">photos</span> + <span class="fn">map pin</span> + <span class="fn">voice</span>
-<span class="kw">ai</span>        = <span class="st">triage + priorities</span>
-<span class="kw">app</span>       = <span class="st">installable PWA · web push</span>
-
-<span class="cm">// report → track → resolve → rate</span></pre>
+          <h3><a href="https://github.com/AliHadi315/BaleeghLB" target="_blank" rel="noopener noreferrer">بلّغ · Baleegh<span class="sr-only"> — الكود المصدري على GitHub</span></a></h3>
+          <p>منصة مدنية تربط المواطنين اللبنانيين بجميع البلديات الـ1,005: أبلِغ عن مشكلة بالصور ودبوس على الخريطة، ثم تابع إصلاحها.</p>
         </article>
 
-        <article class="proj spot reveal" data-tags="ai web" data-repo="Sightline">
-          <div class="shot-frame"><img class="shot" src="/assets/img/sightline-landing.webp" alt="الصفحة الرئيسية لـ Sightline: «Point. Press. Hear.» بجانب لوحة مباشرة تصف حاسوبًا محمولًا وكوبًا ودفترًا على مكتب" width="1100" height="688" loading="lazy" decoding="async"></div>
-          <div class="proj-top"><span class="kind k-ai">رؤية حاسوبية</span><span class="kind k-web">مباشر</span><span class="year">2026</span></div>
-          <h3>Sightline</h3>
-          <p>اسمع ما تراه الكاميرا. راوٍ للمشاهد للأشخاص ضعاف البصر: ضغطة واحدة تصف ما أمامك أو تقرأ النص الظاهر بصوت عالٍ، مع اتجاهات مثل «إلى يسارك». التقاط يدوي فقط، ولا تخمين بشأن الأشخاص، ولا تُحفظ أي صور، ويستخدم كل زائر مفتاح Gemini المجاني الخاص به.</p>
-          <ul class="metrics"><li><b>$0</b> للتشغيل، باقات مجانية</li><li><b>3</b> واجهات أمامية</li><li><b>3</b> محرّكات صوت احتياطية</li></ul>
-          <ul class="chips"><li>Python</li><li>Gemini vision</li><li>FastAPI</li><li>React</li><li>TypeScript</li><li>OpenCV</li><li>edge-tts</li><li>Vercel</li></ul>
-          <div class="proj-links"><a class="live" href="https://sightline-rho-khaki.vercel.app" target="_blank" rel="noopener noreferrer">تجربة مباشرة<svg class="icon"><use href="#i-arrow"/></svg></a><a href="https://github.com/AliHadi315/Sightline" target="_blank" rel="noopener noreferrer">الكود المصدري<svg class="icon"><use href="#i-arrow"/></svg></a></div>
+        <article class="proj k-ai reveal" data-tags="ai web" data-repo="Sightline">
+          <div class="proj-visual">
+            <div class="proj-tags"><span class="kind k-ai">رؤية حاسوبية</span><span class="kind k-web">مباشر</span><span class="year">2026</span></div>
+            <div class="browser">
+              <div class="browser-bar" aria-hidden="true"><span dir="ltr">sightline-rho-khaki.vercel.app</span><svg class="icon"><use href="#i-arrow"/></svg></div>
+              <img src="/assets/img/sightline-landing.webp" alt="الصفحة الرئيسية لـ Sightline: «Point. Press. Hear.» بجانب لوحة مباشرة تصف حاسوبًا محمولًا وكوبًا ودفترًا على مكتب" width="1100" height="688" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <h3><a href="https://sightline-rho-khaki.vercel.app" target="_blank" rel="noopener noreferrer">Sightline<span class="sr-only"> — تجربة مباشرة</span></a></h3>
+          <p>اسمع ما تراه الكاميرا. راوٍ للمشاهد للأشخاص ضعاف البصر يصف ما أمامك أو يقرأ النص بصوت عالٍ.</p>
+          <a class="proj-src" href="https://github.com/AliHadi315/Sightline" target="_blank" rel="noopener noreferrer">الكود المصدري<svg class="icon"><use href="#i-arrow"/></svg></a>
         </article>
 
-        <article class="proj spot reveal" data-tags="web ai" data-repo="unimate-Web-Application">
-          <div class="shot-frame"><img class="shot" src="/assets/img/unimate-web.webp" alt="الذكاء الاصطناعي في UniMate يحوّل خطة المقرّر إلى قائمة مهام للمراجعة" width="1100" height="825" loading="lazy" decoding="async"></div>
-          <div class="proj-top"><span class="kind k-web">ويب</span><span class="kind k-ai">ذكاء اصطناعي</span><span class="year">2026</span></div>
-          <h3>UniMate · منصة ويب</h3>
-          <p>المقرّرات والمواعيد النهائية والجداول وتتبّع المعدّل والتعاون مع الزملاء في مكان واحد، مع مساعد ذكاء اصطناعي يحوّل ملف PDF لخطة المقرّر إلى فصل دراسي كامل من المهام.</p>
-          <ul class="metrics"><li><b>Laravel 12</b> REST API</li><li><b>CI</b> عبر GitHub Actions</li></ul>
-          <ul class="chips"><li>Laravel</li><li>PHP 8.2</li><li>Sanctum</li><li>vanilla JS</li><li>Docker</li></ul>
-          <div class="proj-links"><a href="https://github.com/AliHadi315/unimate-Web-Application" target="_blank" rel="noopener noreferrer">الكود المصدري<svg class="icon"><use href="#i-arrow"/></svg></a></div>
+        <article class="proj k-web reveal" data-tags="web ai" data-repo="unimate-Web-Application">
+          <div class="proj-visual">
+            <div class="proj-tags"><span class="kind k-web">ويب</span><span class="kind k-ai">ذكاء اصطناعي</span><span class="year">2026</span></div>
+            <div class="browser">
+              <div class="browser-bar" aria-hidden="true"><span dir="ltr">github.com/AliHadi315/unimate-Web-Application</span><svg class="icon"><use href="#i-arrow"/></svg></div>
+              <img src="/assets/img/unimate-web.webp" alt="الذكاء الاصطناعي في UniMate يحوّل خطة المقرّر إلى قائمة مهام للمراجعة" width="1100" height="825" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <h3><a href="https://github.com/AliHadi315/unimate-Web-Application" target="_blank" rel="noopener noreferrer">UniMate · منصة ويب<span class="sr-only"> — الكود المصدري على GitHub</span></a></h3>
+          <p>المقرّرات والمواعيد النهائية والجداول والمعدّل في مكان واحد، مع مساعد ذكاء اصطناعي يحوّل ملف PDF لخطة المقرّر إلى فصل دراسي من المهام.</p>
         </article>
 
-        <article class="proj spot reveal" data-tags="flutter ai" data-repo="uniMate-Mobile-Application">
-          <div class="shot-frame"><img class="shot" src="/assets/img/unimate-mobile.webp" alt="تطبيق UniMate للجوّال: لوحة التحكم، ومساعد الدراسة الذكي، وشاشات الأجندة" width="1100" height="688" loading="lazy" decoding="async"></div>
-          <div class="proj-top"><span class="kind k-flutter">Flutter</span><span class="kind k-ai">ذكاء اصطناعي</span><span class="year">2025</span></div>
-          <h3>UniMate · تطبيق جوّال</h3>
-          <p>فصل دراسي كامل في تطبيق واحد: المقرّرات والمواعيد النهائية والجدول والعلامات ووقت التركيز بتقنية بومودورو، مع مساعد دراسة من Gemini يعرف عبء عملك الحقيقي. يعمل دون اتصال، فتبقى كل البيانات على الجهاز. بنيته مع Ali Rammal.</p>
-          <ul class="metrics"><li><b>66</b> اختبارًا ناجحًا</li><li><b>Android · iOS · سطح المكتب</b></li></ul>
-          <ul class="chips"><li>Flutter</li><li>Dart</li><li>Material 3</li><li>SQLite</li><li>Gemini</li></ul>
-          <div class="proj-links"><a href="https://github.com/AliHadi315/uniMate-Mobile-Application" target="_blank" rel="noopener noreferrer">الكود المصدري<svg class="icon"><use href="#i-arrow"/></svg></a></div>
+        <article class="proj k-flutter reveal" data-tags="flutter ai" data-repo="uniMate-Mobile-Application">
+          <div class="proj-visual">
+            <div class="proj-tags"><span class="kind k-flutter">Flutter</span><span class="kind k-ai">ذكاء اصطناعي</span><span class="year">2025</span></div>
+            <div class="browser">
+              <div class="browser-bar" aria-hidden="true"><span dir="ltr">github.com/AliHadi315/uniMate-Mobile-Application</span><svg class="icon"><use href="#i-arrow"/></svg></div>
+              <img src="/assets/img/unimate-mobile.webp" alt="تطبيق UniMate للجوّال: لوحة التحكم، ومساعد الدراسة الذكي، وشاشات الأجندة" width="1100" height="688" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <h3><a href="https://github.com/AliHadi315/uniMate-Mobile-Application" target="_blank" rel="noopener noreferrer">UniMate · تطبيق جوّال<span class="sr-only"> — الكود المصدري على GitHub</span></a></h3>
+          <p>فصل دراسي كامل في تطبيق واحد يعمل دون اتصال، مع مساعد دراسة من Gemini يعرف عبء عملك الحقيقي. بنيته مع Ali Rammal.</p>
         </article>
 
-        <article class="proj spot reveal" data-tags="web" data-repo="alqaysar-menu">
-          <div class="shot-frame"><img class="shot" src="/assets/img/alqaysar.webp" alt="أطباق من قائمة الطعام الرقمية لمطعم Al Qaysr" width="1100" height="688" loading="lazy" decoding="async"></div>
-          <div class="proj-top"><span class="kind k-web">ويب</span><span class="kind k-web">عميل</span><span class="year">2026</span></div>
-          <h3>Al Qaysr · قائمة طعام رقمية</h3>
-          <p>قائمة طعام سريعة مصمّمة للجوّال أولًا لمطعم في بيروت. بحث، وأسعار السفري والصالة من ملف JSON واحد، ورموز QR قابلة للطباعة للطاولات. بلا قاعدة بيانات ولا تسجيل دخول: HTML بسيط يمكن استضافته في أي مكان.</p>
-          <ul class="metrics"><li><b>167</b> طبقًا</li><li><b>18</b> قسمًا</li><li><b>0</b> خادم خلفي</li></ul>
-          <ul class="chips"><li>Next.js</li><li>TypeScript</li><li>Tailwind v4</li><li>static export</li></ul>
-          <div class="proj-links"><a href="https://github.com/AliHadi315/alqaysar-menu" target="_blank" rel="noopener noreferrer">الكود المصدري<svg class="icon"><use href="#i-arrow"/></svg></a></div>
+        <article class="proj k-web reveal" data-tags="web" data-repo="alqaysar-menu">
+          <div class="proj-visual">
+            <div class="proj-tags"><span class="kind k-web">ويب</span><span class="kind k-web">عميل</span><span class="year">2026</span></div>
+            <div class="browser">
+              <div class="browser-bar" aria-hidden="true"><span dir="ltr">github.com/AliHadi315/alqaysar-menu</span><svg class="icon"><use href="#i-arrow"/></svg></div>
+              <img src="/assets/img/alqaysar.webp" alt="أطباق من قائمة الطعام الرقمية لمطعم Al Qaysr" width="1100" height="688" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <h3><a href="https://github.com/AliHadi315/alqaysar-menu" target="_blank" rel="noopener noreferrer">Al Qaysr · قائمة طعام رقمية<span class="sr-only"> — الكود المصدري على GitHub</span></a></h3>
+          <p>قائمة طعام سريعة للجوّال أولًا لمطعم في بيروت، مع البحث وأسعار السفري والصالة، ورموز QR للطاولات.</p>
         </article>
       </div>
+      <div class="proj-progress" aria-hidden="true"><span></span></div>
 
       <!-- Loads automatically from GitHub: every public repo with a description appears here, newest first,
            and the block hides itself when there are none. To hide one, add the topic "no-portfolio" to it on GitHub. -->

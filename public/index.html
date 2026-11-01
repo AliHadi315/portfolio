@@ -346,6 +346,11 @@
     <div class="shell">
       <p class="sec-head reveal"><b>03</b>// selected work</p>
       <h2 class="h2 reveal">Projects <em>that shipped.</em></h2>
+      <div class="work-peek" aria-hidden="true">
+        <img src="assets/img/sightline-landing.webp" alt="" width="1100" height="688" loading="lazy" decoding="async">
+        <img src="assets/img/baleegh.webp" alt="" width="1400" height="875" loading="lazy" decoding="async">
+        <img src="assets/img/unimate-mobile.webp" alt="" width="1100" height="688" loading="lazy" decoding="async">
+      </div>
       <div class="filters mt reveal" role="group" aria-label="Filter projects">
         <button type="button" class="filter" data-f="all" aria-pressed="true">all</button>
         <button type="button" class="filter" data-f="ai" aria-pressed="false">ai &amp; llm</button>
@@ -353,86 +358,80 @@
         <button type="button" class="filter" data-f="web" aria-pressed="false">web</button>
       </div>
       <div class="projects">
-        <article class="proj featured spot reveal" data-tags="ai" data-repo="Isacademy-Rag">
-          <div class="shot-frame"><img class="shot whole" src="assets/img/isacademy.webp" alt="Isacademy side by side: an English question answered from PDFs with page-cited sources, and the same app in Arabic, right to left" width="1600" height="800" loading="lazy" decoding="async"></div>
-          <div class="info">
-            <div class="proj-top"><span class="kind k-ai">RAG</span><span class="kind k-ai">Capstone</span><span class="year">2026</span></div>
-            <h3>Isacademy · document intelligence</h3>
-            <p>Upload PDFs, ask in English or Arabic, and get answers grounded in your documents: page-level citations, the actual chart when you ask about a chart, and a semantic PCA map showing which passages sit closest to your question, and why. It never invents a citation.</p>
-            <ul class="metrics"><li><b>EN + AR</b> right-to-left</li><li><b>page-level</b> citations</li><li><b>3 agents</b>, no framework</li></ul>
-            <ul class="chips"><li>Python</li><li>Gemini</li><li>ChromaDB</li><li>BGE embeddings</li><li>PyMuPDF</li><li>Streamlit</li><li>Plotly</li></ul>
-            <div class="proj-links"><a href="https://github.com/AliHadi315/Isacademy-Rag" target="_blank" rel="noopener noreferrer">Source code<svg class="icon"><use href="#i-arrow"/></svg></a></div>
+        <article class="proj k-ai reveal" data-tags="ai" data-repo="Isacademy-Rag">
+          <div class="proj-visual">
+            <div class="proj-tags"><span class="kind k-ai">RAG</span><span class="kind k-ai">Capstone</span><span class="year">2026</span></div>
+            <div class="browser">
+              <div class="browser-bar" aria-hidden="true"><span dir="ltr">github.com/AliHadi315/Isacademy-Rag</span><svg class="icon"><use href="#i-arrow"/></svg></div>
+              <img class="whole" src="assets/img/isacademy.webp" alt="Isacademy side by side: an English question answered from PDFs with page-cited sources, and the same app in Arabic, right to left" width="1600" height="800" loading="lazy" decoding="async">
+            </div>
           </div>
-          <pre class="code" aria-label="RAG pipeline"><span class="code-name">rag pipeline</span><span class="fn">PDF</span> → <span class="kw">PyMuPDF</span> → pages, tables, figures
-    → <span class="st">sentence-aligned chunks</span>
-    → <span class="kw">BAAI/bge-small-en-v1.5</span> embeddings
-    → <span class="kw">ChromaDB</span> (cosine, persistent)
-    → top-K → <span class="st">similarity threshold</span>
-    → <span class="fn">Gemini</span> answer + page citations
-
-<span class="cm">// nothing above the threshold? it says so.</span></pre>
+          <h3><a href="https://github.com/AliHadi315/Isacademy-Rag" target="_blank" rel="noopener noreferrer">Isacademy · document intelligence<span class="sr-only"> — source code on GitHub</span></a></h3>
+          <p>Ask your PDFs in English or Arabic and get answers grounded in them, with page-level citations. It never invents a citation.</p>
         </article>
 
-        <article class="proj featured flip spot reveal" data-tags="web ai" data-repo="BaleeghLB">
-          <div class="shot-frame"><img class="shot" src="assets/img/baleegh.webp" alt="Baleegh landing page: Your voice, your municipality, in English and Arabic" width="1400" height="875" loading="lazy" decoding="async"></div>
-          <div class="info">
-            <div class="proj-top"><span class="kind k-web">Web</span><span class="kind k-web">Civic tech</span><span class="year">2026</span></div>
-            <h3>Baleegh · بلّغ</h3>
-            <p>A civic platform connecting Lebanese citizens with all 1,005 municipalities. Report a problem with photos, a map pin and voice dictation, follow the fix, sign petitions, vote and volunteer. Municipalities get AI-prioritised reports, and everyone gets a public budget and projects board.</p>
-            <ul class="metrics"><li><b>1,005</b> municipalities</li><li><b>3</b> languages</li><li><b>PWA</b> with web push</li></ul>
-            <ul class="chips"><li>Laravel 12</li><li>Livewire 4</li><li>Alpine.js</li><li>Tailwind</li><li>Leaflet</li><li>SQLite</li></ul>
-            <div class="proj-links"><a href="https://github.com/AliHadi315/BaleeghLB" target="_blank" rel="noopener noreferrer">Source code<svg class="icon"><use href="#i-arrow"/></svg></a></div>
+        <article class="proj k-web reveal" data-tags="web ai" data-repo="BaleeghLB">
+          <div class="proj-visual">
+            <div class="proj-tags"><span class="kind k-web">Web</span><span class="kind k-web">Civic tech</span><span class="year">2026</span></div>
+            <div class="browser">
+              <div class="browser-bar" aria-hidden="true"><span dir="ltr">github.com/AliHadi315/BaleeghLB</span><svg class="icon"><use href="#i-arrow"/></svg></div>
+              <img src="assets/img/baleegh.webp" alt="Baleegh landing page: Your voice, your municipality, in English and Arabic" width="1400" height="875" loading="lazy" decoding="async">
+            </div>
           </div>
-          <pre class="code" aria-label="Project summary"><span class="code-name">baleegh</span><span class="kw">stack</span>     = <span class="st">Laravel 12 · Livewire 4 · Alpine · Tailwind</span>
-<span class="kw">reach</span>     = <span class="st">1,005 municipalities · 8 governorates</span>
-<span class="kw">languages</span> = <span class="st">EN · العربية (RTL) · FR</span>
-<span class="kw">reports</span>   = <span class="fn">photos</span> + <span class="fn">map pin</span> + <span class="fn">voice</span>
-<span class="kw">ai</span>        = <span class="st">triage + priorities</span>
-<span class="kw">app</span>       = <span class="st">installable PWA · web push</span>
-
-<span class="cm">// report → track → resolve → rate</span></pre>
+          <h3><a href="https://github.com/AliHadi315/BaleeghLB" target="_blank" rel="noopener noreferrer">Baleegh · بلّغ<span class="sr-only"> — source code on GitHub</span></a></h3>
+          <p>A civic platform linking Lebanese citizens with all 1,005 municipalities: report a problem with photos and a map pin, then follow the fix.</p>
         </article>
 
-        <article class="proj spot reveal" data-tags="ai web" data-repo="Sightline">
-          <div class="shot-frame"><img class="shot" src="assets/img/sightline-landing.webp" alt="Sightline's home page: “Point. Press. Hear.” next to a live panel describing a laptop, a mug and a notebook on a desk" width="1100" height="688" loading="lazy" decoding="async"></div>
-          <div class="proj-top"><span class="kind k-ai">AI vision</span><span class="kind k-web">Live</span><span class="year">2026</span></div>
-          <h3>Sightline</h3>
-          <p>Hear what your camera sees. A scene narrator for people with low vision: one press describes what is in front of you or reads visible text aloud, with directions like "to your left". Manual capture only, no guessing about people, no photos saved, and visitors use their own free Gemini key.</p>
-          <ul class="metrics"><li><b>$0</b> to run, free tiers</li><li><b>3</b> front ends</li><li><b>3-step</b> voice fallback</li></ul>
-          <ul class="chips"><li>Python</li><li>Gemini vision</li><li>FastAPI</li><li>React</li><li>TypeScript</li><li>OpenCV</li><li>edge-tts</li><li>Vercel</li></ul>
-          <div class="proj-links"><a class="live" href="https://sightline-rho-khaki.vercel.app" target="_blank" rel="noopener noreferrer">Live demo<svg class="icon"><use href="#i-arrow"/></svg></a><a href="https://github.com/AliHadi315/Sightline" target="_blank" rel="noopener noreferrer">Source code<svg class="icon"><use href="#i-arrow"/></svg></a></div>
+        <article class="proj k-ai reveal" data-tags="ai web" data-repo="Sightline">
+          <div class="proj-visual">
+            <div class="proj-tags"><span class="kind k-ai">AI vision</span><span class="kind k-web">Live</span><span class="year">2026</span></div>
+            <div class="browser">
+              <div class="browser-bar" aria-hidden="true"><span dir="ltr">sightline-rho-khaki.vercel.app</span><svg class="icon"><use href="#i-arrow"/></svg></div>
+              <img src="assets/img/sightline-landing.webp" alt="Sightline's home page: “Point. Press. Hear.” next to a live panel describing a laptop, a mug and a notebook on a desk" width="1100" height="688" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <h3><a href="https://sightline-rho-khaki.vercel.app" target="_blank" rel="noopener noreferrer">Sightline<span class="sr-only"> — live demo</span></a></h3>
+          <p>Hear what your camera sees. A scene narrator for people with low vision that describes what’s in front of you or reads text aloud.</p>
+          <a class="proj-src" href="https://github.com/AliHadi315/Sightline" target="_blank" rel="noopener noreferrer">Source code<svg class="icon"><use href="#i-arrow"/></svg></a>
         </article>
 
-        <article class="proj spot reveal" data-tags="web ai" data-repo="unimate-Web-Application">
-          <div class="shot-frame"><img class="shot" src="assets/img/unimate-web.webp" alt="UniMate's AI turning a syllabus into a list of tasks to review" width="1100" height="825" loading="lazy" decoding="async"></div>
-          <div class="proj-top"><span class="kind k-web">Web</span><span class="kind k-ai">AI</span><span class="year">2026</span></div>
-          <h3>UniMate · web platform</h3>
-          <p>Courses, deadlines, timetables, GPA tracking and classmate collaboration in one place, with an AI assistant that turns a syllabus PDF into a semester of tasks.</p>
-          <ul class="metrics"><li><b>Laravel 12</b> REST API</li><li><b>CI</b> on GitHub Actions</li></ul>
-          <ul class="chips"><li>Laravel</li><li>PHP 8.2</li><li>Sanctum</li><li>vanilla JS</li><li>Docker</li></ul>
-          <div class="proj-links"><a href="https://github.com/AliHadi315/unimate-Web-Application" target="_blank" rel="noopener noreferrer">Source code<svg class="icon"><use href="#i-arrow"/></svg></a></div>
+        <article class="proj k-web reveal" data-tags="web ai" data-repo="unimate-Web-Application">
+          <div class="proj-visual">
+            <div class="proj-tags"><span class="kind k-web">Web</span><span class="kind k-ai">AI</span><span class="year">2026</span></div>
+            <div class="browser">
+              <div class="browser-bar" aria-hidden="true"><span dir="ltr">github.com/AliHadi315/unimate-Web-Application</span><svg class="icon"><use href="#i-arrow"/></svg></div>
+              <img src="assets/img/unimate-web.webp" alt="UniMate's AI turning a syllabus into a list of tasks to review" width="1100" height="825" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <h3><a href="https://github.com/AliHadi315/unimate-Web-Application" target="_blank" rel="noopener noreferrer">UniMate · web platform<span class="sr-only"> — source code on GitHub</span></a></h3>
+          <p>Courses, deadlines, timetables and GPA in one place, with an AI assistant that turns a syllabus PDF into a semester of tasks.</p>
         </article>
 
-        <article class="proj spot reveal" data-tags="flutter ai" data-repo="uniMate-Mobile-Application">
-          <div class="shot-frame"><img class="shot" src="assets/img/unimate-mobile.webp" alt="UniMate mobile: dashboard, AI study assistant and agenda screens" width="1100" height="688" loading="lazy" decoding="async"></div>
-          <div class="proj-top"><span class="kind k-flutter">Flutter</span><span class="kind k-ai">AI</span><span class="year">2025</span></div>
-          <h3>UniMate · mobile app</h3>
-          <p>A whole semester in one app: courses, deadlines, timetable, grades and Pomodoro focus time, with a Gemini study assistant that knows your real workload. Offline-first, so everything stays on the device. Built with Ali Rammal.</p>
-          <ul class="metrics"><li><b>66</b> tests passing</li><li><b>Android · iOS · Desktop</b></li></ul>
-          <ul class="chips"><li>Flutter</li><li>Dart</li><li>Material 3</li><li>SQLite</li><li>Gemini</li></ul>
-          <div class="proj-links"><a href="https://github.com/AliHadi315/uniMate-Mobile-Application" target="_blank" rel="noopener noreferrer">Source code<svg class="icon"><use href="#i-arrow"/></svg></a></div>
+        <article class="proj k-flutter reveal" data-tags="flutter ai" data-repo="uniMate-Mobile-Application">
+          <div class="proj-visual">
+            <div class="proj-tags"><span class="kind k-flutter">Flutter</span><span class="kind k-ai">AI</span><span class="year">2025</span></div>
+            <div class="browser">
+              <div class="browser-bar" aria-hidden="true"><span dir="ltr">github.com/AliHadi315/uniMate-Mobile-Application</span><svg class="icon"><use href="#i-arrow"/></svg></div>
+              <img src="assets/img/unimate-mobile.webp" alt="UniMate mobile: dashboard, AI study assistant and agenda screens" width="1100" height="688" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <h3><a href="https://github.com/AliHadi315/uniMate-Mobile-Application" target="_blank" rel="noopener noreferrer">UniMate · mobile app<span class="sr-only"> — source code on GitHub</span></a></h3>
+          <p>A whole semester in one offline-first app, with a Gemini study assistant that knows your real workload. Built with Ali Rammal.</p>
         </article>
 
-        <article class="proj spot reveal" data-tags="web" data-repo="alqaysar-menu">
-          <div class="shot-frame"><img class="shot" src="assets/img/alqaysar.webp" alt="Dishes from the Al Qaysr digital menu" width="1100" height="688" loading="lazy" decoding="async"></div>
-          <div class="proj-top"><span class="kind k-web">Web</span><span class="kind k-web">Client</span><span class="year">2026</span></div>
-          <h3>Al Qaysr · digital menu</h3>
-          <p>A fast, mobile-first menu for a restaurant in Beirut. Search, take-away and dine-in prices from a single JSON file, and printable QR codes for the tables. No database, no login: plain HTML any host can serve.</p>
-          <ul class="metrics"><li><b>167</b> dishes</li><li><b>18</b> sections</li><li><b>0</b> backend</li></ul>
-          <ul class="chips"><li>Next.js</li><li>TypeScript</li><li>Tailwind v4</li><li>static export</li></ul>
-          <div class="proj-links"><a href="https://github.com/AliHadi315/alqaysar-menu" target="_blank" rel="noopener noreferrer">Source code<svg class="icon"><use href="#i-arrow"/></svg></a></div>
+        <article class="proj k-web reveal" data-tags="web" data-repo="alqaysar-menu">
+          <div class="proj-visual">
+            <div class="proj-tags"><span class="kind k-web">Web</span><span class="kind k-web">Client</span><span class="year">2026</span></div>
+            <div class="browser">
+              <div class="browser-bar" aria-hidden="true"><span dir="ltr">github.com/AliHadi315/alqaysar-menu</span><svg class="icon"><use href="#i-arrow"/></svg></div>
+              <img src="assets/img/alqaysar.webp" alt="Dishes from the Al Qaysr digital menu" width="1100" height="688" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <h3><a href="https://github.com/AliHadi315/alqaysar-menu" target="_blank" rel="noopener noreferrer">Al Qaysr · digital menu<span class="sr-only"> — source code on GitHub</span></a></h3>
+          <p>A fast, mobile-first menu for a Beirut restaurant, with search, take-away and dine-in prices, and QR codes for the tables.</p>
         </article>
       </div>
+      <div class="proj-progress" aria-hidden="true"><span></span></div>
 
       <!-- Loads automatically from GitHub: every public repo with a description appears here, newest first,
            and the block hides itself when there are none. To hide one, add the topic "no-portfolio" to it on GitHub. -->
