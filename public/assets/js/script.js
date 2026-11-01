@@ -81,6 +81,19 @@ filters.forEach(f => f.addEventListener('click', () => {
 // "See the work" on a service jumps to the projects with its filter already on
 document.querySelectorAll('.svc-link').forEach(a => a.addEventListener('click', () => $(`.filter[data-f="${a.dataset.f}"]`).click()));
 
+// Phones: the project cards swipe sideways; the bar underneath shows how far along you are.
+// A filter starts the row over from its first card.
+const projRow = $('.projects'), projBar = $('.proj-progress span');
+const projProgress = () => {
+  const total = projRow.scrollWidth, seen = projRow.clientWidth;
+  projBar.style.width = (total > seen ? seen / total * 100 : 100) + '%';
+  projBar.style.marginInlineStart = (Math.abs(projRow.scrollLeft) / total * 100) + '%';
+};
+projRow.addEventListener('scroll', projProgress, { passive: true });
+addEventListener('resize', projProgress);
+filters.forEach(f => f.addEventListener('click', () => { projRow.scrollLeft = 0; projProgress(); }));
+projProgress();
+
 // ---- GitHub repos: loaded live, so new public repos show up without editing this page ----
 const GITHUB_USER = 'AliHadi315';
 const LANG_COLORS = { Dart: '#00b4ab', PHP: '#777bb4', TypeScript: '#3178c6', JavaScript: '#f1e05a', 'C++': '#f34b7d',

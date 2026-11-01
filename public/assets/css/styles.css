@@ -239,45 +239,59 @@ section.sec { padding-top: 8.5rem; }
 .filter { font: 13px var(--mono); color: var(--muted); border: 1px solid var(--line-2); border-radius: 999px; padding: .4rem .9rem; transition: .2s; }
 .filter:hover { color: var(--fg); }
 .filter[aria-pressed="true"] { color: var(--bg); background: var(--fg); border-color: var(--fg); }
-.projects { display: grid; gap: 1rem; margin-top: 2rem; counter-reset: proj; }
-.proj { --pad: 1.75rem; padding: var(--pad); display: flex; flex-direction: column; gap: .9rem; overflow: hidden; counter-increment: proj; }
-/* every screenshot sits in the same dark frame and rises from its bottom edge, so light and dark screenshots read as one set */
-.shot-frame { margin: calc(var(--pad) * -1) calc(var(--pad) * -1) .35rem; padding: 1.5rem 1.5rem 0; overflow: hidden; border-bottom: 1px solid var(--line);
-  background: radial-gradient(90% 70% at 50% 0%, rgba(255,255,255,.05), transparent 70%), #0e0e11; }
-.shot { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top center;
-  margin-bottom: -6px; border: 1px solid var(--line-2); border-radius: 10px 10px 0 0; background: var(--card-2);
-  box-shadow: 0 24px 60px -24px rgba(0, 0, 0, .9); transition: transform .5s var(--ease); }
-/* a side-by-side composite (Isacademy) keeps its own shape instead of being cropped into 16:10 */
-.shot.whole { aspect-ratio: auto; background: #0f0f12; }
-/* the 6px tucked under the frame's edge keeps the lift from opening a gap */
-.proj:hover .shot { transform: translateY(-4px); }
-.proj-top { display: flex; align-items: center; gap: .4rem; }
-/* project number; filtered-out cards don't count, so the numbers stay in sequence */
-.proj-top::before { content: "/" counter(proj, decimal-leading-zero); direction: ltr; margin-inline-end: .35rem; font: 12px var(--mono); color: var(--dim); }
+/* projects: equal cards, each a browser window showing the project on a panel tinted in its colour;
+   the title is the link, stretched over the whole card */
+.projects { display: grid; gap: 3rem 1.5rem; margin-top: 2rem; }
+.proj { position: relative; display: flex; flex-direction: column; gap: .7rem; }
+.proj-visual { position: relative; display: grid; align-content: center; margin-bottom: .6rem; padding: 3.5rem 1.75rem 1.75rem; border: 1px solid var(--line); border-radius: 22px; overflow: hidden;
+  background: radial-gradient(80% 70% at 50% 0%, color-mix(in srgb, var(--c) 14%, transparent), transparent 70%), color-mix(in srgb, var(--c) 4%, var(--card)); transition: border-color .3s; }
+.proj:hover .proj-visual, .proj:focus-within .proj-visual { border-color: color-mix(in srgb, var(--c) 40%, transparent); }
+.proj-tags { position: absolute; top: 1rem; inset-inline: 1rem; display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; }
 .kind { font: 11px/1 var(--mono); letter-spacing: .04em; text-transform: uppercase; padding: .35rem .5rem; border-radius: 6px; color: var(--c); background: color-mix(in srgb, var(--c) 12%, transparent); }
 .k-ai { --c: var(--violet); } .k-flutter { --c: var(--sky); } .k-web { --c: var(--lime); }
 .year { margin-inline-start: auto; font: 12px var(--mono); color: var(--dim); }
-.proj h3 { font: 600 1.6rem/1.1 var(--display); letter-spacing: -.03em; }
-.proj p { color: var(--muted); }
-/* dividers between figures: the list is shifted 1rem back and clipped, so the divider in front of the first figure on each line is hidden */
-.metrics { display: flex; flex-wrap: wrap; gap: .5rem 0; margin-inline-start: -1rem; overflow: hidden; font: 13px var(--mono); color: var(--dim); }
-.metrics li { margin-inline-start: -1px; padding-inline: 1rem; border-inline-start: 1px solid var(--line-2); }
-.metrics b { color: var(--fg); font-weight: 500; }
-.proj-links { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1.25rem; margin-top: auto; padding-top: .5rem; font-size: .9375rem; }
-.proj-links a { display: inline-flex; align-items: center; gap: .35rem; color: var(--muted); transition: color .2s; }
-.proj-links a:hover { color: var(--lime); }
-.proj-links a .icon { transition: translate .2s; }
-.proj-links a:hover .icon { translate: 2px -2px; }
-.proj-links .live { padding: .45rem .95rem; border-radius: 999px; background: var(--lime); color: var(--lime-ink); font-weight: 500; }
-.proj-links .live:hover { background: #d6fa8c; color: var(--lime-ink); }
-.proj.featured { padding: 0; display: grid; overflow: hidden; }
-.proj.featured .shot-frame { margin: 0; }
-.proj.featured .info { padding: 2.25rem; display: flex; flex-direction: column; justify-content: center; gap: .9rem; }
-.proj.featured .proj-links { margin-top: .25rem; }
-.proj.featured h3 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
-.code { margin: 0; padding: 1.5rem; border-top: 1px solid var(--line); background: #0d0d10; font: 13px/1.75 var(--mono); color: var(--muted); overflow-x: auto; }
-.code .fn { color: var(--lime); } .code .kw { color: var(--violet); } .code .st { color: var(--sky); } .code .cm { color: var(--dim); }
-.code-name { display: block; color: var(--dim); font-size: 12px; margin-bottom: .75rem; }
+/* the window sits slightly tilted and straightens when the card is hovered or focused */
+.browser { border: 1px solid var(--line-2); border-radius: 12px; overflow: hidden; background: #0f0f12; box-shadow: 0 30px 60px -30px rgba(0,0,0,.9); rotate: -1.5deg; transition: rotate .5s var(--ease), translate .5s var(--ease); }
+[dir="rtl"] .browser { rotate: 1.5deg; }
+.proj:hover .browser, .proj:focus-within .browser { rotate: 0deg; translate: 0 -4px; }
+.browser-bar { display: flex; align-items: center; gap: .5rem; padding: .5rem .75rem; border-bottom: 1px solid var(--line); background: #17171b; font: 12px var(--mono); color: var(--muted); }
+.browser-bar span { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.browser-bar .icon { width: .8rem; height: .8rem; color: var(--dim); }
+.browser img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top center; background: var(--card-2); }
+/* a side-by-side composite (Isacademy) shows whole; its own dark background fills the rest of the frame */
+.browser img.whole { object-fit: contain; background: #0f0f12; }
+.proj h3 { font: 600 clamp(1.6rem, 2.4vw, 2rem)/1.1 var(--display); letter-spacing: -.03em; }
+.proj h3 a::after { content: ""; position: absolute; inset: 0; border-radius: 22px; }
+.proj p { max-width: 46ch; color: var(--muted); }
+/* Sightline's card goes to the live demo, so its code gets its own link, above the stretched one */
+.proj-src { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: .35rem; width: fit-content; font-size: .9375rem; color: var(--muted); transition: color .2s; }
+.proj-src:hover { color: var(--lime); }
+.proj-src .icon { transition: translate .2s; }
+.proj-src:hover .icon { translate: 2px -2px; }
+.proj-progress { display: none; }
+/* wide screens: three project screenshots fanned beside the heading */
+.work-peek { display: none; }
+@media (min-width: 1200px) {
+  #work .shell { position: relative; }
+  /* sized to fit between the section label and the filters, so it never touches the cards */
+  .work-peek { display: block; position: absolute; top: 3rem; inset-inline-end: 1.25rem; width: 22rem; height: 9.5rem; pointer-events: none; }
+  .work-peek img { position: absolute; width: 12rem; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; border: 1px solid var(--line-2); border-radius: 10px; box-shadow: 0 24px 50px -20px rgba(0,0,0,.9); }
+  .work-peek img:nth-child(1) { inset-inline-end: 10rem; top: 1.25rem; rotate: -6deg; }
+  .work-peek img:nth-child(2) { inset-inline-end: 5rem; top: 0; rotate: -2deg; z-index: 1; }
+  .work-peek img:nth-child(3) { inset-inline-end: 0; top: 1.5rem; rotate: 5deg; }
+}
+/* phones: the cards sit in one row you swipe through, edge to edge, with a bar showing how far along you are */
+@media (width < 720px) {
+  .projects { display: flex; gap: .75rem; margin-inline: -1.25rem; padding-inline: 1.25rem; scroll-padding-inline: 1.25rem;
+    overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none; }
+  .projects::-webkit-scrollbar { display: none; }
+  .proj { flex: 0 0 85%; scroll-snap-align: start; }
+  /* cards off to the side never cross the viewport, so they skip the scroll reveal */
+  .js .projects > .reveal { opacity: 1; transform: none; }
+  .proj-visual { padding: 3.25rem 1.25rem 1.25rem; }
+  .proj-progress { display: block; height: 2px; margin-top: 1.75rem; background: var(--line); }
+  .proj-progress span { display: block; width: 100%; height: 100%; background: var(--lime); transition: width .2s, margin .2s; }
+}
 
 /* GitHub list (filled by script) */
 .gh-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: .5rem 1rem; margin-bottom: 1rem; }
@@ -549,7 +563,7 @@ h1:lang(ar) { line-height: 1.25; }
 [dir="rtl"] .chunks i::after { background: linear-gradient(270deg, var(--violet), var(--lime)); }
 [dir="rtl"] .chunks span::before { content: "◂ "; }
 [dir="rtl"] .icon:has(> use[href="#i-arrow"]) { scale: -1 1; }
-[dir="rtl"] .proj-links a:hover .icon, [dir="rtl"] .gh-row:hover .arrow { translate: -2px -2px; }
+[dir="rtl"] .proj-src:hover .icon, [dir="rtl"] .gh-row:hover .arrow { translate: -2px -2px; }
 
 @media (min-width: 720px) {
   .projects, .tools { grid-template-columns: 1fr 1fr; }
@@ -558,17 +572,8 @@ h1:lang(ar) { line-height: 1.25; }
 @media (min-width: 1024px) {
   .hero { padding-top: 10rem; }
   .hero-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); }
-  /* featured projects side by side: screenshot and code on one side, the story on the other, alternating */
   .creds { grid-template-columns: repeat(4, 1fr); }
-  .proj.featured { grid-column: 1 / -1; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); grid-template-rows: auto 1fr;
-    grid-template-areas: "frame info" "code info"; }
-  .proj.featured.flip { grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); grid-template-areas: "info frame" "info code"; }
-  .proj.featured .shot-frame { grid-area: frame; }
-  .proj.featured .code { grid-area: code; border-top: 0; padding: 1.75rem; }
-  .proj.featured .info { grid-area: info; border-inline-start: 1px solid var(--line); }
-  .proj.featured.flip .info { border-inline-start: 0; border-inline-end: 1px solid var(--line); }
 }
-@media (min-width: 720px) and (max-width: 1023px) { .proj.featured { grid-column: 1 / -1; } }
 @media (max-width: 1200px) { .status { display: none; } }
 @media (min-width: 1200px) {
   .tools { grid-template-columns: repeat(4, 1fr); }
@@ -599,10 +604,6 @@ h1:lang(ar) { line-height: 1.25; }
   .asks { display: flex; flex: 1; min-width: 0; gap: .5rem; padding: 5px; margin: -5px; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; }
   .asks::-webkit-scrollbar { display: none; }
   .ask { flex: none; }
-  .proj { --pad: 1.25rem; }
-  .shot-frame { padding: 1rem 1rem 0; }
-  .proj.featured .info { padding: 1.5rem 1.25rem; }
-  .code { padding: 1.25rem; }
   .commit { padding-bottom: 2.25rem; }
   .commit.minor { padding-bottom: 1.75rem; }
 }
