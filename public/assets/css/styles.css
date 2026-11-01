@@ -114,11 +114,12 @@ header nav { display: flex; align-items: center; justify-content: space-between;
 .hero::before { width: 520px; height: 520px; inset-inline-end: -120px; top: 40px; background: rgba(167,139,250,.16); }
 .hero::after { width: 420px; height: 420px; inset-inline-end: 260px; top: 260px; background: rgba(198,243,107,.08); }
 .hero-grid { position: relative; z-index: 1; display: grid; gap: 4rem; align-items: center; }
-/* eyebrow above the name: lime hairline, then role (bright), employer (muted) and city (dim) */
-.kicker { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .6rem; font: 13px var(--mono); letter-spacing: .02em; color: var(--muted); }
-.kicker::before { content: ""; width: 1.75rem; height: 1px; background: var(--lime); }
+/* eyebrow above the name: lime hairline, then what I build (bright) and that I take freelance work (muted).
+   One run of text: the dot is tied to the word before it, so a wrap on small phones never starts a line with it,
+   and the hairline stays level with the first line. */
+.kicker { display: flex; align-items: flex-start; gap: .6rem; font: 13px/1.5 var(--mono); letter-spacing: .02em; color: var(--muted); }
+.kicker::before { content: ""; flex: none; width: 1.75rem; height: 1px; margin-top: .75em; background: var(--lime); }
 .kicker b { font-weight: 500; color: var(--fg); }
-.kicker .loc { color: var(--dim); }
 .hello { margin-top: 1.75rem; font: 500 clamp(1.35rem, 2.6vw, 1.9rem)/1.2 var(--display); letter-spacing: -.02em; color: var(--muted); }
 .hello strong { color: var(--fg); font-weight: 700; }
 h1 { margin-top: .9rem; font: 700 clamp(3rem, 7.4vw, 5.75rem)/.98 var(--display); letter-spacing: -.045em; }
